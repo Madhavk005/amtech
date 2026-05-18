@@ -1,0 +1,346 @@
+/* =============================================
+   Products Listing Page — Modern Minimal Premium
+   ============================================= */
+
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ═══════════════════════════════════════════════
+   1. PAGE HERO — Watermark Style
+   ═══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  overflow: hidden;
+  padding: var(--space-32) var(--space-6) var(--space-20);
+}
+
+.heroWatermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 15vw;
+  font-weight: 700;
+  color: var(--gray-900);
+  opacity: 0.03;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+}
+
+/* Breadcrumb */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.breadcrumbLink {
+  color: var(--gray-400);
+  transition: color var(--duration-fast) ease;
+}
+
+.breadcrumbLink:hover {
+  color: var(--primary);
+}
+
+.breadcrumbSep {
+  color: var(--gray-300);
+}
+
+.breadcrumbCurrent {
+  color: var(--gray-500);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-5);
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   2. PRODUCT GRID — Creative Layout
+   ═══════════════════════════════════════════════ */
+
+.gridSection {
+  padding: var(--space-24) 0;
+}
+
+/* Row 1: 60/40 split */
+
+.row1 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.row1Large,
+.row1Small {
+  min-height: 0;
+}
+
+/* Row 2: 3 equal */
+
+.row2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+/* Row 3: Full-width horizontal */
+
+.row3 {
+  margin-top: var(--space-6);
+}
+
+.horizontalCard {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  min-height: 280px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.horizontalCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.horizontalImageWrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.horizontalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.horizontalCard:hover .horizontalImage {
+  transform: scale(1.05);
+}
+
+.horizontalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-10) var(--space-10);
+}
+
+.horizontalLabel {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--space-3);
+}
+
+.horizontalTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.horizontalDesc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-500);
+  margin-bottom: var(--space-5);
+}
+
+.horizontalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: gap var(--duration-fast) var(--ease-out);
+}
+
+.horizontalCard:hover .horizontalLink {
+  gap: var(--space-3);
+}
+
+/* ═══════════════════════════════════════════════
+   3. CTA SECTION
+   ═══════════════════════════════════════════════ */
+
+.cta {
+  padding: var(--space-24) 0;
+  background: var(--gray-50);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-5);
+  letter-spacing: -0.025em;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray-600);
+  margin-bottom: var(--space-8);
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .row1 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .row2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Let the 3rd item in row2 span full width */
+  .row2 > :nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .horizontalCard {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 400px;
+    padding: var(--space-24) var(--space-6) var(--space-16);
+  }
+
+  .heroWatermark {
+    font-size: 20vw;
+  }
+
+  .row1 {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .row2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .row2 > :nth-child(3) {
+    grid-column: auto;
+  }
+
+  .horizontalCard {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .horizontalImageWrap {
+    height: 220px;
+  }
+
+  .horizontalContent {
+    padding: var(--space-6);
+  }
+
+  .gridSection,
+  .cta {
+    padding: var(--space-16) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 340px;
+    padding: var(--space-20) var(--space-4) var(--space-12);
+  }
+
+  .heroWatermark {
+    font-size: 26vw;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .horizontalImageWrap {
+    height: 180px;
+  }
+
+  .gridSection,
+  .cta {
+    padding: var(--space-12) 0;
+  }
+}

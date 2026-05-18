@@ -1,0 +1,453 @@
+/* =============================================
+   Contact Page — Cards overlap hero, form + map
+   ============================================= */
+
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ═══════════════════════════════════════════════
+   1. HERO
+   ═══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary);
+  overflow: hidden;
+  /* Extra bottom padding for card overlap */
+  padding: var(--space-32) var(--space-6) var(--space-32);
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 15vw;
+  font-weight: 700;
+  color: var(--white);
+  opacity: 0.03;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  font-size: 0.875rem;
+  color: var(--gray-400);
+}
+
+.breadcrumb a {
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb span {
+  color: var(--white);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--gray-400);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   2. CONTACT INFO CARDS
+   ═══════════════════════════════════════════════ */
+
+.cardsSection {
+  position: relative;
+  z-index: 3;
+  margin-top: -72px;
+  padding-bottom: 0;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.infoCard {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-100);
+  transition: transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.infoCardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--primary-subtle);
+  color: var(--primary);
+  margin-bottom: var(--space-4);
+}
+
+.infoCardTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-3);
+}
+
+.infoCardLines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--gray-500);
+}
+
+.infoCardLine {
+  display: block;
+}
+
+.infoCardLink {
+  display: block;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.infoCardLink:hover {
+  color: var(--primary);
+}
+
+/* ═══════════════════════════════════════════════
+   3. FORM + MAP
+   ═══════════════════════════════════════════════ */
+
+.formSection {
+  padding: var(--space-24) 0 var(--space-20);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.formCol {
+  min-width: 0;
+}
+
+.formIntro {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--gray-500);
+  margin-bottom: var(--space-8);
+  margin-top: calc(-1 * var(--space-3));
+}
+
+/* Map Column */
+.mapCol {
+  position: sticky;
+  top: 100px;
+}
+
+.mapWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Quick Contact box below map */
+.quickContact {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-100);
+}
+
+.quickContactIcon {
+  color: var(--primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.quickContactTitle {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-1);
+}
+
+.quickContactLink {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.quickContactLink:hover {
+  color: var(--primary);
+}
+
+/* ═══════════════════════════════════════════════
+   4. CTA
+   ═══════════════════════════════════════════════ */
+
+.cta {
+  background: var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative circles */
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--space-20) var(--space-6);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.025em;
+}
+
+.ctaText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-8);
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ctaEmailBtn {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+}
+
+.ctaEmailBtn:hover {
+  border-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .cardsSection {
+    margin-top: -56px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .mapCol {
+    position: static;
+  }
+
+  .mapWrapper {
+    padding-top: 56%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 380px;
+    padding: var(--space-24) var(--space-6) var(--space-24);
+  }
+
+  .watermark {
+    font-size: 22vw;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .cardsSection {
+    margin-top: -44px;
+  }
+
+  .formSection {
+    padding: var(--space-16) 0 var(--space-16);
+  }
+
+  .ctaInner {
+    padding: var(--space-16) var(--space-6);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-20) var(--space-4) var(--space-20);
+    min-height: 340px;
+  }
+
+  .watermark {
+    font-size: 28vw;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .cardsSection {
+    margin-top: -36px;
+  }
+
+  .infoCard {
+    padding: var(--space-5) var(--space-5);
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .infoCardIcon {
+    margin-bottom: 0;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .infoCardTitle {
+    margin-bottom: 2px;
+  }
+
+  .formIntro {
+    margin-top: calc(-1 * var(--space-2));
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaButtons > * {
+    width: 100%;
+  }
+}

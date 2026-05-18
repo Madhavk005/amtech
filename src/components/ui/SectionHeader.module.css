@@ -1,0 +1,122 @@
+/* =============================================
+   Section Header — Clean Typographic
+   ============================================= */
+
+.header {
+  margin-bottom: var(--space-20);
+  max-width: 800px;
+}
+
+/* ---- Alignment ---- */
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center .label {
+  justify-content: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.left .label {
+  justify-content: flex-start;
+}
+
+/* ---- Label ---- */
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--space-6);
+}
+
+/* Red diamond before label text */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--primary-subtle);
+}
+
+/* ---- Title ---- */
+
+.title {
+  font-family: var(--font-display);
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 800;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+/* Highlighted words inside title (via <span class="highlight">) */
+.title :global(.highlight) {
+  color: var(--primary);
+}
+
+/* ---- Description ---- */
+
+.description {
+  margin-top: var(--space-6);
+  max-width: 720px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--gray-300);
+  margin-bottom: 0;
+}
+
+.center .description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Light mode (dark backgrounds) - In this theme, light is the default for dark backgrounds ---- */
+
+.light .label {
+  color: var(--primary-light);
+}
+
+.light .dot {
+  background: var(--primary-light);
+}
+
+.light .title {
+  color: var(--white);
+}
+
+.light .description {
+  color: var(--gray-200);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: var(--space-12);
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+}

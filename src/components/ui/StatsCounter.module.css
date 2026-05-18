@@ -1,0 +1,225 @@
+/* =============================================
+   Stats Counter — Premium Display
+   ============================================= */
+
+.section {
+  padding: var(--space-20) var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* ---- Individual stat ---- */
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 180px;
+  padding: var(--space-4) var(--space-8);
+}
+
+/* ---- Value ---- */
+
+.value {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-3);
+}
+
+/* ---- Label ---- */
+
+.label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ---- Divider (gradient fade) ---- */
+
+.divider {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 64px;
+}
+
+/* ================================================
+   DARK VARIANT
+   ================================================ */
+
+.dark {
+  background: var(--secondary);
+  /* Subtle noise texture via pseudo-element */
+}
+
+.dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .grid {
+  position: relative;
+  z-index: 1;
+}
+
+.dark .value {
+  color: var(--white);
+}
+
+.dark .label {
+  color: var(--gray-400);
+}
+
+.dark .divider {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+}
+
+/* ================================================
+   LIGHT VARIANT
+   ================================================ */
+
+.light {
+  background: transparent;
+}
+
+.light .value {
+  color: var(--gray-900);
+}
+
+.light .label {
+  color: var(--gray-500);
+}
+
+.light .divider {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--gray-200) 30%,
+    var(--gray-200) 70%,
+    transparent 100%
+  );
+}
+
+/* ================================================
+   GLASS VARIANT
+   ================================================ */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+}
+
+.glass .value {
+  color: var(--gray-900);
+}
+
+.glass .label {
+  color: var(--gray-500);
+}
+
+.glass .divider {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--glass-border) 30%,
+    var(--glass-border) 70%,
+    transparent 100%
+  );
+}
+
+/* ================================================
+   Responsive
+   ================================================ */
+
+/* Tablet: 2x2 grid */
+@media (max-width: 900px) {
+  .grid {
+    flex-wrap: wrap;
+    max-width: 600px;
+  }
+
+  .item {
+    flex: 0 0 50%;
+    min-width: auto;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  /* Hide right divider for even items and last item */
+  .item:nth-child(2n) .divider,
+  .item:last-child .divider {
+    display: none;
+  }
+
+  /* Bottom border for first row items on tablet */
+  .item:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .light .item:nth-child(-n+2) {
+    border-bottom-color: var(--gray-200);
+  }
+
+  .glass .item:nth-child(-n+2) {
+    border-bottom-color: var(--glass-border);
+  }
+}
+
+/* Mobile: vertical stack */
+@media (max-width: 520px) {
+  .section {
+    padding: var(--space-16) var(--space-6);
+  }
+
+  .grid {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    max-width: none;
+  }
+
+  .item {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    border-bottom: none !important;
+  }
+
+  .divider {
+    display: none;
+  }
+}

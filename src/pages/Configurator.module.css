@@ -1,0 +1,477 @@
+.configuratorPage {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: var(--secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.configuratorContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Progress Stepper */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.stepper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background: var(--gray-800);
+  z-index: 1;
+}
+
+.stepperProgress {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  height: 2px;
+  background: var(--primary);
+  z-index: 1;
+  transition: width 0.6s var(--ease-out);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.step {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.stepDot {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--gray-500);
+  transition: all 0.5s var(--ease-spring);
+  transform: rotate(0deg);
+}
+
+.stepLabel {
+  font-size: 11px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gray-500);
+  font-weight: 700;
+  transition: all 0.4s var(--ease-out);
+  white-space: nowrap;
+}
+
+.stepActive .stepDot {
+  background: var(--secondary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 25px rgba(255, 0, 60, 0.25);
+  transform: scale(1.1);
+}
+
+.stepActive .stepLabel {
+  color: var(--white);
+  letter-spacing: 0.2em;
+}
+
+.stepCompleted .stepDot {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.stepCompleted .stepLabel {
+  color: var(--gray-300);
+}
+
+/* Step Content Layout */
+.stepContent {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stepHeader {
+  margin-bottom: 30px;
+}
+
+.stepTitle {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.stepSubtitle {
+  color: var(--gray-400);
+}
+
+/* Step 1: Selection */
+.selectionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.selectionCard {
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-800);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+}
+
+.selectionCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8));
+  pointer-events: none;
+}
+
+.selectionCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--gray-600);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.selectionCardSelected {
+  border-color: var(--primary);
+  background: rgba(213, 0, 50, 0.05);
+  box-shadow: 0 0 40px rgba(213, 0, 50, 0.15);
+}
+
+.selectionCardSelected::before {
+  content: 'SELECTED';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary);
+  color: white;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 4px;
+  z-index: 10;
+  letter-spacing: 0.1em;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: all 0.5s var(--ease-out);
+}
+
+.selectionCard:hover .cardImage {
+  opacity: 1;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.capacityBadge {
+  background: var(--gray-800);
+  color: var(--gray-300);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 0.7rem;
+  color: var(--primary);
+  background: rgba(255, 0, 60, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Step 2: Inputs */
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputLabel {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--gray-200);
+}
+
+.labelValue {
+  color: var(--primary);
+}
+
+.rangeInput {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--gray-800);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--white);
+  border: 4px solid var(--primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--primary-glow);
+  transition: all 0.2s;
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: var(--primary);
+  border-color: var(--white);
+}
+
+.selectInput {
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-800);
+  color: var(--white);
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.selectInput:focus {
+  border-color: var(--primary);
+}
+
+.radioGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.radioLabel {
+  flex: 1;
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-700);
+  padding: 12px;
+  text-align: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.radioLabelActive {
+  background: var(--primary-subtle);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.radioInput {
+  display: none;
+}
+
+/* Step 3 & 4: Result/Summary */
+.summaryBento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.bentoMain {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.9) 100%);
+  border: 1px solid var(--gray-800);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bentoStat {
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-800);
+  border-radius: var(--radius-xl);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.bentoStat:hover {
+  transform: translateY(-5px);
+  border-color: var(--gray-700);
+}
+
+.bentoLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.bentoValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.bentoValue span {
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-left: 4px;
+}
+
+.visualizationPlaceholder {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed var(--gray-800);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  color: var(--gray-500);
+  height: 100%;
+}
+
+.vizIcon {
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+/* Navigation Buttons */
+.stepFooter {
+  margin-top: auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Lead Form */
+.leadForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formInput {
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-700);
+  color: var(--white);
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  width: 100%;
+}
+
+.formFull {
+  grid-column: span 2;
+}
+
+.successMessage {
+  text-align: center;
+  padding: 80px 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(40px);
+}
+
+.successIcon {
+  color: var(--accent);
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 20px var(--primary-glow));
+}
+
+@media (max-width: 768px) {
+  .inputGrid, .summaryBento, .leadForm {
+    grid-template-columns: 1fr;
+  }
+  .bentoMain {
+    grid-column: span 1;
+  }
+  .stepper {
+    padding: 0 10px;
+  }
+  .stepLabel {
+    display: none;
+  }
+  .stepDot {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  .stepper::before, .stepperProgress {
+    left: 30px;
+    right: 30px;
+  }
+  .stepContent {
+    padding: 25px;
+  }
+}

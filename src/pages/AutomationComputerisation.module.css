@@ -1,0 +1,489 @@
+/* =============================================
+   Automation & Computerisation Page
+   CNC machines + Software systems
+   ============================================= */
+
+.page {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════
+   1. HERO
+   ═══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary);
+  overflow: hidden;
+  padding: var(--space-32) var(--space-6) var(--space-20);
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 12vw;
+  font-weight: 700;
+  color: var(--white);
+  opacity: 0.03;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 760px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb span {
+  color: var(--white);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--gray-400);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   2. CNC OVERVIEW
+   ═══════════════════════════════════════════════ */
+
+.cncOverview {
+  padding: var(--space-24) 0 var(--space-16);
+}
+
+.cncGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.cncImageWrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.cncImage {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slower) var(--ease-out);
+}
+
+.cncImageWrap:hover .cncImage {
+  transform: scale(1.03);
+}
+
+.cncContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cncText {
+  font-size: 1.025rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+  margin-bottom: var(--space-4);
+}
+
+/* Benefit cards row */
+.benefitsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+
+.benefitCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+.benefitCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.benefitIcon {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.benefitText {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* ═══════════════════════════════════════════════
+   3. MACHINE INVENTORY
+   ═══════════════════════════════════════════════ */
+
+.machines {
+  position: relative;
+  padding: var(--space-24) 0;
+  overflow: hidden;
+}
+
+.machinesBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.machinesBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.machinesBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 15, 30, 0.92) 0%,
+    rgba(10, 15, 30, 0.88) 50%,
+    rgba(10, 15, 30, 0.94) 100%
+  );
+}
+
+.machinesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+
+.machineCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  transition: background var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+.machineCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(213, 0, 50, 0.3);
+  transform: translateY(-2px);
+}
+
+.machineNum {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  min-width: 36px;
+}
+
+.machineName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* ═══════════════════════════════════════════════
+   4. SOFTWARE SYSTEMS
+   ═══════════════════════════════════════════════ */
+
+.software {
+  padding: var(--space-24) 0;
+  background: var(--gray-50);
+}
+
+.softwareGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.softwareContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.softwareText {
+  font-size: 1.025rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+  margin-bottom: var(--space-4);
+}
+
+.softwareHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.softwareTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  letter-spacing: -0.01em;
+}
+
+.softwareTag svg {
+  color: var(--primary);
+}
+
+.softwareImageWrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.softwareImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════
+   5. CTA
+   ═══════════════════════════════════════════════ */
+
+.cta {
+  background: var(--secondary-light);
+  padding: var(--space-24) var(--space-6);
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-4);
+}
+
+.ctaText {
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .cncGrid {
+    gap: var(--space-8);
+  }
+
+  .cncImage {
+    height: 380px;
+  }
+
+  .benefitsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .machinesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .softwareGrid {
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 360px;
+    padding: var(--space-24) var(--space-6) var(--space-16);
+  }
+
+  .watermark {
+    font-size: 16vw;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.6rem, 6vw, 2.25rem);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .cncOverview {
+    padding: var(--space-16) 0 var(--space-12);
+  }
+
+  .cncGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .cncImage {
+    height: 280px;
+  }
+
+  .benefitsRow {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .machines {
+    padding: var(--space-16) 0;
+  }
+
+  .machinesGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .machineCard {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .software {
+    padding: var(--space-16) 0;
+  }
+
+  .softwareGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 300px;
+    padding: var(--space-20) var(--space-4) var(--space-12);
+  }
+
+  .watermark {
+    font-size: 18vw;
+  }
+
+  .benefitsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .benefitCard {
+    padding: var(--space-4);
+  }
+
+  .machineNum {
+    font-size: 1.25rem;
+    min-width: 30px;
+  }
+
+  .machineName {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,429 @@
+/* =============================================
+   Design Advantage Page — Numbered list + Cards
+   ============================================= */
+
+.page {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ═══════════════════════════════════════════════
+   1. HERO
+   ═══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary);
+  overflow: hidden;
+  padding: var(--space-32) var(--space-6) var(--space-20);
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 15vw;
+  font-weight: 700;
+  color: var(--white);
+  opacity: 0.03;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 720px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  font-size: 0.875rem;
+  color: var(--gray-400);
+}
+
+.breadcrumb a {
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb span {
+  color: var(--white);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--gray-400);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   2. OVERVIEW
+   ═══════════════════════════════════════════════ */
+
+.overview {
+  padding: var(--space-24) 0;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.overviewImageWrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.overviewImage {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slower) var(--ease-out);
+}
+
+.overviewImageWrap:hover .overviewImage {
+  transform: scale(1.03);
+}
+
+.overviewContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.overviewText {
+  font-size: 1.025rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+  margin-bottom: var(--space-4);
+}
+
+/* ═══════════════════════════════════════════════
+   3. DESIGN ADVANTAGES — NUMBERED LIST
+   ═══════════════════════════════════════════════ */
+
+.advantagesSection {
+  padding: var(--space-20) 0 var(--space-12);
+  background: var(--gray-50);
+}
+
+.advantagesList {
+  margin-top: var(--space-12);
+}
+
+.advantageRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-5);
+  border-bottom: 1px solid var(--gray-200);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.advantageRow:first-child {
+  border-top: 1px solid var(--gray-200);
+}
+
+.advantageRowAlt {
+  background: var(--gray-25);
+}
+
+.advantageRow:hover {
+  background: var(--primary-subtle);
+}
+
+.advantageNum {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-300);
+  min-width: 32px;
+  padding-top: 2px;
+  letter-spacing: -0.02em;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.advantageRow:hover .advantageNum {
+  color: var(--primary);
+}
+
+.advantageText {
+  flex: 1;
+  min-width: 0;
+}
+
+.advantageTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: var(--space-1);
+  letter-spacing: -0.01em;
+}
+
+.advantageDesc {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--gray-500);
+}
+
+/* Interstitial full-width image between advantage groups */
+.interstitial {
+  margin: var(--space-12) 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.interstitialImg {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════
+   4. KEY HIGHLIGHTS — 3 COLUMN CARDS
+   ═══════════════════════════════════════════════ */
+
+.highlights {
+  padding: var(--space-24) 0;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.highlightCard {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: box-shadow var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+  text-align: center;
+}
+
+.highlightCard:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.highlightIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: var(--primary-glow);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-5);
+}
+
+.highlightTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.highlightDesc {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--gray-500);
+}
+
+/* ═══════════════════════════════════════════════
+   5. CTA
+   ═══════════════════════════════════════════════ */
+
+.cta {
+  background: var(--secondary-light);
+  padding: var(--space-24) var(--space-6);
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-4);
+}
+
+.ctaText {
+  font-size: 1.05rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .overviewGrid {
+    gap: var(--space-8);
+  }
+
+  .overviewImage {
+    height: 380px;
+  }
+
+  .highlightsGrid {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 360px;
+    padding: var(--space-24) var(--space-6) var(--space-16);
+  }
+
+  .watermark {
+    font-size: 18vw;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .overview {
+    padding: var(--space-16) 0;
+  }
+
+  .overviewGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .overviewImage {
+    height: 280px;
+  }
+
+  .advantagesSection {
+    padding: var(--space-16) 0 var(--space-8);
+  }
+
+  .advantageRow {
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .interstitial {
+    margin: var(--space-8) 0;
+  }
+
+  .interstitialImg {
+    height: 240px;
+  }
+
+  .highlights {
+    padding: var(--space-16) 0;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .highlightCard {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 300px;
+    padding: var(--space-20) var(--space-4) var(--space-12);
+  }
+
+  .watermark {
+    font-size: 22vw;
+  }
+
+  .advantageNum {
+    min-width: 28px;
+    font-size: 0.95rem;
+  }
+
+  .advantageTitle {
+    font-size: 1rem;
+  }
+
+  .interstitialImg {
+    height: 180px;
+  }
+}

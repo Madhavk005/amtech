@@ -1,0 +1,171 @@
+/* =============================================
+   Button — Stealth Industrial Premium
+   ============================================= */
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+/* ---- Shape ---- */
+
+.pill {
+  border-radius: var(--radius-full);
+}
+
+.standard {
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Sizes ---- */
+
+.sm {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 0.75rem;
+}
+
+.md {
+  height: 48px;
+  padding: 0 28px;
+  font-size: 0.85rem;
+}
+
+.lg {
+  height: 58px;
+  padding: 0 36px;
+  font-size: 0.95rem;
+}
+
+/* ---- Hover micro-interaction ---- */
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* ================================================
+   Variants
+   ================================================ */
+
+/* -- Primary: Cyber Red -- */
+
+.primary {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-primary);
+}
+
+.primary:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  box-shadow: 0 12px 24px rgba(255, 0, 60, 0.4);
+}
+
+/* -- Secondary: Deep Black -- */
+
+.secondary {
+  background: var(--secondary);
+  color: var(--white);
+  border-color: var(--gray-700);
+}
+
+.secondary:hover {
+  background: var(--gray-800);
+  border-color: var(--gray-600);
+}
+
+/* -- Outline: Transparent with border -- */
+
+.outline {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.outline:hover {
+  background: var(--white);
+  color: var(--secondary);
+  border-color: var(--white);
+}
+
+/* -- Ghost: Text only -- */
+
+.ghost {
+  background: transparent;
+  color: var(--gray-100);
+  padding: 0;
+}
+
+.ghost:hover {
+  color: var(--primary);
+}
+
+.underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.ghost:hover .underline {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* -- White (now Glass) -- */
+
+.white {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ================================================
+   Icons
+   ================================================ */
+
+.arrow {
+  transition: transform 0.4s var(--ease-out);
+}
+
+.button:hover .arrow {
+  transform: translateX(5px);
+}
+
+.fullWidth { width: 100%; }
+
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

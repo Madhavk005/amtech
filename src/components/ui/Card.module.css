@@ -1,0 +1,180 @@
+/* =============================================
+   Card — Refined Industrial Hierarchy
+   ============================================= */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--secondary-light);
+  border: 1px solid var(--gray-800);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out);
+  height: 100%;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Image ---- */
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--secondary-mid);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+  filter: brightness(0.7);
+}
+
+/* ---- Tag ---- */
+
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+}
+
+/* ---- Content ---- */
+
+.content {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: var(--space-3);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 0.9375rem;
+  color: var(--gray-300);
+  line-height: 1.5;
+  margin-bottom: var(--space-6);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: gap 0.3s ease;
+}
+
+.card:hover .link {
+  gap: 12px;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+/* ================================================
+   Overlay Variant
+   ================================================ */
+
+.overlay {
+  height: 400px;
+}
+
+.overlayImageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.overlayImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlayGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, transparent 80%);
+}
+
+.overlayContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--space-8);
+  z-index: 2;
+}
+
+.overlayTitle {
+  color: var(--white);
+  font-size: 1.75rem;
+  margin-bottom: var(--space-2);
+}
+
+.overlayDescription {
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-4);
+}
+
+/* ================================================
+   Minimal Variant
+   ================================================ */
+
+.minimal {
+  padding: var(--space-6);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.minimalTitle {
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+.minimalDescription {
+  color: var(--gray-400);
+  font-size: 0.85rem;
+}

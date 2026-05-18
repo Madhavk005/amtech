@@ -1,0 +1,96 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.logoWrapper {
+  position: relative;
+  width: 200px;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(213, 0, 50, 0.3));
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(213, 0, 50, 0.15) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.loadingBarContainer {
+  width: 100%;
+}
+
+.loadingText {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+
+.track {
+  height: 2px;
+  background: var(--gray-900);
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.technicalData {
+  display: flex;
+  gap: 30px;
+  font-size: 0.55rem;
+  color: var(--gray-700);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--gray-900) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gray-900) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.05;
+  pointer-events: none;
+}

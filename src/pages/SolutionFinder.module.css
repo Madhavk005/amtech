@@ -1,0 +1,253 @@
+.container {
+  padding-top: 180px;
+  padding-bottom: 120px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(213, 0, 50, 0.1);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 15px;
+}
+
+.accent {
+  color: var(--primary);
+}
+
+.subtitle {
+  color: var(--gray-400);
+  font-size: 1.1rem;
+}
+
+.finderCard {
+  background: var(--secondary-mid);
+  border: 1px solid var(--gray-800);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  min-height: 500px;
+  position: relative;
+}
+
+.stepContent {
+  padding: 60px;
+}
+
+.stepHeader {
+  margin-bottom: 40px;
+}
+
+.stepNum {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stepHeader h2 {
+  font-size: 1.75rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.stepHeader p {
+  color: var(--gray-500);
+}
+
+.optionsGrid {
+  display: grid;
+  gap: 15px;
+}
+
+.optionBtn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #0a0a0a;
+  border: 1px solid var(--gray-800);
+  padding: 25px;
+  border-radius: var(--radius-xl);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.optionBtn:hover {
+  background: rgba(213, 0, 50, 0.03);
+  border-color: var(--primary);
+  transform: translateX(10px);
+}
+
+.optIcon {
+  width: 50px;
+  height: 50px;
+  background: var(--secondary-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.optText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.optLabel {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.optDesc {
+  color: var(--gray-500);
+  font-size: 0.85rem;
+}
+
+.arrow {
+  color: var(--gray-700);
+  transition: transform 0.3s;
+}
+
+.optionBtn:hover .arrow {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* Result View */
+.resultView {
+  padding: 60px;
+}
+
+.resultBadge {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--white);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.recTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.recDesc {
+  color: var(--gray-400);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gray-200);
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: #22c55e;
+}
+
+.resultVisual {
+  background: #000;
+  border: 1px solid var(--gray-800);
+  border-radius: var(--radius-2xl);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultVisual img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.resetBtn {
+  background: transparent;
+  border: none;
+  color: var(--gray-500);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.resetBtn:hover {
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .resultGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .resultVisual {
+    order: -1;
+  }
+  .stepContent {
+    padding: 30px;
+  }
+  .resultView {
+    padding: 30px;
+  }
+}
