@@ -92,14 +92,14 @@
 }
 
 .stepActive .stepLabel {
-  color: var(--white);
+  color: var(--text-heading);
   letter-spacing: 0.2em;
 }
 
 .stepCompleted .stepDot {
   background: var(--primary);
   border-color: var(--primary);
-  color: var(--white);
+  color: var(--text-heading);
 }
 
 .stepCompleted .stepLabel {
@@ -283,13 +283,13 @@
 .rangeInput::-webkit-slider-thumb:hover {
   transform: scale(1.2);
   background: var(--primary);
-  border-color: var(--white);
+  border-color: var(--text-heading);
 }
 
 .selectInput {
   background: var(--secondary-mid);
   border: 1px solid var(--gray-800);
-  color: var(--white);
+  color: var(--text-heading);
   padding: 14px;
   border-radius: var(--radius-lg);
   outline: none;
@@ -375,7 +375,7 @@
 .bentoValue {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-heading);
   font-family: var(--font-mono);
   letter-spacing: -0.02em;
 }
@@ -423,7 +423,7 @@
 .formInput {
   background: var(--secondary-mid);
   border: 1px solid var(--gray-700);
-  color: var(--white);
+  color: var(--text-heading);
   padding: 14px;
   border-radius: var(--radius-md);
   font-family: inherit;

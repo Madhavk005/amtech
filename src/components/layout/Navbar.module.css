@@ -26,8 +26,8 @@
   right: 0;
   z-index: 9999;
   height: 72px;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
   transition:
     background var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out),
@@ -37,25 +37,23 @@
 
 /* Transparent state — sits over hero */
 .header.transparent {
-  background: transparent;
-  border-bottom-color: transparent;
-  backdrop-filter: none;
+  background: var(--nav-bg-transparent);
+  border-bottom-color: var(--nav-border-transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Scrolled state — glass morphism */
 .header.scrolled {
-  background: rgba(10, 10, 10, 0.7);
+  background: var(--nav-bg-scrolled);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--nav-border-scrolled);
+  box-shadow: var(--shadow-sm);
 }
 
-.header.transparent {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+.header.scrolled:not(.transparent) .navLink {
+  color: var(--nav-text-scrolled);
 }
 
 .inner {
@@ -111,7 +109,7 @@
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: var(--gray-700);
+  color: var(--nav-text);
   text-decoration: none;
   border-radius: var(--radius-sm);
   transition:
@@ -124,11 +122,11 @@
 
 /* Light variant for transparent header */
 .navLinkLight {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--nav-text-scrolled);
 }
 
 .navLinkLight:hover {
-  color: var(--white);
+  color: var(--text-inverse);
 }
 
 /* Active indicator — small red dot */
@@ -150,8 +148,8 @@
 }
 
 .navLinkLight:hover {
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-inverse);
+  background: var(--surface-muted);
 }
 
 .navLinkActive {
@@ -159,7 +157,7 @@
 }
 
 .navLinkActive.navLinkLight {
-  color: var(--white);
+  color: var(--text-inverse);
 }
 
 .navLinkActive::after {
@@ -221,7 +219,7 @@
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
-  color: var(--gray-600);
+  color: var(--text-body);
   text-decoration: none;
   border-radius: var(--radius-md);
   transition:
@@ -255,8 +253,13 @@
 .headerRight {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
   z-index: 2;
+}
+
+/* Pill switch in main header (tablet + desktop) */
+.headerThemeToggle {
+  display: inline-flex;
 }
 
 /* ── CTA BUTTON ── */
@@ -279,20 +282,20 @@
 /* Outline variant — transparent header */
 .ctaOutline {
   background: transparent;
-  color: var(--white);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: var(--text-inverse);
+  border: 1.5px solid var(--hero-badge-border);
 }
 
 .ctaOutline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.7);
+  background: var(--hero-badge-bg);
+  border-color: var(--border-strong);
   transform: translateY(-1px);
 }
 
 /* Solid variant — scrolled header */
 .ctaSolid {
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary);
   border: 1.5px solid var(--primary);
 }
 
@@ -322,7 +325,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--gray-800);
+  background: var(--nav-text);
   border-radius: 2px;
   transition:
     transform var(--duration-base) var(--ease-out),
@@ -332,7 +335,7 @@
 }
 
 .barLight {
-  background: var(--white);
+  background: var(--text-inverse);
 }
 
 /* X animation */
@@ -350,7 +353,7 @@
 }
 
 .hamburgerMobileClose .bar {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--nav-text);
 }
 
 /* ── BACKDROP ── */
@@ -363,13 +366,19 @@
 }
 
 /* ── MOBILE FULLSCREEN MENU ── */
+.mobileHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .mobileMenu {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   width: min(360px, 85vw);
-  background: var(--secondary);
+  background: var(--surface-card);
   z-index: 9998;
   display: flex;
   flex-direction: column;
@@ -384,13 +393,16 @@
   justify-content: space-between;
   padding: var(--space-4) var(--space-5);
   padding-top: calc(var(--space-4) + 3px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
 }
 
 .mobileLogoImg {
   height: 32px;
   width: auto;
+}
+
+[data-theme="dark"] .mobileLogoImg {
   filter: brightness(0) invert(1);
 }
 
@@ -403,7 +415,7 @@
 }
 
 .mobileNavItem {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .mobileNavItem:last-child {
@@ -419,7 +431,7 @@
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-body);
   text-decoration: none;
   transition: color var(--duration-fast) ease;
   width: 100%;
@@ -428,7 +440,7 @@
 
 .mobileNavLink:hover,
 .mobileNavLinkActive {
-  color: var(--white);
+  color: var(--text-heading);
 }
 
 .mobileChevron {
@@ -458,17 +470,17 @@
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
   text-decoration: none;
   transition:
     color var(--duration-fast) ease,
     padding-left var(--duration-fast) ease;
-  border-left: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-left: 1.5px solid var(--border-subtle);
   padding-left: var(--space-3);
 }
 
 .mobileDropdownLink:hover {
-  color: var(--white);
+  color: var(--text-heading);
   border-left-color: var(--primary);
   padding-left: var(--space-4);
 }
@@ -488,7 +500,7 @@
   width: 100%;
   padding: 12px var(--space-5);
   background: var(--primary);
-  color: var(--white);
+  color: var(--on-primary);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
@@ -505,7 +517,7 @@
 /* Mobile contact strip */
 .mobileContact {
   padding: var(--space-4) var(--space-5);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -517,13 +529,13 @@
   align-items: center;
   gap: var(--space-2);
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color var(--duration-fast) ease;
 }
 
 .mobileContactItem:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-heading);
 }
 
 .mobileContactItem svg {

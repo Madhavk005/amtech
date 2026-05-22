@@ -4,7 +4,7 @@
 
 .home {
   background: var(--secondary);
-  color: var(--gray-100);
+  color: var(--text-body);
   overflow-x: hidden;
 }
 
@@ -42,9 +42,9 @@
   inset: 0;
   background: radial-gradient(
     circle at 30% 50%,
-    rgba(5, 5, 5, 0.85) 0%,
-    rgba(5, 5, 5, 0.4) 50%,
-    rgba(5, 5, 5, 0.95) 100%
+    var(--hero-overlay-start) 0%,
+    var(--hero-overlay-mid) 50%,
+    var(--hero-overlay-end) 100%
   );
 }
 
@@ -52,8 +52,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(to right, var(--hero-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hero-grid-line) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(circle at center, black, transparent 85%);
   pointer-events: none;
@@ -88,11 +88,27 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-2) var(--space-6);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--hero-badge-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--hero-badge-border);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-10);
+}
+
+/* Hero sits on dark video — always use high-contrast light text */
+.hero .heroBadgeText,
+.hero .heroTitle,
+.hero .textHighlight,
+.hero .heroFloatingValue {
+  color: var(--text-inverse);
+}
+
+.hero .heroSubtitle {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.hero .heroFloatingLabel {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .heroPulseDot {
@@ -113,7 +129,7 @@
 .heroBadgeText {
   font-size: 0.75rem;
   font-weight: 800;
-  color: var(--white);
+  color: var(--text-heading);
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -128,7 +144,7 @@
   font-size: clamp(3.5rem, 8.5vw, 7.5rem);
   font-weight: 800;
   line-height: 0.92;
-  color: var(--white);
+  color: var(--text-heading);
   letter-spacing: -0.05em;
   text-transform: uppercase;
 }
@@ -157,7 +173,7 @@
 }
 
 .textHighlight {
-  color: var(--white);
+  color: var(--text-heading);
   font-weight: 700;
   position: relative;
   display: inline-block;
@@ -182,16 +198,16 @@
 }
 
 .heroSecondaryBtn {
-  border-color: rgba(255, 255, 255, 0.25) !important;
-  color: var(--white) !important;
-  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: var(--hero-badge-border) !important;
+  color: var(--text-inverse) !important;
+  background: var(--hero-badge-bg) !important;
 }
 
 .heroFloatingStats {
   display: flex;
   gap: var(--space-16);
   padding-top: var(--space-12);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--hero-badge-border);
   max-width: fit-content;
 }
 
@@ -205,7 +221,7 @@
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--white);
+  color: var(--text-heading);
   line-height: 1;
 }
 
@@ -314,7 +330,7 @@
   right: 0;
   transform: translateY(-50%);
   background: var(--primary);
-  color: var(--white);
+  color: var(--text-heading);
   padding: var(--space-10) var(--space-8);
   display: flex;
   flex-direction: column;
@@ -379,7 +395,7 @@
 .featureInfo h4 {
   font-size: 1.125rem;
   margin-bottom: 6px;
-  color: var(--white);
+  color: var(--text-heading);
 }
 
 .featureInfo p {
@@ -420,8 +436,8 @@
 
 .whyAmtech {
   padding: var(--space-32) 0;
-  background: #000;
-  border-top: 1px solid var(--gray-900);
+  background: var(--secondary);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .bentoGrid {
@@ -452,7 +468,7 @@
 .boxLarge {
   grid-row: span 2;
   justify-content: center;
-  background: radial-gradient(circle at top right, #1A1A1C, #050505);
+  background: radial-gradient(circle at top right, var(--secondary-mid), var(--secondary));
 }
 
 .boxWide {
@@ -538,7 +554,7 @@
   height: 480px;
   overflow: hidden;
   cursor: pointer;
-  background: #111;
+  background: var(--secondary-mid);
   border-radius: var(--radius-sm);
 }
 
@@ -578,11 +594,12 @@
   margin-bottom: var(--space-3);
   font-weight: 800;
   letter-spacing: -0.04em;
+  color: var(--text-inverse);
 }
 
 .tileDesc {
   font-size: 0.95rem;
-  color: var(--gray-200);
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: var(--space-6);
   opacity: 0;
   transform: translateY(20px);
@@ -694,7 +711,7 @@
 .testimonialText {
   font-size: 1.4rem;
   font-weight: 500;
-  color: var(--white);
+  color: var(--text-heading);
   line-height: 1.5;
   margin-bottom: 30px;
   font-family: var(--font-display);
@@ -768,7 +785,7 @@
 }
 
 .roiCard {
-  background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);
+  background: linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary) 100%);
   border: 1px solid var(--gray-800);
   border-radius: var(--radius-2xl);
   padding: 80px;
@@ -783,7 +800,7 @@
 .roiTitle {
   font-size: 3.5rem;
   font-weight: 800;
-  color: var(--white);
+  color: var(--text-heading);
   margin-bottom: 25px;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -884,7 +901,7 @@
 
 .cta {
   padding: var(--space-32) 0;
-  background: #000;
+  background: var(--secondary);
 }
 
 .ctaContainer {
@@ -961,7 +978,7 @@
   gap: 16px;
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--white);
+  color: var(--text-heading);
   transition: color 0.3s ease;
 }
 

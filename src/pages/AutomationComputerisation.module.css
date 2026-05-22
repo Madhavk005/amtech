@@ -38,7 +38,7 @@
   font-family: var(--font-display);
   font-size: 12vw;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-heading);
   opacity: 0.03;
   white-space: nowrap;
   pointer-events: none;
@@ -76,14 +76,14 @@
 }
 
 .breadcrumb span {
-  color: var(--white);
+  color: var(--text-heading);
 }
 
 .heroTitle {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-heading);
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: var(--space-4);
@@ -259,7 +259,7 @@
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--white);
+  color: var(--text-heading);
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
@@ -350,7 +350,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-heading);
   letter-spacing: -0.025em;
   margin-bottom: var(--space-4);
 }

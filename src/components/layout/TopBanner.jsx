@@ -1,7 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Phone, Mail, MessageSquare } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import { company } from '../../data/siteData';
+import ThemeToggle from '../ui/ThemeToggle';
 import s from './TopBanner.module.css';
 
 const TopBanner = () => {
@@ -24,7 +24,7 @@ const TopBanner = () => {
         </div>
         
         <div className={s.right}>
-          {/* Removed CTA as requested */}
+          <ThemeToggle mode="switch" variant="banner" className={s.themeToggle} />
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, ChevronDown, ArrowRight } from "lucide-react";
 import { navLinks, company } from "../../data/siteData";
 import { fadeDown, viewport } from "../../utils/animations";
+import ThemeToggle from "../ui/ThemeToggle";
 import s from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -138,8 +139,12 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Hamburger only */}
           <div className={s.headerRight}>
+            <ThemeToggle
+              mode="switch"
+              variant={isTransparent && !scrolled ? "onDark" : "default"}
+              className={s.headerThemeToggle}
+            />
 
             {/* Hamburger */}
             <button
@@ -175,15 +180,18 @@ export default function Navbar() {
                   className={s.mobileLogoImg}
                 />
               </Link>
-              <button
-                className={`${s.hamburger} ${s.hamburgerActive} ${s.hamburgerMobileClose}`}
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close menu"
-              >
-                <span className={s.bar} />
-                <span className={s.bar} />
-                <span className={s.bar} />
-              </button>
+              <div className={s.mobileHeaderActions}>
+                <ThemeToggle mode="icon" variant="mobile" />
+                <button
+                  className={`${s.hamburger} ${s.hamburgerActive} ${s.hamburgerMobileClose}`}
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <span className={s.bar} />
+                  <span className={s.bar} />
+                  <span className={s.bar} />
+                </button>
+              </div>
             </div>
 
             <div className={s.mobileNavList}>

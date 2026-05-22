@@ -89,7 +89,7 @@
 }
 
 .dark .value {
-  color: var(--white);
+  color: var(--text-heading);
 }
 
 .dark .label {
@@ -115,11 +115,11 @@
 }
 
 .light .value {
-  color: var(--gray-900);
+  color: var(--text-heading);
 }
 
 .light .label {
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .light .divider {
@@ -145,11 +145,11 @@
 }
 
 .glass .value {
-  color: var(--gray-900);
+  color: var(--text-heading);
 }
 
 .glass .label {
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .glass .divider {
@@ -187,7 +187,7 @@
 
   /* Bottom border for first row items on tablet */
   .item:nth-child(-n+2) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .light .item:nth-child(-n+2) {

@@ -1,0 +1,155 @@
+/* Icon-only button */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--surface-muted);
+  color: var(--text-heading);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.toggle:hover {
+  background: var(--primary-subtle);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.toggle:active {
+  transform: scale(0.96);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.toggleOnDark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+}
+
+.toggleOnDark:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--text-inverse);
+}
+
+.toggleMobile {
+  width: 36px;
+  height: 36px;
+}
+
+.toggleBanner {
+  width: 36px;
+  height: 36px;
+  background: var(--surface-muted);
+  border-color: var(--border-default);
+  color: var(--banner-text);
+}
+
+.toggleBanner:hover {
+  background: var(--primary-subtle);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Labeled pill switch — primary header control */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 3px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--surface-muted);
+  flex-shrink: 0;
+}
+
+.switchOnDark {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.option svg {
+  width: 14px;
+  height: 14px;
+}
+
+.optionOnDark {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.option:hover:not(.optionActive) {
+  color: var(--text-heading);
+}
+
+.optionOnDark:hover:not(.optionActive) {
+  color: var(--text-inverse);
+}
+
+.optionActive {
+  background: var(--surface-card);
+  color: var(--text-heading);
+  box-shadow: var(--shadow-xs);
+}
+
+.switchOnDark .optionActive[data-theme-option="light"] {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0a0a0b;
+  box-shadow: var(--shadow-xs);
+}
+
+.switchOnDark .optionActive[data-theme-option="dark"] {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .switch .option span {
+    display: none;
+  }
+
+  .switch .option {
+    padding: 8px 10px;
+  }
+}

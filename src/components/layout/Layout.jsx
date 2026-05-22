@@ -57,7 +57,7 @@ export default function Layout() {
               height: 44,
               borderRadius: "50%",
               background: "var(--primary)",
-              color: "var(--white)",
+              color: "var(--on-primary)",
               border: "none",
               cursor: "pointer",
               boxShadow: "0 4px 16px rgba(213, 0, 50, 0.35)",
