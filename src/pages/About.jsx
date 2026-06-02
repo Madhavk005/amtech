@@ -76,46 +76,49 @@ export default function About() {
           1. PAGE HERO — Watermark Style
           ════════════════════════════════════════════ */}
       <section className={styles.hero}>
-        <span className={styles.heroWatermark} aria-hidden="true">
-          About
-        </span>
+        <div className={styles.heroBg}>
+          <img src={images.aboutMain} alt="Amtech Cranes Facility" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
+        </div>
 
-        <div className={styles.heroContent}>
-          <motion.nav
-            className={styles.breadcrumb}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            aria-label="Breadcrumb"
-          >
-            <Link to="/" className={styles.breadcrumbLink}>
-              Home
-            </Link>
-            <ChevronRight size={14} className={styles.breadcrumbSep} />
-            <span className={styles.breadcrumbCurrent}>About</span>
-          </motion.nav>
+        <div className={styles.heroInner}>
+          <div className={styles.heroContent}>
+            <motion.nav
+              className={styles.breadcrumb}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              aria-label="Breadcrumb"
+            >
+              <Link to="/" className={styles.breadcrumbLink}>
+                Home
+              </Link>
+              <ChevronRight size={14} className={styles.breadcrumbSep} />
+              <span className={styles.breadcrumbCurrent}>About</span>
+            </motion.nav>
 
-          <motion.h1
-            className={styles.heroTitle}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            The Story Behind Every
-            <br />
-            Crane We Build
-          </motion.h1>
+            <motion.h1
+              className={styles.heroTitle}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              The Story Behind Every
+              <br />
+              Crane We Build
+            </motion.h1>
 
-          <motion.p
-            className={styles.heroSubtitle}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            Three decades of engineering excellence, innovation, and an
-            unwavering commitment to quality — powering industries across the
-            globe.
-          </motion.p>
+            <motion.p
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              Three decades of engineering excellence, innovation, and an
+              unwavering commitment to quality — powering industries across the
+              globe.
+            </motion.p>
+          </div>
         </div>
       </section>
 
@@ -135,11 +138,17 @@ export default function About() {
             >
               <div className={styles.storyAccentStrip} />
               <img
-                src={images.aboutMain}
+                src={images.manufacturingMain || images.aboutMain}
                 alt="Industrial crane facility"
                 className={styles.storyImage}
                 loading="lazy"
               />
+              <div className={styles.storyBadge}>
+                <div className={styles.storyBadgeInner}>
+                  <span className={styles.storyBadgeNum}>30+</span>
+                  <span className={styles.storyBadgeText}>Years of<br/>Excellence</span>
+                </div>
+              </div>
             </motion.div>
 
             {/* Text */}
@@ -206,21 +215,21 @@ export default function About() {
           ════════════════════════════════════════════ */}
       <section className={styles.missionVision}>
         <div className={styles.container}>
-          <motion.div
-            className={styles.mvGrid}
-            variants={stagger(0.15)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {/* Mission */}
-            <motion.div className={styles.mvCard} variants={scaleIn}>
-              <div className={styles.mvAccent} />
-              <div className={styles.mvIconWrap}>
-                <Target size={28} />
+          <div className={styles.mvGrid}>
+            {/* Mission - Dark Cinematic */}
+            <motion.div
+              className={styles.mvCardDark}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <div className={styles.mvCardGlow} />
+              <div className={styles.mvIconWrapDark}>
+                <Target size={32} />
               </div>
-              <h3 className={styles.mvTitle}>Our Mission</h3>
-              <p className={styles.mvText}>
+              <h3 className={styles.mvTitleDark}>Our Mission</h3>
+              <p className={styles.mvTextDark}>
                 To deliver world-class crane solutions that empower industries
                 with safe, reliable, and efficient material handling systems —
                 built with precision engineering and backed by unwavering service
@@ -228,21 +237,26 @@ export default function About() {
               </p>
             </motion.div>
 
-            {/* Vision */}
-            <motion.div className={styles.mvCard} variants={scaleIn}>
-              <div className={styles.mvAccent} />
-              <div className={styles.mvIconWrap}>
-                <Eye size={28} />
+            {/* Vision - Light Glass */}
+            <motion.div
+              className={styles.mvCardLight}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <div className={styles.mvIconWrapLight}>
+                <Eye size={32} />
               </div>
-              <h3 className={styles.mvTitle}>Our Vision</h3>
-              <p className={styles.mvText}>
+              <h3 className={styles.mvTitleLight}>Our Vision</h3>
+              <p className={styles.mvTextLight}>
                 To be the most trusted name in crane manufacturing globally,
                 setting benchmarks in innovation, quality, and customer
                 satisfaction — empowering industries to operate safely and
                 efficiently.
               </p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

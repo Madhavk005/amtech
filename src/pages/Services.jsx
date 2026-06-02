@@ -17,7 +17,7 @@ import {
   ChevronRight,
   ArrowRight,
 } from 'lucide-react';
-import { services, company } from '../data/siteData';
+import { services, company, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
 import {
@@ -92,26 +92,32 @@ export default function Services() {
     <main className={styles.page}>
       {/* ─── Hero ─── */}
       <section className={styles.hero}>
-        <span className={styles.watermark} aria-hidden="true">Services</span>
-        <motion.div
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <nav className={styles.breadcrumb}>
-            <Link to="/">Home</Link>
-            <ChevronRight size={14} />
-            <span>Services</span>
-          </nav>
-          <h1 className={styles.heroTitle}>
-            Comprehensive<br />After-Sales Support
-          </h1>
-          <p className={styles.heroSubtitle}>
-            Complete lifecycle support for your crane systems — from commissioning
-            to maintenance, repairs, and modernization.
-          </p>
-        </motion.div>
+        <div className={styles.heroBg}>
+          <img src={images.aboutMain || 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80'} alt="Amtech Cranes Services" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
+        </div>
+        
+        <div className={styles.heroInner}>
+          <motion.div
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <nav className={styles.breadcrumb}>
+              <Link to="/">Home</Link>
+              <ChevronRight size={14} className={styles.breadcrumbSep} />
+              <span>Services</span>
+            </nav>
+            <h1 className={styles.heroTitle}>
+              Comprehensive<br />After-Sales Support
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Complete lifecycle support for your crane systems — from commissioning
+              to maintenance, repairs, and modernization.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* ─── Services Accordion List ─── */}
@@ -188,11 +194,13 @@ export default function Services() {
 
       {/* ─── Why Choose Our Service ─── */}
       <section className={styles.whySection}>
+        <div className={styles.whyGlow} aria-hidden="true" />
         <div className={styles.container}>
           <SectionHeader
             label="Our Strengths"
             title="Why Choose Our Service"
             align="center"
+            light
           />
           <motion.div
             className={styles.whyGrid}

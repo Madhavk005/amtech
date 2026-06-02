@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, ChevronDown, ArrowRight } from "lucide-react";
 import { navLinks, company } from "../../data/siteData";
 import { fadeDown, viewport } from "../../utils/animations";
-import ThemeToggle from "../ui/ThemeToggle";
 import s from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -56,14 +55,35 @@ export default function Navbar() {
     setExpandedMobile((prev) => (prev === label ? null : label));
   };
 
-  /* ── Determine transparent state: only on home page hero ── */
-  const isHomePage = location.pathname === '/';
-  const isTransparent = isHomePage && !scrolled && !mobileOpen;
+  /* ── Determine transparent state ── */
+  const exactPaths = ['/', '/about', '/services', '/contact', '/products'];
+  const isTransparentPage = exactPaths.includes(location.pathname);
+  const isTransparent = isTransparentPage && !scrolled && !mobileOpen;
 
   return (
     <>
-      {/* ── TOP ACCENT LINE ── */}
-      <div className={s.topAccent} />
+      {/* ── TOP BAR (STICKY ANNOUNCEMENT / CONTACT STRIP) ── */}
+      <div className={s.topBar}>
+        <div className={s.topBarInner}>
+          <div className={s.topBarContact}>
+            <a href={`tel:${company.phone[0].replace(/\s/g, "")}`} className={s.topContactLink}>
+              <Phone size={14} />
+              <span>{company.phone[0]}</span>
+            </a>
+            <span className={s.topBarSep}>|</span>
+            <a href={`mailto:${company.email}`} className={s.topContactLink}>
+              <Mail size={14} />
+              <span>{company.email}</span>
+            </a>
+          </div>
+          <div className={s.topBarCta}>
+            <Link to="/contact" className={s.topBarPulseBtn}>
+              <span className={s.pulseDot}></span>
+              Get Quote
+            </Link>
+          </div>
+        </div>
+      </div>
 
       {/* ── HEADER ── */}
       <header
@@ -75,7 +95,7 @@ export default function Navbar() {
             <img
               src={company.logo}
               alt={company.fullName}
-              className={`${s.logoImg} ${isTransparent ? s.logoWhite : ""}`}
+              className={`${s.logoImg} ${isTransparent ? s.logoWhite : s.logoColor}`}
             />
           </Link>
 
@@ -140,12 +160,6 @@ export default function Navbar() {
           </nav>
 
           <div className={s.headerRight}>
-            <ThemeToggle
-              mode="switch"
-              variant={isTransparent && !scrolled ? "onDark" : "default"}
-              className={s.headerThemeToggle}
-            />
-
             {/* Hamburger */}
             <button
               className={`${s.hamburger} ${mobileOpen ? s.hamburgerActive : ""}`}
@@ -177,11 +191,10 @@ export default function Navbar() {
                 <img
                   src={company.logo}
                   alt={company.fullName}
-                  className={s.mobileLogoImg}
+                  className={`${s.mobileLogoImg} ${s.logoColor}`}
                 />
               </Link>
               <div className={s.mobileHeaderActions}>
-                <ThemeToggle mode="icon" variant="mobile" />
                 <button
                   className={`${s.hamburger} ${s.hamburgerActive} ${s.hamburgerMobileClose}`}
                   onClick={() => setMobileOpen(false)}

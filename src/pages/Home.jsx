@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue } from 'framer-motion';
 import {
@@ -25,64 +25,18 @@ import {
 
 import SEO from '../components/ui/SEO';
 
-import { company, stats, products, services, industries, images, clientLogos, testimonials, reviewStats } from '../data/siteData';
+import { company, stats, products, industries, images, clientLogos, testimonials, reviewStats } from '../data/siteData';
 import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import Card from '../components/ui/Card';
 import StatsCounter from '../components/ui/StatsCounter';
 import {
   fadeUp,
-  fadeLeft,
-  fadeRight,
-  scaleIn,
   stagger,
-  slideInLeft,
-  slideInRight,
-  clipReveal,
-  blurIn,
-  viewport,
 } from '../utils/animations';
 import styles from './Home.module.css';
 
-/* ── Icon lookup for services ── */
-const iconMap = {
-  FileCheck,
-  HeartPulse,
-  Wrench,
-  RefreshCw,
-  Hammer,
-  Truck,
-  CheckCircle,
-  Package,
-};
 
-/* ── Why Choose Us data ── */
-const whyChooseUs = [
-  {
-    icon: Award,
-    title: 'Engineering Excellence',
-    desc: 'Over three decades of precision engineering, delivering world-class crane solutions trusted across industries.',
-    span: 2,
-  },
-  {
-    icon: Construction,
-    title: 'Proven Track Record',
-    desc: '3,500+ cranes commissioned across diverse industrial sectors with zero compromise on quality.',
-    span: 1,
-  },
-  {
-    icon: MapPin,
-    title: 'Nationwide Service',
-    desc: 'Pan-India presence with dedicated service teams ensuring rapid response and minimal downtime.',
-    span: 1,
-  },
-  {
-    icon: Settings,
-    title: 'Custom Solutions',
-    desc: 'Every crane tailored to exact specifications by our in-house design and engineering team.',
-    span: 1,
-  },
-];
 
 /* ── Stagger container variant ── */
 const staggerContainer = stagger(0.1);
@@ -157,7 +111,7 @@ export default function Home() {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <main className={styles.home}>
@@ -395,7 +349,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {products.slice(0, 6).map((product, idx) => (
+            {products.slice(0, 6).map((product) => (
               <motion.div key={product.id} variants={fadeUp} className={styles.productWrapper}>
                 <Card
                   image={product.image}
@@ -552,12 +506,31 @@ export default function Home() {
               </AnimatePresence>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* ─────────────────────────────────────────────
+          7.5. CLIENT LOGOS SHOWCASE
+          ───────────────────────────────────────────── */}
+      <section className={styles.clientsSection}>
+        <div className="container">
+          <h3 className={styles.clientsHeader}>Trusted by Industry Leaders Worldwide</h3>
+          
           <div className={styles.logoMarquee}>
+            {/* Top Track (Left to Right) */}
             <div className={styles.logoTrack}>
-              {[...clientLogos, ...clientLogos].map((logo, i) => (
-                <div key={i} className={styles.clientLogo}>
-                  <img src={logo.image} alt={logo.name} />
+              {[...clientLogos.slice(0, 5), ...clientLogos.slice(0, 5), ...clientLogos.slice(0, 5)].map((logo, i) => (
+                <div key={`top-${i}`} className={styles.clientLogo}>
+                  <img src={logo.image} alt={logo.name} loading="lazy" />
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Track (Right to Left) */}
+            <div className={styles.logoTrackReverse}>
+              {[...clientLogos.slice(4, 9), ...clientLogos.slice(4, 9), ...clientLogos.slice(4, 9)].map((logo, i) => (
+                <div key={`bottom-${i}`} className={styles.clientLogo}>
+                  <img src={logo.image} alt={logo.name} loading="lazy" />
                 </div>
               ))}
             </div>

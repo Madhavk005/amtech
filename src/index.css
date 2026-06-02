@@ -1,7 +1,6 @@
 
-/* ========== THEME: DARK (default) ========== */
-:root,
-[data-theme="dark"] {
+/* ========== THEME: LIGHT ========== */
+:root {
   /* Brand — unchanged across themes */
   --primary: #FF003C;
   --primary-dark: #CC0030;
@@ -13,90 +12,6 @@
   --accent-glow: rgba(0, 240, 255, 0.2);
 
   /* Surfaces */
-  --secondary: #050505;
-  --secondary-light: #0D0D0F;
-  --secondary-mid: #1A1A1C;
-  --secondary-glow: rgba(255, 255, 255, 0.05);
-
-  --surface-deep: #000000;
-  --surface-card: #0D0D0F;
-  --surface-muted: rgba(255, 255, 255, 0.05);
-  --surface-overlay: rgba(5, 5, 5, 0.85);
-
-  /* Text */
-  --white: #FFFFFF;
-  --on-primary: #FFFFFF;
-  --text-heading: #FFFFFF;
-  --text-body: #D2D2D7;
-  --text-muted: #86868B;
-  --text-inverse: #FFFFFF;
-  --text-link: var(--primary);
-
-  /* Neutrals */
-  --gray-25: #F5F5F7;
-  --gray-50: #EBEBEF;
-  --gray-100: #D2D2D7;
-  --gray-200: #A1A1A6;
-  --gray-300: #86868B;
-  --gray-400: #6E6E73;
-  --gray-500: #424245;
-  --gray-600: #323235;
-  --gray-700: #252528;
-  --gray-800: #1D1D1F;
-  --gray-900: #0A0A0B;
-
-  /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-default: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.2);
-
-  /* Nav */
-  --nav-bg: #FFFFFF;
-  --nav-border: #D2D2D7;
-  --nav-text: #252528;
-  --nav-bg-scrolled: rgba(10, 10, 10, 0.85);
-  --nav-border-scrolled: rgba(255, 255, 255, 0.08);
-  --nav-text-scrolled: rgba(255, 255, 255, 0.9);
-  --nav-bg-transparent: rgba(255, 255, 255, 0.02);
-  --nav-border-transparent: rgba(255, 255, 255, 0.03);
-
-  /* Top banner */
-  --banner-bg: rgba(10, 10, 10, 0.4);
-  --banner-border: rgba(255, 255, 255, 0.08);
-  --banner-text: #FFFFFF;
-
-  /* Glass */
-  --glass-bg: rgba(13, 13, 15, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-light: rgba(255, 255, 255, 0.03);
-  --glass-dark: rgba(20, 20, 22, 0.75);
-  --glass-dark-border: rgba(255, 255, 255, 0.08);
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.6);
-  --shadow-primary: 0 8px 32px var(--primary-glow);
-  --shadow-accent: 0 8px 32px var(--accent-glow);
-  --shadow-card: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
-
-  /* Spotlight */
-  --spotlight-color: rgba(255, 255, 255, 0.035);
-
-  /* Hero overlays (stay dark for video readability) */
-  --hero-overlay-start: rgba(5, 5, 5, 0.85);
-  --hero-overlay-mid: rgba(5, 5, 5, 0.4);
-  --hero-overlay-end: rgba(5, 5, 5, 0.95);
-  --hero-grid-line: rgba(255, 255, 255, 0.03);
-  --hero-badge-bg: rgba(255, 255, 255, 0.04);
-  --hero-badge-border: rgba(255, 255, 255, 0.1);
-
-  color-scheme: dark;
-}
-
-/* ========== THEME: LIGHT ========== */
-[data-theme="light"] {
   --secondary: #F5F5F7;
   --secondary-light: #FFFFFF;
   --secondary-mid: #EBEBEF;
@@ -107,11 +22,18 @@
   --surface-muted: rgba(0, 0, 0, 0.04);
   --surface-overlay: rgba(255, 255, 255, 0.88);
 
+  /* Text */
+  --white: #FFFFFF;
+  --on-primary: #FFFFFF;
   --text-heading: #0A0A0B;
   --text-body: #424245;
   --text-muted: #6E6E73;
   --text-inverse: #FFFFFF;
+  --text-link: var(--primary);
 
+  /* Neutrals */
+  --gray-25: #F5F5F7;
+  --gray-50: #EBEBEF;
   --gray-100: #3A3A3C;
   --gray-200: #515154;
   --gray-300: #6E6E73;
@@ -120,12 +42,14 @@
   --gray-600: #C7C7CC;
   --gray-700: #D2D2D7;
   --gray-800: #E5E5EA;
-  --gray-900: #F5F5F7;
+  --gray-900: #0A0A0B;
 
+  /* Borders */
   --border-subtle: rgba(0, 0, 0, 0.06);
   --border-default: rgba(0, 0, 0, 0.1);
   --border-strong: rgba(0, 0, 0, 0.18);
 
+  /* Nav */
   --nav-bg: #FFFFFF;
   --nav-border: #E5E5EA;
   --nav-text: #1D1D1F;
@@ -135,24 +59,31 @@
   --nav-bg-transparent: rgba(255, 255, 255, 0.65);
   --nav-border-transparent: rgba(0, 0, 0, 0.06);
 
+  /* Top banner */
   --banner-bg: rgba(255, 255, 255, 0.92);
   --banner-border: rgba(0, 0, 0, 0.08);
   --banner-text: #1D1D1F;
 
+  /* Glass */
   --glass-bg: rgba(255, 255, 255, 0.92);
   --glass-border: rgba(0, 0, 0, 0.08);
   --glass-light: rgba(0, 0, 0, 0.03);
   --glass-dark: rgba(255, 255, 255, 0.95);
   --glass-dark-border: rgba(0, 0, 0, 0.08);
 
+  /* Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.12);
+  --shadow-primary: 0 8px 32px var(--primary-glow);
+  --shadow-accent: 0 8px 32px var(--accent-glow);
   --shadow-card: 0 16px 32px -8px rgba(0, 0, 0, 0.12);
 
+  /* Spotlight */
   --spotlight-color: rgba(255, 0, 60, 0.04);
 
+  /* Hero overlays */
   --hero-overlay-start: rgba(5, 5, 5, 0.75);
   --hero-overlay-mid: rgba(5, 5, 5, 0.35);
   --hero-overlay-end: rgba(5, 5, 5, 0.88);

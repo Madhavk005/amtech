@@ -4,21 +4,38 @@
 
 .footer {
   position: relative;
-  background: var(--secondary);
-  color: var(--text-body);
+  background: #0A0A0B;
+  color: #A1A1A6;
   overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Subtle noise / gradient overlay */
+/* Striking ambient gradient */
 .footer::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(213, 0, 50, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 100%, rgba(213, 0, 50, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 0%, rgba(255, 0, 60, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(0, 240, 255, 0.05) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
+}
+
+/* Watermark Text */
+.watermark {
+  position: absolute;
+  bottom: -4%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 24rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
 }
 
 /* ── CTA STRIP ── */
@@ -39,15 +56,15 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-8);
-  padding: var(--space-10) var(--space-12);
-  background: var(--glass-dark);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid var(--glass-dark-border);
+  padding: var(--space-12) var(--space-16);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-2xl);
   box-shadow:
-    0 24px 48px -12px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 var(--glass-light);
+    0 32px 64px -16px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .ctaContent {
@@ -56,17 +73,17 @@
 
 .ctaTitle {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.025em;
-  color: var(--text-heading);
-  margin-bottom: var(--space-2);
-  line-height: 1.2;
+  color: #FFFFFF;
+  margin-bottom: var(--space-3);
+  line-height: 1.1;
 }
 
 .ctaDesc {
-  font-size: 15px;
-  color: var(--text-muted);
+  font-size: 16px;
+  color: #A1A1A6;
   line-height: 1.6;
   max-width: 480px;
 }
@@ -111,14 +128,14 @@
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 500;
-  color: var(--text-body);
+  color: #FFFFFF;
   text-decoration: none;
   transition: color var(--duration-fast) ease;
   white-space: nowrap;
 }
 
 .ctaPhone:hover {
-  color: var(--text-heading);
+  color: var(--primary);
 }
 
 .ctaPhone svg {
@@ -161,7 +178,7 @@
 .tagline {
   font-size: 14px;
   line-height: 1.75;
-  color: var(--text-muted);
+  color: #86868B;
   margin-bottom: var(--space-6);
 }
 
@@ -178,8 +195,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--border-default);
-  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #A1A1A6;
   transition:
     color var(--duration-fast) ease,
     border-color var(--duration-fast) ease,
@@ -188,9 +205,9 @@
 }
 
 .socialIcon:hover {
-  color: var(--text-heading);
-  border-color: var(--border-strong);
-  background: var(--border-subtle);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
 }
 
@@ -201,7 +218,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-heading);
+  color: #FFFFFF;
   margin-bottom: var(--space-6);
   position: relative;
   padding-bottom: var(--space-3);
@@ -230,7 +247,7 @@
   padding: 7px 0;
   font-size: 14px;
   font-weight: 400;
-  color: var(--gray-400);
+  color: #86868B;
   text-decoration: none;
   transition:
     color var(--duration-fast) ease,
@@ -238,7 +255,7 @@
 }
 
 .footerLink:hover {
-  color: var(--text-heading);
+  color: #FFFFFF;
   transform: translateX(4px);
 }
 
@@ -255,17 +272,17 @@
   gap: var(--space-3);
   font-size: 14px;
   line-height: 1.65;
-  color: var(--gray-400);
+  color: #86868B;
 }
 
 .contactItem a {
-  color: var(--gray-400);
+  color: #86868B;
   text-decoration: none;
   transition: color var(--duration-fast) ease;
 }
 
 .contactItem a:hover {
-  color: var(--text-heading);
+  color: #FFFFFF;
 }
 
 .contactIcon {
@@ -279,7 +296,7 @@
 .bottomBar {
   position: relative;
   z-index: 1;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bottomInner {

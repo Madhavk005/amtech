@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ArrowRight } from 'lucide-react';
-import { products } from '../data/siteData';
+import { products, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
@@ -10,10 +10,6 @@ import SEO from '../components/ui/SEO';
 import styles from './Products.module.css';
 
 export default function Products() {
-  /* Split products for creative grid layout */
-  const row1 = products.slice(0, 2); // 60/40 split
-  const row2 = products.slice(2, 5); // 3 equal
-  const row3 = products.slice(5, 6); // 1 full-width horizontal
 
   return (
     <main className={styles.page}>
@@ -23,142 +19,86 @@ export default function Products() {
         canonical="/products"
       />
       {/* ════════════════════════════════════════════
-          1. PAGE HERO — Watermark Style
+          1. PAGE HERO — Cinematic
           ════════════════════════════════════════════ */}
       <section className={styles.hero}>
-        <span className={styles.heroWatermark} aria-hidden="true">
-          Products
-        </span>
+        <div className={styles.heroBg}>
+          <img src={images.aboutMain || 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80'} alt="Amtech Cranes Products" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
+        </div>
 
-        <div className={styles.heroContent}>
-          <motion.nav
-            className={styles.breadcrumb}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            aria-label="Breadcrumb"
-          >
-            <Link to="/" className={styles.breadcrumbLink}>
-              Home
-            </Link>
-            <ChevronRight size={14} className={styles.breadcrumbSep} />
-            <span className={styles.breadcrumbCurrent}>Products</span>
-          </motion.nav>
-
-          <motion.h1
-            className={styles.heroTitle}
-            initial={{ opacity: 0, y: 24 }}
+        <div className={styles.heroInner}>
+          <motion.div
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            Our Crane Solutions
-          </motion.h1>
+            <nav className={styles.breadcrumb}>
+              <Link to="/" className={styles.breadcrumbLink}>
+                Home
+              </Link>
+              <ChevronRight size={14} className={styles.breadcrumbSep} />
+              <span className={styles.breadcrumbCurrent}>Products</span>
+            </nav>
 
-          <motion.p
-            className={styles.heroSubtitle}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            From single girder overhead cranes to heavy-duty goliath systems —
-            engineered for safety, precision, and long-term reliability.
-          </motion.p>
+            <motion.h1
+              className={styles.heroTitle}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              Our Crane Solutions
+            </motion.h1>
+
+            <motion.p
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              From single girder overhead cranes to heavy-duty goliath systems —
+              engineered for safety, precision, and long-term reliability.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════
-          2. PRODUCT GRID — Creative Layout
+          2. PRODUCT SHOWCASE — Alternating Layout
           ════════════════════════════════════════════ */}
       <section className={styles.gridSection}>
         <div className={styles.container}>
-          <SectionHeader
-            label="Equipment"
-            title="Engineered for Performance"
-            subtitle="Every product is designed in-house and manufactured to Indian Standards, backed by 35+ years of industry expertise."
-          />
+          <div className={styles.gridHeader}>
+            <SectionHeader
+              label="Equipment Portfolio"
+              title="Engineered for Performance"
+              subtitle="Every product is designed in-house and manufactured to Indian Standards, backed by 35+ years of industry expertise."
+            />
+          </div>
 
-          {/* Row 1: 60/40 split */}
-          <motion.div
-            className={styles.row1}
-            variants={stagger(0.12)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {row1.map((product, index) => (
-              <motion.div
-                key={product.id}
-                className={index === 0 ? styles.row1Large : styles.row1Small}
-                variants={scaleIn}
+          <div className={styles.simpleGrid}>
+            {products.map((product, index) => (
+              <motion.div 
+                key={product.id} 
+                className={styles.simpleCard}
+                variants={fadeUp}
               >
-                <Card
-                  image={product.image}
-                  title={product.name}
-                  description={product.shortDesc}
-                  link={`/products/${product.id}`}
-                  linkText="Learn More"
-                  variant={index === 0 ? 'overlay' : 'default'}
-                />
+                <Link to={`/products/${product.id}`} className={styles.simpleLink}>
+                  <div className={styles.simpleImageWrap}>
+                    <img src={product.image} alt={product.name} className={styles.simpleImage} loading="lazy" />
+                  </div>
+                  <div className={styles.simpleContent}>
+                    <h3 className={styles.simpleTitle}>{product.name}</h3>
+                    <p className={styles.simpleDesc}>{product.shortDesc}</p>
+                    <span className={styles.simpleAction}>
+                      Learn More <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Row 2: 3 equal columns */}
-          <motion.div
-            className={styles.row2}
-            variants={stagger(0.1)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {row2.map((product, index) => (
-              <motion.div key={product.id} variants={fadeUp}>
-                <Card
-                  image={product.image}
-                  title={product.name}
-                  description={product.shortDesc}
-                  link={`/products/${product.id}`}
-                  linkText="Learn More"
-                  variant={index === 1 ? 'overlay' : 'default'}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Row 3: Full-width horizontal card */}
-          {row3.map((product) => (
-            <motion.div
-              key={product.id}
-              className={styles.row3}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewport}
-            >
-              <Link
-                to={`/products/${product.id}`}
-                className={styles.horizontalCard}
-              >
-                <div className={styles.horizontalImageWrap}>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className={styles.horizontalImage}
-                    loading="lazy"
-                  />
-                </div>
-                <div className={styles.horizontalContent}>
-                  <span className={styles.horizontalLabel}>Featured</span>
-                  <h3 className={styles.horizontalTitle}>{product.name}</h3>
-                  <p className={styles.horizontalDesc}>{product.shortDesc}</p>
-                  <span className={styles.horizontalLink}>
-                    Learn More
-                    <ArrowRight size={16} />
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -166,6 +106,7 @@ export default function Products() {
           3. CTA SECTION
           ════════════════════════════════════════════ */}
       <section className={styles.cta}>
+        <div className={styles.ctaGlow} aria-hidden="true" />
         <div className={styles.container}>
           <motion.div
             className={styles.ctaInner}

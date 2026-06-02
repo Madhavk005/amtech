@@ -38,6 +38,9 @@ const socials = [
 export default function Footer() {
   return (
     <footer className={s.footer}>
+      {/* ── AMTECH WATERMARK ── */}
+      <div className={s.watermark}>AMTECH</div>
+      
       {/* ── CTA STRIP ── */}
       <div className={s.ctaSection}>
         <div className={s.ctaContainer}>

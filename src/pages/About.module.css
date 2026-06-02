@@ -18,50 +18,59 @@
 
 .hero {
   position: relative;
-  min-height: 520px;
+  min-height: 90vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: var(--white);
   overflow: hidden;
-  padding: var(--space-32) var(--space-6) var(--space-20);
+  background: #0A0A0B;
+  margin-top: -40px; /* Pulls up to cover the layout padding */
+  padding-top: 112px; /* Pushes content below the transparent header */
 }
 
-.heroWatermark {
+.heroBg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: 15vw;
-  font-weight: 700;
-  color: var(--gray-900);
-  opacity: 0.03;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) contrast(1.1);
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10,10,11,0.9) 0%, rgba(10,10,11,0.4) 60%, transparent 100%);
+}
+
+.heroInner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  position: relative;
+  z-index: 2;
 }
 
 .heroContent {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
+  max-width: 700px;
 }
 
 /* Breadcrumb */
 
 .breadcrumb {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-2);
   margin-bottom: var(--space-6);
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .breadcrumbLink {
@@ -70,34 +79,32 @@
 }
 
 .breadcrumbLink:hover {
-  color: var(--primary);
+  color: var(--white);
 }
 
 .breadcrumbSep {
-  color: var(--gray-300);
+  color: var(--gray-500);
 }
 
 .breadcrumbCurrent {
-  color: var(--gray-500);
+  color: var(--white);
 }
 
 .heroTitle {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-  font-weight: 700;
-  color: var(--gray-900);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  color: #FFF;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   margin-bottom: var(--space-5);
 }
 
 .heroSubtitle {
   font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-  color: var(--gray-500);
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  color: #A1A1A6;
   line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 /* ═══════════════════════════════════════════════
@@ -110,16 +117,16 @@
 
 .storyGrid {
   display: grid;
-  grid-template-columns: 55% 1fr;
-  gap: var(--space-16);
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-20);
   align-items: center;
 }
 
 .storyImageWrap {
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: var(--shadow-2xl);
+  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.15);
 }
 
 .storyAccentStrip {
@@ -139,6 +146,51 @@
   min-height: 460px;
   object-fit: cover;
   display: block;
+}
+
+.storyBadge {
+  position: absolute;
+  bottom: 24px;
+  right: -24px;
+  width: 120px;
+  height: 120px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px var(--primary-glow);
+  z-index: 3;
+  border: 6px solid var(--secondary);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.storyBadgeInner {
+  text-align: center;
+  color: var(--white);
+}
+
+.storyBadgeNum {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.storyBadgeText {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
 }
 
 .storyContent {
@@ -206,66 +258,92 @@
 
 .missionVision {
   padding: var(--space-24) 0;
-  background: var(--gray-50);
+  background: var(--secondary);
 }
 
 .mvGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
-.mvCard {
+.mvCardDark {
+  background: #0A0A0B;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-16) var(--space-12);
   position: relative;
-  background: var(--white);
-  border-radius: var(--radius-xl);
-  padding: var(--space-12) var(--space-10);
-  border: 1px solid var(--gray-200);
   overflow: hidden;
-  transition:
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.2);
 }
 
-.mvCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
-
-.mvAccent {
+.mvCardGlow {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--primary);
+  top: -30%;
+  right: -30%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255, 0, 60, 0.2), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.mvIconWrap {
-  display: inline-flex;
+.mvIconWrapDark {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 0, 60, 0.15);
+  color: var(--primary);
+  border-radius: var(--radius-xl);
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  background: var(--primary-subtle);
-  color: var(--primary);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-8);
 }
 
-.mvTitle {
+.mvTitleDark {
   font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 700;
+  font-size: 2rem;
+  color: #FFF;
+  margin-bottom: var(--space-4);
+}
+
+.mvTextDark {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #A1A1A6;
+}
+
+.mvCardLight {
+  background: var(--white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-16) var(--space-12);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.05);
+}
+
+.mvIconWrapLight {
+  width: 64px;
+  height: 64px;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-8);
+  border: 1px solid var(--border-default);
+}
+
+.mvTitleLight {
+  font-family: var(--font-display);
+  font-size: 2rem;
   color: var(--gray-900);
   margin-bottom: var(--space-4);
 }
 
-.mvText {
-  font-size: 1rem;
-  line-height: 1.75;
+.mvTextLight {
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: var(--gray-600);
-  margin-bottom: 0;
 }
 
 /* ═══════════════════════════════════════════════
@@ -304,21 +382,19 @@
 
 .bentoCard {
   position: relative;
-  background: var(--gray-50);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8) var(--space-8) var(--space-8);
+  background: var(--surface-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10) var(--space-8);
   overflow: hidden;
-  border: 1px solid transparent;
-  transition:
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bentoCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--gray-200);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12);
+  border-color: rgba(255, 0, 60, 0.2);
 }
 
 .bentoNumber {
@@ -368,20 +444,20 @@
    ═══════════════════════════════════════════════ */
 
 .values {
-  padding: var(--space-24) 0;
-  background: var(--secondary);
+  padding: var(--space-32) 0;
+  background: #0A0A0B;
   position: relative;
   overflow: hidden;
 }
 
 .valuesGlow {
   position: absolute;
-  top: -40%;
-  right: -15%;
-  width: 500px;
-  height: 500px;
+  top: -20%;
+  left: -20%;
+  width: 800px;
+  height: 800px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 0, 60, 0.1) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -393,21 +469,21 @@
 }
 
 .valueCard {
-  text-align: center;
-  padding: var(--space-10) var(--space-6);
-  border-radius: var(--radius-xl);
-  background: var(--glass-dark);
-  border: 1px solid var(--glass-dark-border);
-  transition:
-    transform var(--duration-base) var(--ease-out),
-    background-color var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+  text-align: left;
+  padding: var(--space-10) var(--space-8);
+  border-radius: var(--radius-2xl);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .valueCard:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--glass-border);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5);
 }
 
 .valueIconWrap {
@@ -416,29 +492,30 @@
   justify-content: center;
   width: 64px;
   height: 64px;
-  border-radius: 50%;
-  background: var(--primary-glow);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 0, 60, 0.1);
   color: var(--primary);
-  margin-bottom: var(--space-5);
-  transition: background-color var(--duration-base) var(--ease-out);
+  margin-bottom: var(--space-6);
+  transition: all var(--duration-base) var(--ease-out);
 }
 
 .valueCard:hover .valueIconWrap {
-  background: rgba(213, 0, 50, 0.25);
+  background: rgba(255, 0, 60, 0.2);
+  transform: scale(1.05) rotate(-5deg);
 }
 
 .valueTitle {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-heading);
+  color: #FFFFFF;
   margin-bottom: var(--space-3);
 }
 
 .valueDesc {
-  font-size: 0.9375rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: var(--gray-400);
+  color: #A1A1A6;
   margin-bottom: 0;
 }
 

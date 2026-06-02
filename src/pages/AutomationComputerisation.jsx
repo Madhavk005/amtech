@@ -146,12 +146,14 @@ export default function AutomationComputerisation() {
           <div className={styles.machinesBgOverlay} />
         </div>
         <div className={styles.container}>
-          <SectionHeader
-            label="Equipment"
-            title="Our CNC Machine Centre"
-            align="center"
-            light
-          />
+          <div className={styles.machinesHeaderWrap}>
+            <SectionHeader
+              label="Equipment Arsenal"
+              title="State-of-the-Art Machinery"
+              align="center"
+              light
+            />
+          </div>
           <motion.div
             className={styles.machinesGrid}
             variants={stagger(0.07)}
@@ -161,14 +163,16 @@ export default function AutomationComputerisation() {
           >
             {automation.machines.map((machine, idx) => {
               const num = String(idx + 1).padStart(2, '0');
+              const isLarge = idx === 0 || idx === 3 || idx === 7;
               return (
                 <motion.div
                   key={idx}
-                  className={styles.machineCard}
+                  className={`${styles.machineCard} ${isLarge ? styles.machineCardLarge : ''}`}
                   variants={machineVariant}
                 >
                   <span className={styles.machineNum}>{num}</span>
                   <span className={styles.machineName}>{machine}</span>
+                  <div className={styles.machineGlow} />
                 </motion.div>
               );
             })}

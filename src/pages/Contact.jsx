@@ -8,7 +8,7 @@ import {
   ChevronRight,
   MessageCircle,
 } from 'lucide-react';
-import { company } from '../data/siteData';
+import { company, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import ContactForm from '../components/ui/ContactForm';
 import Button from '../components/ui/Button';
@@ -70,26 +70,32 @@ export default function Contact() {
       />
       {/* ─── Hero ─── */}
       <section className={styles.hero}>
-        <span className={styles.watermark} aria-hidden="true">Contact</span>
-        <motion.div
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <nav className={styles.breadcrumb}>
-            <Link to="/">Home</Link>
-            <ChevronRight size={14} />
-            <span>Contact</span>
-          </nav>
-          <h1 className={styles.heroTitle}>
-            Let's Start a<br />Conversation
-          </h1>
-          <p className={styles.heroSubtitle}>
-            Whether you need a quote, have a technical query, or want to
-            discuss a project — we are here to help.
-          </p>
-        </motion.div>
+        <div className={styles.heroBg}>
+          <img src={images.aboutMain || 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80'} alt="Amtech Cranes Contact" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
+        </div>
+        
+        <div className={styles.heroInner}>
+          <motion.div
+            className={styles.heroContent}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <nav className={styles.breadcrumb}>
+              <Link to="/">Home</Link>
+              <ChevronRight size={14} className={styles.breadcrumbSep} />
+              <span>Contact</span>
+            </nav>
+            <h1 className={styles.heroTitle}>
+              Let's Start a<br />Conversation
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Whether you need a quote, have a technical query, or want to
+              discuss a project — we are here to help.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* ─── Contact Info Cards (overlap hero) ─── */}
