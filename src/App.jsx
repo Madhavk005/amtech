@@ -1,5 +1,7 @@
 import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
 import Layout from './components/layout/Layout'
 import Preloader from './components/ui/Preloader'
 
@@ -20,30 +22,35 @@ const ROICalculator = lazy(() => import('./pages/ROICalculator'))
 const SolutionFinder = lazy(() => import('./pages/SolutionFinder'))
 
 function App() {
+  const location = useLocation()
+
   return (
     <>
       <Preloader />
       <Suspense fallback={null}>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="products" element={<Products />} />
-            <Route path="products/:productId" element={<ProductDetail />} />
-            <Route path="services" element={<Services />} />
-            <Route path="industries" element={<Industries />} />
-            <Route path="industries/:industryId" element={<Industries />} />
-            <Route path="manufacturing" element={<Manufacturing />} />
-            <Route path="manufacturing/production" element={<Production />} />
-            <Route path="manufacturing/design-advantage" element={<DesignAdvantage />} />
-            <Route path="manufacturing/automation-computerisation" element={<AutomationComputerisation />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="configurator" element={<Configurator />} />
-            <Route path="roi-calculator" element={<ROICalculator />} />
-            <Route path="solution-finder" element={<SolutionFinder />} />
-          </Route>
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="products" element={<Products />} />
+              <Route path="products/:productId" element={<ProductDetail />} />
+              <Route path="services" element={<Services />} />
+              <Route path="industries" element={<Industries />} />
+              <Route path="industries/:industryId" element={<Industries />} />
+              <Route path="manufacturing" element={<Manufacturing />} />
+              <Route path="manufacturing/production" element={<Production />} />
+              <Route path="manufacturing/design-advantage" element={<DesignAdvantage />} />
+              <Route path="manufacturing/automation-computerisation" element={<AutomationComputerisation />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="configurator" element={<Configurator />} />
+              <Route path="roi-calculator" element={<ROICalculator />} />
+              <Route path="solution-finder" element={<SolutionFinder />} />
+            </Route>
+          </Routes>
+        </AnimatePresence>
       </Suspense>
+      <Analytics />
     </>
   )
 }

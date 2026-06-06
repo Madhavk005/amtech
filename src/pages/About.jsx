@@ -25,10 +25,7 @@ import Button from '../components/ui/Button';
 import {
   fadeUp,
   fadeLeft,
-  fadeRight,
-  scaleIn,
   stagger,
-  blurIn,
   viewport,
 } from '../utils/animations';
 import styles from './About.module.css';
@@ -69,9 +66,12 @@ const values = [
   },
 ];
 
+import AnimatedPage from '../components/layout/AnimatedPage';
+
 export default function About() {
   return (
-    <main className={styles.page}>
+    <AnimatedPage title="About Us" description="Learn about Amtech Cranes' history of engineering excellence since 1990." canonical="/about">
+      <main className={styles.page}>
       {/* ════════════════════════════════════════════
           1. PAGE HERO — Watermark Style
           ════════════════════════════════════════════ */}
@@ -378,5 +378,6 @@ export default function About() {
         </div>
       </section>
     </main>
+    </AnimatedPage>
   );
 }

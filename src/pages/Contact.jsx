@@ -228,7 +228,7 @@ export default function Contact() {
             <Button
               as="a"
               href={`tel:${company.phone[0].replace(/\s+/g, '')}`}
-              variant="secondary"
+              variant="primary"
               size="lg"
               icon={Phone}
             >
@@ -240,7 +240,6 @@ export default function Contact() {
               variant="outline"
               size="lg"
               icon={Mail}
-              className={styles.ctaEmailBtn}
             >
               Send Email
             </Button>

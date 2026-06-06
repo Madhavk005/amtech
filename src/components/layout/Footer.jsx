@@ -10,7 +10,7 @@ import {
   Youtube,
   ArrowRight,
 } from "lucide-react";
-import { company, navLinks, products } from "../../data/siteData";
+import { company, products } from "../../data/siteData";
 import { fadeUp, stagger, viewport } from "../../utils/animations";
 import s from "./Footer.module.css";
 
@@ -179,9 +179,9 @@ export default function Footer() {
       <div className={s.bottomBar}>
         <div className={s.bottomInner}>
           <p className={s.copyright}>
-            &copy; 2026 {company.fullName}. All rights reserved.
+            &copy; {new Date().getFullYear()} {company.fullName}. All rights reserved.
           </p>
-          <p className={s.engineered}>Engineered with precision</p>
+          <p className={s.engineered}>Designed by <a href="https://atalixmedia.com" target="_blank" rel="noopener noreferrer" style={{color: 'var(--primary)', textDecoration: 'none'}}>Atalix Media</a></p>
         </div>
       </div>
     </footer>

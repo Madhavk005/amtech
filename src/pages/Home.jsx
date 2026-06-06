@@ -1,26 +1,17 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useMotionValue } from 'framer-motion';
 import {
   ArrowRight,
-  Play,
   Phone,
   Award,
   Construction,
-  MapPin,
   Settings,
-  FileCheck,
-  HeartPulse,
   Wrench,
   RefreshCw,
-  Hammer,
-  Truck,
-  CheckCircle,
-  Package,
   Star,
   Quote,
   Shield,
-  ExternalLink,
 } from 'lucide-react';
 
 import SEO from '../components/ui/SEO';
@@ -87,6 +78,7 @@ const Magnetic = ({ children, strength = 0.5 }) => {
    HOME PAGE
    ================================================================ */
 export default function Home() {
+  const [activeIndustry, setActiveIndustry] = useState(0);
   /* Parallax for hero image */
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -417,45 +409,121 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          6. INDUSTRIES — Dynamic Tiles
+          6. INDUSTRIES — Minimalist Tabs
           ───────────────────────────────────────────── */}
       <section className={styles.industries}>
         <div className="container">
           <SectionHeader
             label="Impact"
-            title="Versatility Across Sectors"
+            title="Application by Industry"
             align="center"
           />
 
-          <div className={styles.industryTiles}>
-            {industries.map((ind) => (
-              <motion.div
-                key={ind.id}
-                className={styles.industryTile}
-                whileHover="hover"
-                initial="initial"
-              >
-                <div className={styles.tileBg}>
-                  <img src={ind.image} alt={ind.name} />
-                  <div className={styles.tileOverlay} />
-                </div>
-                <div className={styles.tileContent}>
-                  <h3 className={styles.tileTitle}>{ind.name}</h3>
-                  <motion.p 
-                    className={styles.tileDesc}
+          <div className={styles.tabSection}>
+            {/* Tab Navigation */}
+            <div className={styles.tabList}>
+              {industries.map((ind, idx) => {
+                const isActive = activeIndustry === idx;
+                return (
+                  <button
+                    key={ind.id}
+                    className={`${styles.tabBtn} ${isActive ? styles.tabActiveText : ''}`}
+                    onClick={() => setActiveIndustry(idx)}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeIndustryTab"
+                        className={styles.tabActiveIndicator}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                    <span className={styles.tabBtnText}>{ind.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Tab Content Area */}
+            <div className={styles.tabContentArea}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndustry}
+                  className={styles.tabPane}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={{
+                    visible: { transition: { staggerChildren: 0.1 } },
+                    exit: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
+                  }}
+                >
+                  <motion.div 
+                    className={styles.tabPaneVisual}
                     variants={{
-                      initial: { opacity: 0, height: 0 },
-                      hover: { opacity: 1, height: 'auto' }
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+                      exit: { opacity: 0, x: -10, transition: { duration: 0.3 } }
                     }}
                   >
-                    {ind.desc}
-                  </motion.p>
-                  <Link to={`/industries/${ind.id}`} className={styles.tileLink}>
-                    View Applications <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+                    <img 
+                      src={industries[activeIndustry].image} 
+                      alt={industries[activeIndustry].name} 
+                      className={styles.tabPaneImg} 
+                      loading="lazy" 
+                    />
+                  </motion.div>
+                  
+                  <div className={styles.tabPaneInfo}>
+                    <motion.h3 
+                      className={styles.tabPaneTitle}
+                      variants={{
+                        hidden: { opacity: 0, y: 15 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                        exit: { opacity: 0, transition: { duration: 0.2 } }
+                      }}
+                    >
+                      {industries[activeIndustry].name}
+                    </motion.h3>
+                    <motion.p 
+                      className={styles.tabPaneDesc}
+                      variants={{
+                        hidden: { opacity: 0, y: 15 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                        exit: { opacity: 0, transition: { duration: 0.2 } }
+                      }}
+                    >
+                      {industries[activeIndustry].desc}
+                    </motion.p>
+                    
+                    <motion.div 
+                      className={styles.tabPaneFooter}
+                      variants={{
+                        hidden: { opacity: 0, y: 15 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                        exit: { opacity: 0, transition: { duration: 0.2 } }
+                      }}
+                    >
+                      <div className={styles.tabPaneTrust}>
+                        <span className={styles.tabPaneTrustText}>Trusted By</span>
+                        <img 
+                          src={industries[activeIndustry].clientLogo} 
+                          alt="Client Logo" 
+                          className={`${styles.tabPaneTrustLogo} ${industries[activeIndustry].id !== 'steel-plants' ? styles.largerLogo : ''}`} 
+                        />
+                      </div>
+                      
+                      <Button 
+                        to={`/industries/${industries[activeIndustry].id}`} 
+                        variant="outline" 
+                        arrow
+                      >
+                        Explore Solutions
+                      </Button>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>
@@ -476,16 +544,7 @@ export default function Home() {
                 From local manufacturers to global steel giants, Amtech is the backbone of heavy material handling for over 500+ premium clients.
               </p>
               
-              <div className={styles.reviewBadges}>
-                <div className={styles.reviewBadge}>
-                  <div className={styles.badgeStars}><Star size={14} fill="currentColor" /> 5.0</div>
-                  <span>{reviewStats.google.reviews} Google Reviews</span>
-                </div>
-                <div className={styles.reviewBadge}>
-                  <div className={styles.badgeStars}><Star size={14} fill="currentColor" /> 5.0</div>
-                  <span>{reviewStats.justDial.reviews} JustDial Reviews</span>
-                </div>
-              </div>
+
             </div>
 
             <div className={styles.testimonialSlider}>
@@ -514,23 +573,41 @@ export default function Home() {
           ───────────────────────────────────────────── */}
       <section className={styles.clientsSection}>
         <div className="container">
-          <h3 className={styles.clientsHeader}>Trusted by Industry Leaders Worldwide</h3>
+          <SectionHeader
+            label="Ecosystem"
+            title="Trusted by Industry Leaders Worldwide"
+            align="center"
+          />
           
           <div className={styles.logoMarquee}>
-            {/* Top Track (Left to Right) */}
+            {/* Top Track */}
             <div className={styles.logoTrack}>
               {[...clientLogos.slice(0, 5), ...clientLogos.slice(0, 5), ...clientLogos.slice(0, 5)].map((logo, i) => (
-                <div key={`top-${i}`} className={styles.clientLogo}>
-                  <img src={logo.image} alt={logo.name} loading="lazy" />
+                <div key={`top-${i}`} className={styles.clientMarqueeCard}>
+                  <div className={styles.clientGridVisual}>
+                    <img src={logo.image} alt={logo.name} loading="lazy" />
+                  </div>
+                  <div className={styles.clientGridHover}>
+                    <span className={styles.clientHoverIndustry}>{logo.industry}</span>
+                    <h4 className={styles.clientHoverName}>{logo.name}</h4>
+                    <p className={styles.clientHoverContext}>{logo.context}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Bottom Track (Right to Left) */}
+            {/* Bottom Track */}
             <div className={styles.logoTrackReverse}>
               {[...clientLogos.slice(4, 9), ...clientLogos.slice(4, 9), ...clientLogos.slice(4, 9)].map((logo, i) => (
-                <div key={`bottom-${i}`} className={styles.clientLogo}>
-                  <img src={logo.image} alt={logo.name} loading="lazy" />
+                <div key={`bottom-${i}`} className={styles.clientMarqueeCard}>
+                  <div className={styles.clientGridVisual}>
+                    <img src={logo.image} alt={logo.name} loading="lazy" />
+                  </div>
+                  <div className={styles.clientGridHover}>
+                    <span className={styles.clientHoverIndustry}>{logo.industry}</span>
+                    <h4 className={styles.clientHoverName}>{logo.name}</h4>
+                    <p className={styles.clientHoverContext}>{logo.context}</p>
+                  </div>
                 </div>
               ))}
             </div>

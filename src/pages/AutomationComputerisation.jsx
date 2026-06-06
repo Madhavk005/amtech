@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, CheckCircle, Monitor, Cpu } from 'lucide-react';
-import { manufacturing, stats, company, images } from '../data/siteData';
+import { manufacturing, stats, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatsCounter from '../components/ui/StatsCounter';
 import Button from '../components/ui/Button';
@@ -9,7 +9,6 @@ import {
   fadeUp,
   fadeLeft,
   fadeRight,
-  scaleIn,
   stagger,
   viewport,
 } from '../utils/animations';

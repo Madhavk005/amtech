@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Check, ChevronDown } from 'lucide-react';
-import { fadeUp, scaleIn, viewport } from '../../utils/animations';
 import Button from './Button';
 import styles from './ContactForm.module.css';
 

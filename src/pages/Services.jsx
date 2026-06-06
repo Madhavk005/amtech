@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   FileCheck,
@@ -58,35 +58,8 @@ const whyChooseData = [
   },
 ];
 
-const rowVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
-const expandVariant = {
-  collapsed: { height: 0, opacity: 0 },
-  expanded: {
-    height: 'auto',
-    opacity: 1,
-    transition: { height: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }, opacity: { duration: 0.3, delay: 0.1 } },
-  },
-  exit: {
-    height: 0,
-    opacity: 0,
-    transition: { height: { duration: 0.3, ease: [0.65, 0, 0.35, 1] }, opacity: { duration: 0.15 } },
-  },
-};
-
 export default function Services() {
-  const [expandedId, setExpandedId] = useState(null);
-
-  const toggleExpand = (id) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
+  const [activePanel, setActivePanel] = useState(0);
 
   return (
     <main className={styles.page}>
@@ -120,7 +93,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ─── Services Accordion List ─── */}
+      {/* ─── Services Horizontal Accordion ─── */}
       <section className={styles.servicesSection}>
         <div className={styles.container}>
           <SectionHeader
@@ -130,65 +103,44 @@ export default function Services() {
             align="left"
           />
 
-          <motion.div
-            className={styles.servicesList}
-            variants={stagger(0.07)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {services.map((service, idx) => {
-              const IconComponent = iconMap[service.icon];
-              const isExpanded = expandedId === service.id;
-              const num = String(idx + 1).padStart(2, '0');
-
-              return (
-                <motion.div
-                  key={service.id}
-                  className={`${styles.serviceRow} ${isExpanded ? styles.serviceRowActive : ''}`}
-                  variants={rowVariant}
-                  onClick={() => toggleExpand(service.id)}
-                >
-                  <div className={styles.serviceRowMain}>
-                    <span className={styles.serviceNum}>{num}</span>
-                    <div className={styles.serviceIconCircle}>
-                      {IconComponent && <IconComponent size={20} strokeWidth={1.8} />}
+          <div className={styles.horizontalAccordionContainer}>
+            <div className={styles.horizontalAccordion}>
+              {services.map((service, idx) => {
+                const IconComponent = iconMap[service.icon];
+                const num = String(idx + 1).padStart(2, '0');
+                const isActive = activePanel === idx;
+                
+                return (
+                  <div 
+                    key={service.id} 
+                    className={`${styles.panel} ${isActive ? styles.panelActive : ''}`}
+                    onClick={() => setActivePanel(idx)}
+                    onMouseEnter={() => setActivePanel(idx)}
+                  >
+                    <div className={styles.panelCollapsed}>
+                      {IconComponent && <IconComponent size={24} strokeWidth={1.5} className={styles.panelIconCollapsed} />}
+                      <span className={styles.panelNumCollapsed}>{num}</span>
+                      <span className={styles.panelTitleCollapsed}>{service.name}</span>
                     </div>
-                    <div className={styles.serviceInfo}>
-                      <h3 className={styles.serviceName}>{service.name}</h3>
-                      <p className={styles.serviceDesc}>{service.desc}</p>
-                    </div>
-                    <span className={styles.serviceArrow}>
-                      <ArrowRight size={18} strokeWidth={2} />
-                    </span>
-                  </div>
-
-                  <AnimatePresence>
-                    {isExpanded && (
-                      <motion.div
-                        className={styles.serviceExpanded}
-                        variants={expandVariant}
-                        initial="collapsed"
-                        animate="expanded"
-                        exit="exit"
-                      >
-                        <div className={styles.serviceExpandedInner}>
-                          <p className={styles.serviceExpandedText}>
-                            {service.desc} Our dedicated team ensures minimal downtime
-                            and maximum equipment reliability through proven methodologies
-                            and industry-leading practices.
-                          </p>
-                          <Button variant="ghost" to="/contact" size="sm" arrow>
-                            Get a Quote
-                          </Button>
+                    
+                    <div className={styles.panelExpanded}>
+                      <div className={styles.panelExpandedInner}>
+                        <div className={styles.panelHeader}>
+                          {IconComponent && <IconComponent size={40} strokeWidth={1.5} className={styles.panelIconExpanded} />}
+                          <span className={styles.panelNumExpanded}>{num}</span>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                        <h3 className={styles.panelTitleExpanded}>{service.name}</h3>
+                        <p className={styles.panelDesc}>{service.desc}</p>
+                        <Link to="/contact" className={styles.panelBtn}>
+                          Inquire Now <ArrowRight size={16} />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 

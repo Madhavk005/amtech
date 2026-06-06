@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ShieldCheck, Globe, Layers } from 'lucide-react';
-import { designAdvantages, stats, company, images } from '../data/siteData';
+import { designAdvantages, stats, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatsCounter from '../components/ui/StatsCounter';
 import Button from '../components/ui/Button';

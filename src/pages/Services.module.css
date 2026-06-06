@@ -108,137 +108,193 @@
 }
 
 /* ═══════════════════════════════════════════════
-   2. SERVICES ACCORDION LIST
+   2. HORIZONTAL ACCORDION SERVICES
    ═══════════════════════════════════════════════ */
 
 .servicesSection {
   padding: var(--space-24) 0 var(--space-20);
+  background: var(--white);
 }
 
-.servicesList {
+.horizontalAccordionContainer {
+  width: 100%;
   margin-top: var(--space-12);
+  overflow: hidden;
 }
 
-.serviceRow {
-  border-bottom: 1px solid var(--border-subtle);
-  cursor: pointer;
-  transition: background var(--duration-base) var(--ease-out);
-}
-
-.serviceRow:first-child {
-  border-top: 1px solid var(--border-subtle);
-}
-
-.serviceRow:hover {
-  background: var(--primary-subtle);
-}
-
-.serviceRowActive {
-  background: var(--primary-subtle);
-}
-
-.serviceRowMain {
+.horizontalAccordion {
   display: flex;
-  align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-8) var(--space-4);
+  width: 100%;
+  height: 600px;
+  gap: var(--space-2);
 }
 
-.serviceNum {
+.panel {
+  flex: 1;
+  background: var(--gray-50);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  /* Ultra-smooth easing curve for flex transition */
+  transition: flex 0.8s cubic-bezier(0.22, 1, 0.36, 1), background 0.6s ease, border-color 0.6s ease;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.panelActive {
+  flex: 6;
+  background: linear-gradient(135deg, var(--primary) 0%, #a00020 100%);
+  border-color: transparent;
+  box-shadow: 0 20px 40px rgba(213, 0, 50, 0.3);
+}
+
+/* Collapsed State Elements */
+.panelCollapsed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-8) 0;
+  opacity: 1;
+  transform: translateY(0);
+  /* Faster fade out so it disappears before expanding finishes */
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.panelActive .panelCollapsed {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.panelIconCollapsed {
+  color: var(--primary);
+  margin-bottom: var(--space-6);
+  flex-shrink: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.panel:hover:not(.panelActive) .panelIconCollapsed {
+  transform: scale(1.15) translateY(-5px);
+}
+
+.panelNumCollapsed {
   font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  min-width: 36px;
-  transition: color var(--duration-base) var(--ease-out);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gray-300);
+  margin-bottom: var(--space-10);
+  flex-shrink: 0;
+}
+
+.panelTitleCollapsed {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0.7;
+  transition: opacity 0.4s ease, color 0.4s ease;
+}
+
+.panel:hover:not(.panelActive) .panelTitleCollapsed {
+  opacity: 1;
+  color: var(--primary);
+}
+
+/* Expanded State Elements */
+.panelExpanded {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  padding: var(--space-12) var(--space-10);
+  display: flex;
+  align-items: flex-end;
+}
+
+.panelActive .panelExpanded {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panelExpandedInner {
+  /* Fixed width prevents text reflow/jitter during flex expansion */
+  width: 400px; 
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.panelActive .panelExpandedInner {
+  opacity: 1;
+  transform: translateY(0);
+  /* Delay the fade-in so the panel expands FIRST, then content appears */
+  transition: opacity 0.6s ease 0.35s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+  color: var(--white);
+}
+
+.panelNumExpanded {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 900;
+  opacity: 0.15;
+  color: var(--white);
+  line-height: 0.8;
   letter-spacing: -0.02em;
 }
 
-.serviceRow:hover .serviceNum,
-.serviceRowActive .serviceNum {
-  color: var(--primary);
-}
-
-.serviceIconCircle {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  border-radius: var(--radius-full);
-  background: var(--surface-muted);
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--duration-base) var(--ease-out);
-}
-
-.serviceRow:hover .serviceIconCircle,
-.serviceRowActive .serviceIconCircle {
-  background: var(--primary-glow);
-  color: var(--primary);
-}
-
-.serviceInfo {
-  flex: 1;
-  min-width: 0;
-}
-
-.serviceName {
+.panelTitleExpanded {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  letter-spacing: -0.01em;
-  margin-bottom: 4px;
-}
-
-.serviceDesc {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.serviceArrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  min-width: 36px;
-  height: 36px;
-  color: var(--text-muted);
-  transition: all var(--duration-base) var(--ease-out);
-}
-
-.serviceRow:hover .serviceArrow {
-  color: var(--primary);
-  transform: translateX(4px);
-}
-
-.serviceRowActive .serviceArrow {
-  color: var(--primary);
-  transform: rotate(90deg);
-}
-
-/* Expanded content */
-.serviceExpanded {
-  overflow: hidden;
-}
-
-.serviceExpandedInner {
-  padding: 0 var(--space-4) var(--space-6);
-  padding-left: calc(36px + 44px + var(--space-5) * 2 + var(--space-4));
-}
-
-.serviceExpandedText {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--text-body);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--white);
   margin-bottom: var(--space-4);
-  max-width: 640px;
+  letter-spacing: -0.01em;
+}
+
+.panelDesc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-8);
+  max-width: 400px;
+}
+
+.panelBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--white);
+  color: var(--primary);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.panelBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* ═══════════════════════════════════════════════
@@ -382,12 +438,35 @@
    ═══════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-  .whyGrid {
-    gap: var(--space-6);
+  .horizontalAccordion {
+    flex-direction: column;
+    height: 800px;
+  }
+  
+  .panelTitleCollapsed {
+    transform: none;
+    writing-mode: horizontal-tb;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  .serviceExpandedInner {
-    padding-left: calc(36px + var(--space-5) + var(--space-4));
+  .panelCollapsed {
+    flex-direction: row;
+    padding: var(--space-4) var(--space-6);
+    justify-content: flex-start;
+    gap: var(--space-4);
+  }
+
+  .panelNumCollapsed {
+    margin-bottom: 0;
+  }
+
+  .panelIconCollapsed {
+    margin-bottom: 0;
+  }
+
+  .whyGrid {
+    gap: var(--space-6);
   }
 }
 
@@ -397,41 +476,36 @@
     padding: var(--space-24) var(--space-6) var(--space-16);
   }
 
-  .watermark {
-    font-size: 22vw;
+  .horizontalAccordion {
+    height: auto;
+    flex-direction: column;
   }
 
-  .heroTitle {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  .panel {
+    min-height: 70px;
   }
 
-  .heroSubtitle {
-    font-size: 1rem;
-  }
-
-  .servicesSection {
-    padding: var(--space-16) 0;
-  }
-
-  .serviceRowMain {
-    gap: var(--space-3);
-    padding: var(--space-5) var(--space-3);
-  }
-
-  .serviceIconCircle {
+  .panelExpanded {
+    position: relative;
+    padding: var(--space-6);
+    opacity: 1;
     display: none;
   }
 
-  .serviceName {
-    font-size: 1.1rem;
+  .panelActive .panelExpanded {
+    display: flex;
   }
 
-  .serviceDesc {
+  .panelActive .panelCollapsed {
     display: none;
   }
 
-  .serviceExpandedInner {
-    padding-left: calc(36px + var(--space-3) + var(--space-3));
+  .panelTitleExpanded {
+    font-size: 1.5rem;
+  }
+
+  .panelNumExpanded {
+    font-size: 3rem;
   }
 
   .whyGrid {
@@ -457,25 +531,6 @@
 
   .watermark {
     font-size: 28vw;
-  }
-
-  .serviceRowMain {
-    padding: var(--space-4) var(--space-2);
-    gap: var(--space-3);
-  }
-
-  .serviceNum {
-    font-size: 0.95rem;
-    min-width: 28px;
-  }
-
-  .serviceName {
-    font-size: 1rem;
-  }
-
-  .serviceExpandedInner {
-    padding-left: calc(28px + var(--space-3) + var(--space-2));
-    padding-right: var(--space-2);
   }
 
   .ctaPhone {

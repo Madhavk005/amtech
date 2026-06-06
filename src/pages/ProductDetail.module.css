@@ -15,20 +15,20 @@
 }
 
 /* ═══════════════════════════════════════════════
-   1. OVERVIEW SECTION (Split)
+   1. PAGE LAYOUT & SIDEBAR
    ═══════════════════════════════════════════════ */
 
-.overviewSection {
-  padding: 160px 0 var(--space-20);
-  background: var(--white);
-  border-bottom: 1px solid var(--border-subtle);
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 160px var(--space-6) var(--space-20);
 }
 
 .breadcrumb {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-8);
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
@@ -51,11 +51,106 @@
   color: var(--text-heading);
 }
 
+.pageLayout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.sidebarWidget {
+  background: var(--surface-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+
+.sidebarTitle, .helpTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: var(--space-5);
+}
+
+.sidebarMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarMenu li:last-child .sidebarLink,
+.sidebarMenu li:last-child .activeSidebarLink {
+  border-bottom: none;
+}
+
+.sidebarLink, .activeSidebarLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.sidebarLink:hover {
+  color: var(--primary);
+  padding-left: var(--space-2);
+}
+
+.activeSidebarLink {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.sidebarHelp {
+  background: var(--secondary-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.sidebarHelp .helpTitle {
+  margin-bottom: var(--space-3);
+}
+
+.helpText {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+/* ═══════════════════════════════════════════════
+   2. MAIN CONTENT & OVERVIEW
+   ═══════════════════════════════════════════════ */
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
 .overviewGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
 }
 
 .overviewImageWrap {
@@ -68,7 +163,7 @@
 
 .overviewImage {
   width: 100%;
-  height: 500px;
+  height: 450px;
   object-fit: cover;
   display: block;
 }
@@ -91,7 +186,7 @@
 
 .productTitle {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
   color: var(--text-heading);
   line-height: 1.1;
@@ -100,7 +195,7 @@
 }
 
 .productTagline {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--gray-500);
   margin-bottom: var(--space-6);
@@ -116,7 +211,7 @@
 }
 
 .productDesc {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-muted);
   margin-bottom: var(--space-5);
@@ -280,11 +375,21 @@
    ═══════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-  .overviewGrid {
+  .pageLayout {
     grid-template-columns: 1fr;
     gap: var(--space-10);
   }
+
+  .sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   
+  .sidebar > * {
+    flex: 1 1 300px;
+  }
+
   .overviewImage {
     height: 400px;
   }
@@ -300,10 +405,14 @@
 }
 
 @media (max-width: 768px) {
-  .overviewSection {
-    padding: 120px 0 var(--space-16);
+  .container {
+    padding: 120px var(--space-4) var(--space-16);
   }
   
+  .sidebar {
+    flex-direction: column;
+  }
+
   .featuresGrid {
     grid-template-columns: 1fr;
   }

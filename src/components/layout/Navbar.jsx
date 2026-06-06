@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, ChevronDown, ArrowRight } from "lucide-react";
 import { navLinks, company } from "../../data/siteData";
-import { fadeDown, viewport } from "../../utils/animations";
 import s from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -16,6 +15,7 @@ export default function Navbar() {
 
   /* ── Close mobile menu on route change ── */
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
     setExpandedMobile(null);
     setActiveDropdown(null);
@@ -28,6 +28,7 @@ export default function Navbar() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
@@ -108,22 +109,35 @@ export default function Navbar() {
                 onMouseEnter={() => item.children && openDropdown(item.label)}
                 onMouseLeave={() => item.children && closeDropdown()}
               >
-                <NavLink
-                  to={item.path}
-                  end={item.path === "/"}
-                  className={({ isActive }) =>
-                    `${s.navLink} ${isActive ? s.navLinkActive : ""} ${isTransparent ? s.navLinkLight : ""}`
-                  }
-                >
-                  <span>{item.label}</span>
-                  {item.children && (
-                    <ChevronDown
-                      className={`${s.chevron} ${
-                        activeDropdown === item.label ? s.chevronOpen : ""
-                      }`}
-                    />
-                  )}
-                </NavLink>
+                {item.path === "#" ? (
+                  <div className={`${s.navLink} ${isTransparent ? s.navLinkLight : ""}`} style={{ cursor: 'pointer' }}>
+                    <span>{item.label}</span>
+                    {item.children && (
+                      <ChevronDown
+                        className={`${s.chevron} ${
+                          activeDropdown === item.label ? s.chevronOpen : ""
+                        }`}
+                      />
+                    )}
+                  </div>
+                ) : (
+                  <NavLink
+                    to={item.path}
+                    end={item.path === "/"}
+                    className={({ isActive }) =>
+                      `${s.navLink} ${isActive ? s.navLinkActive : ""} ${isTransparent ? s.navLinkLight : ""}`
+                    }
+                  >
+                    <span>{item.label}</span>
+                    {item.children && (
+                      <ChevronDown
+                        className={`${s.chevron} ${
+                          activeDropdown === item.label ? s.chevronOpen : ""
+                        }`}
+                      />
+                    )}
+                  </NavLink>
+                )}
 
                 {/* Dropdown */}
                 {item.children && (
@@ -241,13 +255,15 @@ export default function Navbar() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                           >
-                            <Link
-                              to={item.path}
-                              className={s.mobileDropdownLink}
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              All {item.label}
-                            </Link>
+                            {item.path !== "#" && (
+                              <Link
+                                to={item.path}
+                                className={s.mobileDropdownLink}
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                All {item.label}
+                              </Link>
+                            )}
                             {item.children.map((child) => (
                               <Link
                                 key={child.path}

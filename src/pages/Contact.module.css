@@ -285,34 +285,10 @@
    ═══════════════════════════════════════════════ */
 
 .cta {
-  background: var(--primary);
+  background: var(--secondary-light);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
-}
-
-/* Subtle decorative circles */
-.cta::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  pointer-events: none;
-}
-
-.cta::after {
-  content: '';
-  position: absolute;
-  bottom: -40%;
-  left: -5%;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.06);
-  pointer-events: none;
 }
 
 .ctaInner {
@@ -336,7 +312,7 @@
 .ctaText {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-muted);
   margin-bottom: var(--space-8);
 }
 
@@ -348,17 +324,7 @@
   flex-wrap: wrap;
 }
 
-.ctaEmailBtn {
-  color: var(--text-heading);
-  border-color: rgba(255, 255, 255, 0.5);
-  background-color: transparent;
-}
 
-.ctaEmailBtn:hover {
-  border-color: var(--text-heading);
-  background-color: rgba(255, 255, 255, 0.12);
-  color: var(--text-heading);
-}
 
 /* ═══════════════════════════════════════════════
    RESPONSIVE

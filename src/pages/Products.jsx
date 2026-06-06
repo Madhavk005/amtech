@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { products, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
-import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import { fadeUp, stagger, scaleIn, viewport } from '../utils/animations';
+import { fadeUp, stagger, viewport } from '../utils/animations';
 import SEO from '../components/ui/SEO';
 import styles from './Products.module.css';
 
@@ -14,7 +13,7 @@ export default function Products() {
   return (
     <main className={styles.page}>
       <SEO 
-        title="Our Crane Solutions | EOT & Gantry Cranes" 
+        title="Our Crane Equipments | EOT & Gantry Cranes" 
         description="Explore Amtech's wide range of industrial crane solutions, including single and double girder EOT cranes, gantry cranes, and specialized lifting equipment."
         canonical="/products"
       />
@@ -39,7 +38,7 @@ export default function Products() {
                 Home
               </Link>
               <ChevronRight size={14} className={styles.breadcrumbSep} />
-              <span className={styles.breadcrumbCurrent}>Products</span>
+              <span className={styles.breadcrumbCurrent}>Equipments</span>
             </nav>
 
             <motion.h1
@@ -78,7 +77,7 @@ export default function Products() {
           </div>
 
           <div className={styles.simpleGrid}>
-            {products.map((product, index) => (
+            {products.map((product) => (
               <motion.div 
                 key={product.id} 
                 className={styles.simpleCard}

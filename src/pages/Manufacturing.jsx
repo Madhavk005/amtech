@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { ChevronRight, CheckCircle, ArrowUpRight, Shield, Settings, AlertTriangle } from 'lucide-react';
 import { stats, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatsCounter from '../components/ui/StatsCounter';
 import Button from '../components/ui/Button';
 import SEO from '../components/ui/SEO';
-import { fadeUp, fadeLeft, fadeRight, viewport } from '../utils/animations';
+import { fadeUp, fadeLeft, fadeRight, stagger, viewport } from '../utils/animations';
 import styles from './Manufacturing.module.css';
 
 const pillars = [
@@ -38,6 +38,29 @@ const qualityPoints = [
   'Load testing and performance verification on every crane',
   'Full compliance with IS standards and industry regulations',
   'Documented quality records and traceability',
+];
+
+const safetyEnhancers = [
+  {
+    title: 'Overload Protection',
+    desc: 'Advanced load monitoring to prevent lifting beyond rated capacities, ensuring structural integrity.',
+    icon: Shield,
+  },
+  {
+    title: 'Anti-Collision Devices',
+    desc: 'Precision sensors to prevent crane-to-crane and crane-to-structure collisions in shared runways.',
+    icon: Settings,
+  },
+  {
+    title: 'Emergency Stop Mechanisms',
+    desc: 'Instantly responsive emergency controls for immediate halt during critical situations.',
+    icon: AlertTriangle,
+  },
+  {
+    title: 'Advanced Limit Switches',
+    desc: 'Rotary and cross-bar limit switches to prevent over-hoisting, over-lowering, and over-travel.',
+    icon: CheckCircle,
+  }
 ];
 
 export default function Manufacturing() {
@@ -135,6 +158,34 @@ export default function Manufacturing() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ─── Safety Enhancers ─── */}
+      <section className={styles.safetySection}>
+        <div className={styles.container}>
+          <SectionHeader
+            label="Safety Enhancers"
+            title="Engineered for Operator Safety."
+            align="center"
+          />
+          <motion.div 
+            className={styles.safetyGrid}
+            variants={stagger(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            {safetyEnhancers.map((item, idx) => (
+              <motion.div key={idx} className={styles.safetyCard} variants={fadeUp}>
+                <div className={styles.safetyIconWrap}>
+                  <item.icon size={24} strokeWidth={1.5} />
+                </div>
+                <h3 className={styles.safetyTitle}>{item.title}</h3>
+                <p className={styles.safetyDesc}>{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

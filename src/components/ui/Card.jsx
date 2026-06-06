@@ -9,7 +9,6 @@ export default function Card({
   link,
   linkText = 'Learn More',
   tag,
-  index = 0,
   variant = 'default',
   className = '',
   ...props

@@ -92,7 +92,7 @@ export const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   {
-    label: "New Features",
+    label: "Value Proposition",
     path: "#",
     children: [
       { label: "Crane Configurator", path: "/configurator" },
@@ -101,7 +101,7 @@ export const navLinks = [
     ]
   },
   {
-    label: "Products",
+    label: "Equipments",
     path: "/products",
     children: [
       {
@@ -120,6 +120,7 @@ export const navLinks = [
         label: "Goliath / Gantry Cranes",
         path: "/products/goliath-gantry-cranes",
       },
+      { label: "Jib Crane", path: "/products/jib-crane" },
       {
         label: "Wire Rope Electric Hoists",
         path: "/products/wire-rope-electric-hoists",
@@ -137,7 +138,7 @@ export const navLinks = [
     ],
   },
   {
-    label: "Industries",
+    label: "Application By Industry",
     path: "/industries",
     children: [
       { label: "Steel Plants", path: "/industries/steel-plants" },
@@ -299,6 +300,41 @@ export const products = [
     ],
   },
   {
+    id: "jib-crane",
+    name: "Jib Crane",
+    tagline: "Versatile and Precise Lifting for Any Workspace",
+    shortDesc: "Versatile jib cranes designed to meet precise lifting needs with a rotating horizontal arm on a vertical mast, providing extensive movement and coverage.",
+    description: "Amtech Cranes specializes in versatile jib cranes designed to meet precise lifting needs. These cranes feature a rotating horizontal arm on a vertical mast, providing extensive movement and coverage. With sturdy construction and various configurations like wall mounted or floor-mounted, our jib cranes accommodate different spaces. Equipped with reliable hoists and trolleys, they ensure smooth and accurate lifting operations. Compact and ideal for limited workstations, they efficiently handle tasks like loading/unloading, material transfers, and heavy machinery maneuvering. Easy to operate and maintain, they minimize downtime. Amtech Cranes delivers customized solutions for small workshops to large industrial facilities, prioritizing quality, productivity, and operational safety.",
+    image: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_17_15-PM.png`,
+    heroImage: `${IMG}/2026/01/Firefly_Gemini-Flash_put-amtech-logo-on-that-crane-and-remobe-the-previous-logos-which-afe-there-309682.png`,
+    features: [
+      {
+        title: "Extensive Movement",
+        desc: "Rotating horizontal arm on a vertical mast provides exceptional coverage and flexibility."
+      },
+      {
+        title: "Various Configurations",
+        desc: "Available in wall-mounted or floor-mounted options to accommodate different spatial requirements."
+      },
+      {
+        title: "Space Efficient",
+        desc: "Compact design makes them ideal for limited workstations and targeted material handling."
+      },
+      {
+        title: "Smooth Operations",
+        desc: "Equipped with reliable hoists and trolleys ensuring accurate lifting and maneuvering."
+      },
+      {
+        title: "Easy Maintenance",
+        desc: "Designed for simple operation and low maintenance to minimize operational downtime."
+      },
+      {
+        title: "Customized Solutions",
+        desc: "Adaptable for small workshops up to large industrial facilities prioritizing safety and productivity."
+      }
+    ]
+  },
+  {
     id: "wire-rope-electric-hoists",
     name: "Wire Rope Electric Hoists",
     tagline: "Engineered for Superior Lifting Performance",
@@ -438,6 +474,8 @@ export const industries = [
     name: "Steel Plants",
     desc: "Specialized cranes for steel melting shops, scrap feeding, ladle handling, and raw material transport — built to withstand extreme temperatures and heavy loads.",
     image: `${IMG}/2026/01/38fbfcdf-c035-4c32-b88f-de14258a65b4-1024x768.jpg`,
+    icon: "Factory",
+    clientLogo: `${IMG}/2026/01/hindustan-hydraulics_logo_2x.png`,
     applications: [
       "Ladle Handling Cranes",
       "Scrap Feeding Cranes",
@@ -451,6 +489,8 @@ export const industries = [
     name: "Power Plants",
     desc: "Reliable crane systems for power generation facilities — designed for turbine maintenance, coal handling, and heavy equipment installation.",
     image: `${IMG}/2026/01/d45d987c-230c-46a8-839d-1f8309f8fd81-1024x571.jpg`,
+    icon: "Zap",
+    clientLogo: `${IMG}/2026/01/light_logo_t4jyjk-scaled.png`,
     applications: [
       "Turbine Hall Cranes",
       "Coal Handling Systems",
@@ -464,6 +504,8 @@ export const industries = [
     name: "Paper Industry",
     desc: "Precision crane solutions for paper mills — from raw material handling to finished product management, ensuring safe and efficient operations.",
     image: `${IMG}/2026/01/fdc0ad4c-75d3-4f57-9559-d08164105408-scaled.jpg`,
+    icon: "FileText",
+    clientLogo: `${IMG}/2025/09/Screenshot-2025-09-18-143221.png`,
     applications: [
       "Roll Handling Cranes",
       "Pulp Processing",
@@ -477,6 +519,8 @@ export const industries = [
     name: "Heavy Industry",
     desc: "Robust crane systems for heavy manufacturing and industrial operations — engineered for maximum reliability under the most demanding conditions.",
     image: `${IMG}/2026/01/sdfghjkl-1024x768.jpg`,
+    icon: "HardHat",
+    clientLogo: `${IMG}/2025/09/Screenshot-2025-09-18-143319.png`,
     applications: [
       "Assembly Line Cranes",
       "Heavy Part Handling",
@@ -573,15 +617,60 @@ export const manufacturing = {
 };
 
 export const clientLogos = [
-  { name: "Client 1", image: `${IMG}/2026/01/1635926133955.jpg` },
-  { name: "Light Logo", image: `${IMG}/2026/01/light_logo_t4jyjk-scaled.png` },
-  { name: "Hindustan Hydraulics", image: `${IMG}/2026/01/hindustan-hydraulics_logo_2x.png` },
-  { name: "Client 4", image: `${IMG}/2025/09/Screenshot-2025-09-18-143221.png` },
-  { name: "Client 5", image: `${IMG}/2025/09/Screenshot-2025-09-18-143231.png` },
-  { name: "Client 6", image: `${IMG}/2025/09/Screenshot-2025-09-18-143319.png` },
-  { name: "Client 7", image: `${IMG}/2025/09/Screenshot-2025-09-18-143208.png` },
-  { name: "Client 8", image: `${IMG}/2025/09/Screenshot-2025-09-18-143159.png` },
-  { name: "Client 9", image: `${IMG}/2025/09/Screenshot-2025-09-18-143333.png` },
+  { 
+    name: "Sunflag Steel", 
+    image: `${IMG}/2026/01/1635926133955.jpg`,
+    industry: "Steel Plants",
+    context: "Leading manufacturer of high-grade steel relying on our heavy-duty overhead cranes for constant ladle handling in extreme conditions."
+  },
+  { 
+    name: "Ambuja Cement", 
+    image: `${IMG}/2026/01/light_logo_t4jyjk-scaled.png`,
+    industry: "Heavy Industry",
+    context: "Global cement manufacturer utilizing our high-capacity gantry cranes for bulk material handling and continuous plant maintenance."
+  },
+  { 
+    name: "Hindustan Hydraulics", 
+    image: `${IMG}/2026/01/hindustan-hydraulics_logo_2x.png`,
+    industry: "Engineering",
+    context: "Premier hydraulic systems supplier utilizing our precision EOT cranes for massive component assembly and testing."
+  },
+  { 
+    name: "Tata Power", 
+    image: `${IMG}/2025/09/Screenshot-2025-09-18-143221.png`,
+    industry: "Power Plants",
+    context: "Major energy provider using our specialized turbine-handling cranes for critical maintenance during power station turnarounds."
+  },
+  { 
+    name: "JSW Steel", 
+    image: `${IMG}/2025/09/Screenshot-2025-09-18-143231.png`,
+    industry: "Steel Manufacturing",
+    context: "Integrating our robust scrap charging cranes into their primary melting operations for increased daily output."
+  },
+  { 
+    name: "BILT Paper", 
+    image: `${IMG}/2025/09/Screenshot-2025-09-18-143319.png`,
+    industry: "Paper Mills",
+    context: "Utilizing highly synchronized, automated wet-end cranes for precise paper roll handling without product damage."
+  },
+  { 
+    name: "L&T Heavy Engineering", 
+    image: `${IMG}/2025/09/Screenshot-2025-09-18-143208.png`,
+    industry: "Heavy Fabrication",
+    context: "Deploying our 100+ ton capacity double-girder cranes for maneuvering massive pressure vessels safely."
+  },
+  { 
+    name: "Vedanta Resources", 
+    image: `${IMG}/2025/09/Screenshot-2025-09-18-143159.png`,
+    industry: "Mining & Metals",
+    context: "Operating our ruggedized outdoor gantry systems for bulk ore management in highly abrasive environments."
+  },
+  { 
+    name: "NTPC", 
+    image: `${IMG}/2025/09/Screenshot-2025-09-18-143333.png`,
+    industry: "Power Generation",
+    context: "Relying on our explosion-proof hoist systems for safe operations within their specialized thermal power sectors."
+  },
 ];
 
 export const testimonials = [

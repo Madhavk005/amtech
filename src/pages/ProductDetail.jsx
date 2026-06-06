@@ -51,112 +51,127 @@ export default function ProductDetail() {
         description={product.shortDesc}
       />
       
-      {/* 1. PRODUCT OVERVIEW (Split Layout) */}
-      <section className={styles.overviewSection}>
-        <div className={styles.container}>
-          <nav className={styles.breadcrumb}>
-            <Link to="/">Home</Link>
-            <ChevronRight size={14} />
-            <Link to="/products">Products</Link>
-            <ChevronRight size={14} />
-            <span>{product.name}</span>
-          </nav>
-          
-          <div className={styles.overviewGrid}>
-            {/* Left: Image */}
-            <motion.div 
-              className={styles.overviewImageWrap}
-              variants={fadeRight}
-              initial="hidden"
-              animate="visible"
-            >
-              <img src={product.image} alt={product.name} className={styles.overviewImage} />
-            </motion.div>
-
-            {/* Right: Content */}
-            <motion.div 
-              className={styles.overviewContent}
-              variants={fadeLeft}
-              initial="hidden"
-              animate="visible"
-            >
-              <span className={styles.brandBadge}>Amtech Precision</span>
-              <h1 className={styles.productTitle}>{product.name}</h1>
-              <p className={styles.productTagline}>{product.tagline}</p>
-              <div className={styles.productDivider} />
-              <p className={styles.productDesc}>{product.description}</p>
-              <p className={styles.productDesc}>
-                Built with premium materials and engineered to Indian Standards,
-                every unit undergoes rigorous pre-dispatch testing to ensure
-                operational reliability from day one.
-              </p>
-              <div className={styles.overviewActions}>
-                <Button to="#quote" variant="primary" size="lg" arrow>Request a Quote</Button>
-                <Button to="/contact" variant="outline" size="lg">Contact Sales</Button>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. FEATURES GRID (Clean Symmetric) */}
-      <section className={styles.featuresSection}>
-        <div className={styles.container}>
-          <SectionHeader 
-            label="Key Features"
-            title="Engineered for Excellence"
-            align="center"
-          />
-          
-          <motion.div 
-            className={styles.featuresGrid}
-            variants={stagger(0.1)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {product.features.map((feature, i) => {
-              const Icon = featureIcons[i % featureIcons.length];
-              return (
-                <motion.div key={i} className={styles.featureCard} variants={fadeUp}>
-                  <div className={styles.featureIconWrap}>
-                    <Icon size={24} strokeWidth={1.5} />
-                  </div>
-                  <h3 className={styles.featureTitle}>{feature.title}</h3>
-                  <p className={styles.featureDesc}>{feature.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 3. CONTACT FORM SECTION */}
-      <section id="quote" className={styles.quoteSection}>
-        <div className={styles.container}>
-          <div className={styles.quoteGrid}>
-            <div className={styles.quoteInfo}>
-              <SectionHeader 
-                label="Start Your Project"
-                title={`Request a Quote for ${product.name}`}
-                align="left"
-              />
-              <p className={styles.quoteDesc}>
-                Our engineering team works closely with you to design and manufacture cranes tailored to your exact operational requirements. Fill out the form to get a detailed specification and pricing estimate.
-              </p>
-              <ul className={styles.quoteChecklist}>
-                <li><CheckCircle size={20} className={styles.checkIcon}/> Comprehensive operational analysis</li>
-                <li><CheckCircle size={20} className={styles.checkIcon}/> Tailored specification sheets</li>
-                <li><CheckCircle size={20} className={styles.checkIcon}/> Transparent pricing & timelines</li>
+      <div className={styles.container}>
+        <nav className={styles.breadcrumb}>
+          <Link to="/">Home</Link>
+          <ChevronRight size={14} />
+          <Link to="/products">Equipment</Link>
+          <ChevronRight size={14} />
+          <span>{product.name}</span>
+        </nav>
+        
+        <div className={styles.pageLayout}>
+          {/* SIDEBAR */}
+          <aside className={styles.sidebar}>
+            <div className={styles.sidebarWidget}>
+              <h3 className={styles.sidebarTitle}>Equipment</h3>
+              <ul className={styles.sidebarMenu}>
+                {products.map((p) => (
+                  <li key={p.id}>
+                    <Link 
+                      to={`/products/${p.id}`} 
+                      className={p.id === productId ? styles.activeSidebarLink : styles.sidebarLink}
+                    >
+                      <ChevronRight size={14} /> {p.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             
-            <div className={styles.quoteFormWrap}>
-              <ContactForm />
+            <div className={styles.sidebarHelp}>
+              <h3 className={styles.helpTitle}>Do you Need any Help?</h3>
+              <p className={styles.helpText}>
+                Prefer speaking with a human to filling out a form? Call us and we will connect you with a team member who can help.
+              </p>
+              <Button to="/contact" variant="primary" arrow>Contact Us</Button>
+            </div>
+          </aside>
+
+          {/* MAIN CONTENT */}
+          <div className={styles.mainContent}>
+            {/* PRODUCT OVERVIEW */}
+            <div className={styles.overviewGrid}>
+              <motion.div 
+                className={styles.overviewImageWrap}
+                variants={fadeRight}
+                initial="hidden"
+                animate="visible"
+              >
+                <img src={product.image} alt={product.name} className={styles.overviewImage} />
+              </motion.div>
+
+              <motion.div 
+                className={styles.overviewContent}
+                variants={fadeLeft}
+                initial="hidden"
+                animate="visible"
+              >
+                <span className={styles.brandBadge}>Amtech Precision</span>
+                <h1 className={styles.productTitle}>{product.name}</h1>
+                <p className={styles.productTagline}>{product.tagline}</p>
+                <div className={styles.productDivider} />
+                <p className={styles.productDesc}>{product.description}</p>
+                <div className={styles.overviewActions}>
+                  <Button to="#quote" variant="primary" size="lg" arrow>Request a Quote</Button>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* FEATURES GRID */}
+            <div className={styles.featuresSection}>
+              <SectionHeader 
+                label="Key Features"
+                title="Engineered for Excellence"
+                align="left"
+              />
+              <motion.div 
+                className={styles.featuresGrid}
+                variants={stagger(0.1)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewport}
+              >
+                {product.features.map((feature, i) => {
+                  const Icon = featureIcons[i % featureIcons.length];
+                  return (
+                    <motion.div key={i} className={styles.featureCard} variants={fadeUp}>
+                      <div className={styles.featureIconWrap}>
+                        <Icon size={24} strokeWidth={1.5} />
+                      </div>
+                      <h3 className={styles.featureTitle}>{feature.title}</h3>
+                      <p className={styles.featureDesc}>{feature.desc}</p>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
+
+            {/* QUOTE SECTION */}
+            <div id="quote" className={styles.quoteSection}>
+              <div className={styles.quoteGrid}>
+                <div className={styles.quoteInfo}>
+                  <SectionHeader 
+                    label="Start Your Project"
+                    title={`Request a Quote for ${product.name}`}
+                    align="left"
+                  />
+                  <p className={styles.quoteDesc}>
+                    Our engineering team works closely with you to design and manufacture cranes tailored to your exact operational requirements.
+                  </p>
+                  <ul className={styles.quoteChecklist}>
+                    <li><CheckCircle size={20} className={styles.checkIcon}/> Comprehensive operational analysis</li>
+                    <li><CheckCircle size={20} className={styles.checkIcon}/> Tailored specification sheets</li>
+                  </ul>
+                </div>
+                <div className={styles.quoteFormWrap}>
+                  <ContactForm />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 }

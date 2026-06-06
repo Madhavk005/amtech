@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ArrowRight, CheckCircle } from 'lucide-react';
+import { ChevronRight, ArrowRight, CheckCircle, Factory, Zap, FileText, HardHat, Car, Building, Train, Package } from 'lucide-react';
 import { industries, stats } from '../data/siteData';
 import StatsCounter from '../components/ui/StatsCounter';
 import Button from '../components/ui/Button';
@@ -8,10 +8,21 @@ import SEO from '../components/ui/SEO';
 import { fadeUp, stagger, viewport } from '../utils/animations';
 import styles from './Industries.module.css';
 
+const iconMap = {
+  Factory,
+  Zap,
+  FileText,
+  HardHat,
+  Car,
+  Building,
+  Train,
+  Package
+};
+
 export default function Industries() {
   return (
     <main className={styles.page}>
-      <SEO title="Industries | Amtech Cranes" description="Powering India's Core Industries with specialized crane solutions." />
+      <SEO title="Application By Industry | Amtech Cranes" description="Powering India's Core Industries with specialized crane solutions." />
       
       {/* ─── Hero ─── */}
       <section className={styles.hero}>
@@ -24,8 +35,8 @@ export default function Industries() {
           >
             <nav className={styles.breadcrumb}>
               <Link to="/">Home</Link>
-              <ChevronRight size={14} />
-              <span>Industries</span>
+              <span className={styles.breadcrumbSep}>/</span>
+              <span>Application By Industry</span>
             </nav>
             <h1 className={styles.heroTitle}>Powering Core Industries</h1>
             <p className={styles.heroSubtitle}>
@@ -35,49 +46,66 @@ export default function Industries() {
         </div>
       </section>
 
-      {/* ─── Premium Grid ─── */}
-      <section className={styles.gridSection}>
+      {/* ─── Horizontal Alternating Rows ─── */}
+      <section className={styles.listSection}>
         <div className={styles.container}>
-          <motion.div 
-            className={styles.industryGrid}
-            variants={stagger(0.1)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {industries.map((industry) => (
-              <motion.div key={industry.id} className={styles.industryCard} variants={fadeUp}>
-                <div className={styles.cardVisual}>
-                  <img src={industry.image} alt={industry.name} className={styles.cardImage} loading="lazy" />
-                  <div className={styles.cardOverlay} />
-                  <div className={styles.cardTitleWrap}>
-                    <h2 className={styles.cardTitle}>{industry.name}</h2>
-                  </div>
+          {industries.map((industry, idx) => {
+            const IconComponent = iconMap[industry.icon];
+            const isReversed = idx % 2 !== 0;
+
+            return (
+              <motion.div 
+                key={industry.id} 
+                className={`${styles.industryRow} ${isReversed ? styles.rowReversed : ''}`} 
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {/* Visual Side */}
+                <div className={styles.rowVisual}>
+                  <img src={industry.image} alt={industry.name} className={styles.rowImage} loading="lazy" />
                 </div>
-                <div className={styles.cardContent}>
-                  <p className={styles.cardDesc}>{industry.desc}</p>
+                
+                {/* Content Side */}
+                <div className={styles.rowContent}>
+                  <div className={styles.rowHeader}>
+                    <div className={styles.rowIconWrap}>
+                      {IconComponent && <IconComponent size={32} strokeWidth={1.5} />}
+                    </div>
+                    <h2 className={styles.rowTitle}>{industry.name}</h2>
+                  </div>
+                  
+                  <p className={styles.rowDesc}>{industry.desc}</p>
                   
                   <div className={styles.applicationsList}>
                     <span className={styles.appLabel}>Key Applications</span>
                     <ul className={styles.appItems}>
                       {industry.applications.map(app => (
                         <li key={app}>
-                          <CheckCircle size={14} className={styles.appIcon} strokeWidth={2.5} />
+                          <CheckCircle size={16} className={styles.appIcon} strokeWidth={2} />
                           <span>{app}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
-                  <div className={styles.cardAction}>
-                     <Link to="/contact" className={styles.actionLink}>
-                       Discuss Solutions <ArrowRight size={16} />
-                     </Link>
+                  <div className={styles.rowFooter}>
+                    <div className={styles.clientTrust}>
+                      <span className={styles.trustedByText}>Trusted By</span>
+                      <div className={styles.clientLogoWrap}>
+                        <img src={industry.clientLogo} alt="Client Logo" className={styles.clientLogoInline} />
+                      </div>
+                    </div>
+
+                    <Button variant="outline" to="/contact" arrow>
+                       Discuss Solutions
+                    </Button>
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </motion.div>
+            )
+          })}
         </div>
       </section>
 
