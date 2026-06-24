@@ -12,6 +12,7 @@ import {
   Star,
   Quote,
   Shield,
+  Mail,
 } from 'lucide-react';
 
 import SEO from '../components/ui/SEO';
@@ -697,6 +698,10 @@ export default function Home() {
                 <div className={styles.ctaContactLink}>
                   <Phone size={20} />
                   <span>Call Us: {company.phone[0]}</span>
+                </div>
+                <div className={styles.ctaContactLink}>
+                  <Mail size={20} />
+                  <span>Sales: {company.salesEmail}</span>
                 </div>
               </motion.div>
             </div>

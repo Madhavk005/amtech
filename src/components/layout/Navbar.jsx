@@ -72,9 +72,9 @@ export default function Navbar() {
               <span>{company.phone[0]}</span>
             </a>
             <span className={s.topBarSep}>|</span>
-            <a href={`mailto:${company.email}`} className={s.topContactLink}>
+            <a href={`mailto:${company.salesEmail}`} className={s.topContactLink}>
               <Mail size={14} />
-              <span>{company.email}</span>
+              <span>{company.salesEmail}</span>
             </a>
           </div>
           <div className={s.topBarCta}>

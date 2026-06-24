@@ -65,4 +65,5 @@ export const industries = [
   'Logistics & Warehousing',
   'Construction',
   'Mining',
+  'Other',
 ];

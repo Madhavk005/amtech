@@ -7,9 +7,11 @@ import {
   Shield,
   Settings,
   Cpu,
-  AlertTriangle
+  AlertTriangle,
+  Phone,
+  Mail
 } from 'lucide-react';
-import { products } from '../data/siteData';
+import { products, company } from '../data/siteData';
 import Button from '../components/ui/Button';
 import ContactForm from '../components/ui/ContactForm';
 import { fadeUp, fadeLeft, fadeRight, stagger, viewport } from '../utils/animations';
@@ -82,9 +84,20 @@ export default function ProductDetail() {
             <div className={styles.sidebarHelp}>
               <h3 className={styles.helpTitle}>Do you Need any Help?</h3>
               <p className={styles.helpText}>
-                Prefer speaking with a human to filling out a form? Call us and we will connect you with a team member who can help.
+                Prefer speaking with a human to filling out a form? Reach out to us directly:
               </p>
-              <Button to="/contact" variant="primary" arrow>Contact Us</Button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px', marginTop: '15px' }}>
+                <a href={`tel:${company.phone[0].replace(/\s/g, '')}`} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-heading)', textDecoration: 'none', fontWeight: 600 }}>
+                  <Phone size={16} /> {company.phone[0]}
+                </a>
+                <a href={`mailto:${company.salesEmail}`} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-heading)', textDecoration: 'none', fontWeight: 600 }}>
+                  <Mail size={16} /> Sales Team
+                </a>
+                <a href={`mailto:${company.serviceEmail}`} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-heading)', textDecoration: 'none', fontWeight: 600 }}>
+                  <Mail size={16} /> Service Team
+                </a>
+              </div>
+              <Button to="/contact" variant="primary" arrow fullWidth>Contact Us</Button>
             </div>
           </aside>
 

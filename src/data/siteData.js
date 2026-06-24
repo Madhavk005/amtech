@@ -11,9 +11,11 @@ export const company = {
     "At Amtech, we are passionate about engineering excellence. Founded in 1990, Amtech has grown into a trusted leader in the manufacturing of Electric Overhead Travelling (EOT) cranes, serving industries across India and around the globe. With a strong focus on innovation, quality, and customer satisfaction, we have successfully commissioned over 3,500 cranes — many to repeat customers — a testament to the trust our clients place in us.",
   founded: 1990,
   cranesCommissioned: "3,500+",
-  facility: "50,000+ sq. meters",
+  facility: "2 Lac+ Sq. Ft.",
   phone: ["+91 80545-10055", "+91 94172-05580", "+91 86999-99302"],
   email: "amtechmetal@gmail.com",
+  salesEmail: "sales@amtechcranes.com",
+  serviceEmail: "service@amtechcranes.com",
   address: "Gaddo Lakhowal Road, Chandigarh Road, Ludhiana",
   landmark: "1.8 Km from Kohara Chowk",
   city: "Ludhiana, Punjab, India",
@@ -84,7 +86,7 @@ export const images = {
 export const stats = [
   { value: "35+", label: "Years of Experience" },
   { value: "3,500+", label: "Cranes Commissioned" },
-  { value: "50,000+", label: "Sq. Mt. Facility" },
+  { value: "2 Lac+", label: "Sq. Ft. Facility" },
   { value: "500+", label: "Happy Clients" },
 ];
 
@@ -96,8 +98,6 @@ export const navLinks = [
     path: "#",
     children: [
       { label: "Crane Configurator", path: "/configurator" },
-      { label: "ROI Calculator", path: "/roi-calculator" },
-      { label: "Solution Finder", path: "/solution-finder" },
     ]
   },
   {
@@ -133,8 +133,6 @@ export const navLinks = [
     path: "/manufacturing",
     children: [
       { label: "Production", path: "/manufacturing/production" },
-      { label: "Design Advantage", path: "/manufacturing/design-advantage" },
-      { label: "Automation & Computerisation", path: "/manufacturing/automation-computerisation" },
     ],
   },
   {
@@ -554,7 +552,7 @@ export const designAdvantages = [
   },
   {
     title: "Pre-Dispatch Testing",
-    desc: "Every crane is fully wired up and checked before dispatch, with Federal Engineers inspection and verification of each unit.",
+    desc: "Every crane is fully wired up and checked before dispatch, with Amtech Engineers inspection and verification of each unit.",
   },
   {
     title: "Standardized Wear Parts",
@@ -567,34 +565,12 @@ export const designAdvantages = [
 ];
 
 export const manufacturing = {
-  facility: "Our massive state-of-the-art manufacturing facility is spread over approximately 50,000 square meters, equipped with the latest machinery and technology.",
-  overview: "With an in-house design team that uses automation and computerisation to ensure the highest level of precision in the manufacturing process, we have invested heavily in our manufacturing capabilities to deliver the best possible products and services to our clients.",
+  facility: "Our massive state-of-the-art manufacturing facility is spread over approximately 2 Lac square feet, equipped with the latest machinery and technology.",
+  overview: "With an in-house design team that uses advanced technology to ensure the highest level of precision in the manufacturing process, we have invested heavily in our manufacturing capabilities to deliver the best possible products and services to our clients.",
   production: {
     title: "Production",
-    desc: "Our facility features large and heavy fabrication facilities, sub-assembly centers, and a heavy machine shop equipped with CNC machines. All cranes receive complete assembly including actual cabins and electrical cables.",
-    qualityNote: "Federal Engineers inspect and verify each unit before shipment. Our dedicated QA/QC division maintains consistent manufacturing standards.",
-  },
-  automation: {
-    title: "Automation & Computerisation",
-    desc: "Amtech is a distinguished crane manufacturer in India featuring state-of-the-art CNC capabilities for producing components like gearboxes, wheel assemblies, and drum assemblies internally.",
-    benefits: [
-      "Superior product quality",
-      "Better dimensional accuracy",
-      "Increased productivity levels",
-      "Improved surface finish quality",
-    ],
-    machines: [
-      "HMC Machine",
-      "VTL Machine",
-      "VMC",
-      "CNC Hobbing Machine",
-      "CNC Lathe Machine",
-      "CNC VTL Machine",
-      "CNC Cutting Machine",
-      "Doosan Horizontal Machine",
-      "Boring Machine",
-    ],
-    softwareNote: "The organization has implemented computer-based systems since 1986 and continues developing tailored software for design and estimation departments. Currently implementing SAP enterprise resource planning solutions.",
+    desc: "Our facility features large and heavy fabrication facilities, sub-assembly centers, and a heavy machine shop equipped with CNC machines. All cranes receive complete assembly including actual cabins and electrical cables. Amtech features state-of-the-art CNC capabilities for producing components like gearboxes, wheel assemblies, and drum assemblies internally.",
+    qualityNote: "Amtech Engineers inspect and verify each unit before shipment. Our dedicated QA/QC division maintains consistent manufacturing standards.",
   },
   capabilities: [
     {

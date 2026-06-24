@@ -168,7 +168,11 @@ export default function Footer() {
               </div>
               <div className={s.contactItem}>
                 <Mail size={16} className={s.contactIcon} />
-                <a href={`mailto:${company.email}`}>{company.email}</a>
+                <div>
+                  <a href={`mailto:${company.salesEmail}`}>Sales: {company.salesEmail}</a>
+                  <br />
+                  <a href={`mailto:${company.serviceEmail}`}>Service: {company.serviceEmail}</a>
+                </div>
               </div>
             </div>
           </motion.div>

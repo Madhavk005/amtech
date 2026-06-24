@@ -4,17 +4,14 @@ import {
   ChevronRight, 
   ChevronLeft, 
   CheckCircle2, 
-  Info, 
   Cpu, 
   Settings, 
   Zap,
-  Download,
   Phone,
   Mail,
   Building2,
   User,
-  Calendar,
-  Construction
+  Calendar
 } from 'lucide-react';
 import { craneTypes, dutyClasses, industries } from '../data/configuratorData';
 import Button from '../components/ui/Button';
@@ -46,9 +43,21 @@ export default function Configurator() {
     window.scrollTo(0, 0);
   }, [currentStep]);
 
+  useEffect(() => {
+    let type = 'single-girder';
+    if (config.environment === 'outdoor') {
+      type = 'goliath';
+    } else if (config.loadCapacity > 20 || config.spanLength > 20) {
+      type = 'double-girder';
+    } else if (config.loadCapacity <= 10 && config.industry === 'Manufacturing') {
+      type = 'single-girder';
+    }
+    setConfig(prev => ({ ...prev, typeId: type }));
+  }, [config.loadCapacity, config.spanLength, config.environment, config.industry]);
+
   const selectedType = craneTypes.find(t => t.id === config.typeId);
 
-  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 5));
+  const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 4));
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
   const handleConfigChange = (field, value) => {
@@ -60,7 +69,7 @@ export default function Configurator() {
     setIsSubmitted(true);
   };
 
-  const stepLabels = ['Selection', 'Technical', 'Analysis', 'Summary', 'Connect'];
+  const stepLabels = ['Technical', 'Analysis', 'Summary', 'Connect'];
 
   return (
     <main className={styles.configuratorPage}>
@@ -124,47 +133,10 @@ export default function Configurator() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               className={styles.stepContent}
             >
-              {/* STEP 1: CRANE SELECTION */}
-              {currentStep === 1 && (
-                <>
-                  <div className={styles.stepHeader}>
-                    <h1 className={styles.stepTitle}>Select Crane Type</h1>
-                    <p className={styles.stepSubtitle}>Choose the base configuration for your project requirements.</p>
-                  </div>
-                  
-                  <div className={styles.selectionGrid}>
-                    {craneTypes.map(type => (
-                      <div 
-                        key={type.id} 
-                        className={`${styles.selectionCard} ${config.typeId === type.id ? styles.selectionCardSelected : ''}`}
-                        onClick={() => handleConfigChange('typeId', type.id)}
-                      >
-                        <img src={type.image} alt={type.name} className={styles.cardImage} />
-                        <div className={styles.cardBody}>
-                          <div className={styles.cardMeta}>
-                            <h3 className={styles.cardTitle}>{type.name}</h3>
-                            <span className={styles.capacityBadge}>{type.capacityRange}</span>
-                          </div>
-                          <p style={{ fontSize: '0.85rem', color: 'var(--gray-400)', marginBottom: '16px', lineHeight: '1.5' }}>
-                            {type.description}
-                          </p>
-                          <div className={styles.tagGroup}>
-                            {type.tags.map(tag => (
-                              <span key={tag} className={styles.tag}>
-                                <Settings size={10} style={{ marginRight: '4px' }} />
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
 
-              {/* STEP 2: TECHNICAL INPUTS */}
-              {currentStep === 2 && (
+
+              {/* STEP 1: TECHNICAL INPUTS */}
+              {currentStep === 1 && (
                 <>
                   <div className={styles.stepHeader}>
                     <h2 className={styles.stepTitle}>Technical Parameters</h2>
@@ -178,7 +150,7 @@ export default function Configurator() {
                         <span className={styles.labelValue}>{config.loadCapacity} Tons</span>
                       </label>
                       <input 
-                        type="range" min="1" max="150" step="1" 
+                        type="range" min="5" max="200" step="5" 
                         value={config.loadCapacity} 
                         onChange={(e) => handleConfigChange('loadCapacity', parseInt(e.target.value))}
                         className={styles.rangeInput}
@@ -255,8 +227,8 @@ export default function Configurator() {
                 </>
               )}
 
-              {/* STEP 3: SMART ANALYSIS */}
-              {currentStep === 3 && (
+              {/* STEP 2: SMART ANALYSIS */}
+              {currentStep === 2 && (
                 <>
                   <div className={styles.stepHeader}>
                     <h2 className={styles.stepTitle}>Engineering Analysis</h2>
@@ -303,25 +275,13 @@ export default function Configurator() {
                       <span className={styles.bentoValue}>{(config.spanLength * 0.45).toFixed(1)}<span> Tons</span></span>
                     </div>
 
-                    <div className={styles.visualizationPlaceholder}>
-                      <Construction className={styles.vizIcon} size={48} />
-                      <h3 style={{ color: 'var(--white)', fontSize: '1rem', marginBottom: '8px' }}>Virtual Prototype</h3>
-                      <p style={{ fontSize: '0.75rem' }}>Generating 3D model for {config.loadCapacity}T system...</p>
-                      <div style={{ width: '100%', height: '4px', background: 'var(--gray-800)', borderRadius: '2px', marginTop: '15px', overflow: 'hidden' }}>
-                        <motion.div 
-                          style={{ height: '100%', background: 'var(--primary)' }}
-                          initial={{ width: '0%' }}
-                          animate={{ width: '100%' }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                      </div>
-                    </div>
+
                   </div>
                 </>
               )}
 
-              {/* STEP 4: VISUAL SUMMARY */}
-              {currentStep === 4 && (
+              {/* STEP 3: VISUAL SUMMARY */}
+              {currentStep === 3 && (
                 <>
                   <div className={styles.stepHeader}>
                     <h2 className={styles.stepTitle}>Configuration Summary</h2>
@@ -357,26 +317,13 @@ export default function Configurator() {
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                      <div style={{ background: 'var(--primary-subtle)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--primary-light)' }}>
-                        <h4 style={{ color: 'var(--primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <Info size={16} /> Engineering Note
-                        </h4>
-                        <p style={{ fontSize: '0.85rem', color: 'var(--gray-300)' }}>
-                          Your span of {config.spanLength}m requires a box-girder construction for structural rigidity. 
-                          We recommend a dual-speed hoisting system for safer {config.loadCapacity}T material positioning.
-                        </p>
-                      </div>
-                      <Button variant="ghost" size="sm" className={styles.downloadBtn}>
-                        <Download size={16} /> Preview Draft GA Drawing (PDF)
-                      </Button>
-                    </div>
+
                   </div>
                 </>
               )}
 
-              {/* STEP 5: LEAD CAPTURE */}
-              {currentStep === 5 && (
+              {/* STEP 4: LEAD CAPTURE */}
+              {currentStep === 4 && (
                 <>
                   <div className={styles.stepHeader}>
                     <h2 className={styles.stepTitle}>Request Detailed Proposal</h2>
@@ -433,8 +380,8 @@ export default function Configurator() {
                 </>
               )}
 
-              {/* Navigation buttons for Step 1-4 */}
-              {currentStep < 5 && (
+              {/* Navigation buttons for Step 1-3 */}
+              {currentStep < 4 && (
                 <div className={styles.stepFooter}>
                   <Button 
                     variant="ghost" 
@@ -448,9 +395,8 @@ export default function Configurator() {
                   <Button 
                     variant="primary" 
                     onClick={nextStep}
-                    disabled={currentStep === 1 && !config.typeId}
                   >
-                    {currentStep === 4 ? 'Confirm & Connect' : 'Next Step'} <ChevronRight size={20} />
+                    {currentStep === 3 ? 'Confirm & Connect' : 'Next Step'} <ChevronRight size={20} />
                   </Button>
                 </div>
               )}

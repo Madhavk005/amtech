@@ -148,13 +148,7 @@
   position: relative;
 }
 
-.selectionCard::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8));
-  pointer-events: none;
-}
+
 
 .selectionCard:hover {
   transform: translateY(-8px);
@@ -339,7 +333,7 @@
 .bentoMain {
   grid-column: span 2;
   grid-row: span 2;
-  background: linear-gradient(135deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.9) 100%);
+  background: var(--secondary-mid);
   border: 1px solid var(--gray-800);
   border-radius: var(--radius-xl);
   padding: 40px;
@@ -410,7 +404,8 @@
   margin-top: auto;
   padding-top: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* Lead Form */

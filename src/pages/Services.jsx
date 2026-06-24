@@ -14,6 +14,7 @@ import {
   Zap,
   Globe,
   Phone,
+  Mail,
   ChevronRight,
   ArrowRight,
 } from 'lucide-react';
@@ -195,13 +196,24 @@ export default function Services() {
             Our service team is available for emergency support. Reach out now and
             we will have an expert on your case within hours.
           </p>
-          <a
-            href={`tel:${company.phone[0].replace(/\s/g, '')}`}
-            className={styles.ctaPhone}
-          >
-            <Phone size={22} strokeWidth={2} />
-            <span>{company.phone[0]}</span>
-          </a>
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '30px', marginBottom: 'var(--space-8)' }}>
+            <a
+              href={`tel:${company.phone[0].replace(/\s/g, '')}`}
+              className={styles.ctaPhone}
+              style={{ marginBottom: 0 }}
+            >
+              <Phone size={22} strokeWidth={2} />
+              <span>{company.phone[0]}</span>
+            </a>
+            <a
+              href={`mailto:${company.serviceEmail}`}
+              className={styles.ctaPhone}
+              style={{ marginBottom: 0 }}
+            >
+              <Mail size={22} strokeWidth={2} />
+              <span>{company.serviceEmail}</span>
+            </a>
+          </div>
           <div className={styles.ctaActions}>
             <Button variant="white" to="/contact" size="lg" arrow>
               Contact Us

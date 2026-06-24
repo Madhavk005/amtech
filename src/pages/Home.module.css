@@ -1164,9 +1164,10 @@
 
 .ctaActions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: var(--space-10);
+  gap: var(--space-8);
 }
 
 .ctaContactLink {
@@ -1225,4 +1226,6 @@
   .roiStat { width: 100%; }
   .testimonialCard { padding: 30px; }
   .testimonialText { font-size: 1.15rem; }
+  
+  .ctaActions { flex-direction: column; }
 }
