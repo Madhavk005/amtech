@@ -52,10 +52,15 @@ export default function Configurator() {
     } else if (config.loadCapacity <= 10 && config.industry === 'Manufacturing') {
       type = 'single-girder';
     }
-    setConfig(prev => ({ ...prev, typeId: type }));
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setConfig(prev => {
+      if (prev.typeId === type) return prev;
+      return { ...prev, typeId: type };
+    });
   }, [config.loadCapacity, config.spanLength, config.environment, config.industry]);
 
   const selectedType = craneTypes.find(t => t.id === config.typeId);
+  const selectedDuty = dutyClasses.find(d => d.id === config.dutyClass);
 
   const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 4));
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
@@ -117,7 +122,7 @@ export default function Configurator() {
               <h2 className={styles.stepTitle}>Configuration Transmitted</h2>
               <p className={styles.stepSubtitle}>
                 Our engineering team has received your technical specifications for the {selectedType?.name}. 
-                An industrial lead will review your requirements and reach out within 24 hours with a Preliminary GA Drawing.
+                An industrial lead will review your requirements and reach out within 24 hours.
               </p>
               <div style={{ marginTop: '30px', display: 'flex', gap: '15px', justifyContent: 'center' }}>
                 <Button to="/" variant="primary">Return Home</Button>
@@ -140,7 +145,7 @@ export default function Configurator() {
                 <>
                   <div className={styles.stepHeader}>
                     <h2 className={styles.stepTitle}>Technical Parameters</h2>
-                    <p className={styles.stepSubtitle}>Define the core engineering specifications for the {selectedType?.name}.</p>
+                    <p className={styles.stepSubtitle}>Define the core engineering specifications for your crane.</p>
                   </div>
 
                   <div className={styles.inputGrid}>
@@ -237,14 +242,14 @@ export default function Configurator() {
 
                   <div className={styles.summaryBento}>
                     <div className={styles.bentoMain}>
-                      <h3 style={{ color: 'var(--primary)', marginBottom: '25px', fontSize: '1.5rem' }}>System Recommendation</h3>
+                      <h3 className={styles.bentoTitle}>System Recommendation</h3>
                       <div className={styles.specList}>
                         <div className={styles.specItem}>
                           <Settings className={styles.specIcon} size={22} />
                           <div>
                             <span className={styles.specLabel}>Optimal Configuration</span>
-                            <span className={styles.specValue} style={{ fontSize: '1.4rem' }}>
-                              {config.loadCapacity > 20 || config.spanLength > 20 ? 'Double Girder Box Type' : 'Single Girder Box Type'}
+                            <span className={styles.specValue}>
+                              {selectedType?.name || 'Custom Engineering Required'}
                             </span>
                           </div>
                         </div>
@@ -272,7 +277,7 @@ export default function Configurator() {
 
                     <div className={styles.bentoStat}>
                       <span className={styles.bentoLabel}>Est. Structural Weight</span>
-                      <span className={styles.bentoValue}>{(config.spanLength * 0.45).toFixed(1)}<span> Tons</span></span>
+                      <span className={styles.bentoValue}>{((config.spanLength * 0.25) + (config.loadCapacity * 0.12)).toFixed(1)}<span> Tons</span></span>
                     </div>
 
 
@@ -290,28 +295,28 @@ export default function Configurator() {
 
                   <div className={styles.summaryGrid}>
                     <div style={{ background: 'var(--secondary-light)', padding: '25px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--gray-800)' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--gray-800)', paddingBottom: '15px', marginBottom: '20px' }}>
+                      <div className={styles.summaryBentoHeader}>
                         <h3 className={styles.cardTitle}>{selectedType?.name}</h3>
                         <span className={styles.capacityBadge}>Technical Brief</span>
                       </div>
                       
                       <div className={styles.specList}>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                          <div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                             <span className={styles.specLabel}>Load Capacity</span>
                             <span className={styles.specValue}>{config.loadCapacity} Tons</span>
                           </div>
-                          <div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                             <span className={styles.specLabel}>Span / Lift</span>
                             <span className={styles.specValue}>{config.spanLength}m / {config.liftHeight}m</span>
                           </div>
-                          <div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                             <span className={styles.specLabel}>Duty Cycle</span>
-                            <span className={styles.specValue}>{config.dutyClass.toUpperCase()}</span>
+                            <span className={styles.specValue}>{selectedDuty?.name || config.dutyClass.toUpperCase()}</span>
                           </div>
-                          <div>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                             <span className={styles.specLabel}>Environment</span>
-                            <span className={styles.specValue}>{config.environment.toUpperCase()}</span>
+                            <span className={styles.specValue}>{config.environment === 'indoor' ? 'Indoor Operations' : 'Outdoor Operations'}</span>
                           </div>
                         </div>
                       </div>
@@ -327,7 +332,7 @@ export default function Configurator() {
                 <>
                   <div className={styles.stepHeader}>
                     <h2 className={styles.stepTitle}>Request Detailed Proposal</h2>
-                    <p className={styles.stepSubtitle}>Connect with our engineering leads to finalize your GA drawing and quotation.</p>
+                    <p className={styles.stepSubtitle}>Connect with our engineering leads to finalize your technical specifications and quotation.</p>
                   </div>
 
                   <form className={styles.leadForm} onSubmit={handleSubmit}>
@@ -387,16 +392,19 @@ export default function Configurator() {
                     variant="ghost" 
                     onClick={prevStep} 
                     disabled={currentStep === 1}
-                    className={currentStep === 1 ? 'opacity-0' : ''}
+                    style={{ opacity: currentStep === 1 ? 0 : 1, pointerEvents: currentStep === 1 ? 'none' : 'auto' }}
+                    icon={ChevronLeft}
                   >
-                    <ChevronLeft size={20} /> Previous
+                    Previous
                   </Button>
                   
                   <Button 
                     variant="primary" 
                     onClick={nextStep}
+                    icon={ChevronRight}
+                    iconRight
                   >
-                    {currentStep === 3 ? 'Confirm & Connect' : 'Next Step'} <ChevronRight size={20} />
+                    {currentStep === 3 ? 'Confirm & Connect' : 'Next Step'}
                   </Button>
                 </div>
               )}

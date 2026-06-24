@@ -13,7 +13,7 @@ export const company = {
   cranesCommissioned: "3,500+",
   facility: "2 Lac+ Sq. Ft.",
   phone: ["+91 80545-10055", "+91 94172-05580", "+91 86999-99302"],
-  email: "amtechmetal@gmail.com",
+
   salesEmail: "sales@amtechcranes.com",
   serviceEmail: "service@amtechcranes.com",
   address: "Gaddo Lakhowal Road, Chandigarh Road, Ludhiana",

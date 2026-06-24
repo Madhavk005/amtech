@@ -25,7 +25,7 @@ export const craneTypes = [
   },
   {
     id: 'jib-crane',
-    name: 'JIB Crane',
+    name: 'Jib Crane',
     image: '/images/configurator/jib-crane.png',
     capacityRange: '0.5T - 10T',
     tags: ['Assembly Lines', 'Localized Lifting', 'Workstations'],

@@ -13,7 +13,7 @@ const pillars = [
   {
     title: 'Production Excellence',
     subtitle: 'Scale & Precision',
-    desc: 'Our massive 50,000+ sq.m. facility features large fabrication areas, dedicated sub-assembly centers, and a heavy machine shop equipped to handle projects of any scale.',
+    desc: 'Our massive 2 Lac+ sq.ft. facility features large fabrication areas, dedicated sub-assembly centers, and a heavy machine shop equipped to handle projects of any scale.',
     path: '/manufacturing/production',
     image: images.factory1,
   },
@@ -28,7 +28,7 @@ const pillars = [
     title: 'Automation & CNC',
     subtitle: 'Next-Generation Manufacturing',
     desc: 'We leverage state-of-the-art CNC machine centers and proprietary software to achieve unparalleled dimensional accuracy and surface finish quality.',
-    path: '/manufacturing/automation-computerisation',
+    path: '/manufacturing/production',
     image: images.cnc1,
   }
 ];
@@ -66,7 +66,7 @@ const safetyEnhancers = [
 export default function Manufacturing() {
   return (
     <main className={styles.page}>
-      <SEO title="Manufacturing | Amtech Cranes" description="State-of-the-art manufacturing capabilities delivering world-class crane systems from our 50,000+ sq.m. facility." />
+      <SEO title="Manufacturing | Amtech Cranes" description="State-of-the-art manufacturing capabilities delivering world-class crane systems from our 2 Lac+ sq.ft. facility." />
       
       {/* ─── Hero ─── */}
       <section className={styles.hero}>

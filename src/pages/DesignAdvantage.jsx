@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronRight, ShieldCheck, Globe, Layers } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { designAdvantages, stats, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import StatsCounter from '../components/ui/StatsCounter';
@@ -15,24 +15,6 @@ import {
 } from '../utils/animations';
 import styles from './DesignAdvantage.module.css';
 
-const highlights = [
-  {
-    icon: Layers,
-    title: 'No Castings Used',
-    desc: 'Gearbox casings and pulleys are profile-cut from plates, eliminating casting defects and ensuring superior dimensional accuracy.',
-  },
-  {
-    icon: Globe,
-    title: 'European Components',
-    desc: 'Brakes, Malmedie couplings, and hooks imported from Europe for higher-capacity cranes, guaranteeing international quality standards.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Export-Ready',
-    desc: 'Special crane designs enabling containerized transport, serving clients across India and globally with ease.',
-  },
-];
-
 const rowVariant = {
   hidden: { opacity: 0, y: 16 },
   visible: {
@@ -42,14 +24,7 @@ const rowVariant = {
   },
 };
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
-  },
-};
+
 
 const interstitialImages = [
   { src: images.design2, alt: 'Crane design engineering' },
@@ -236,40 +211,6 @@ export default function DesignAdvantage() {
         </div>
       </section>
 
-      {/* ─── Key Highlights — 3 Column Cards ─── */}
-      <section className={styles.highlights}>
-        <div className={styles.container}>
-          <SectionHeader
-            label="Key Highlights"
-            title="What Makes Our Design Different"
-            align="center"
-          />
-          <motion.div
-            className={styles.highlightsGrid}
-            variants={stagger(0.1)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-          >
-            {highlights.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  className={styles.highlightCard}
-                  variants={cardVariant}
-                >
-                  <div className={styles.highlightIconWrap}>
-                    <Icon size={24} strokeWidth={1.8} />
-                  </div>
-                  <h3 className={styles.highlightTitle}>{item.title}</h3>
-                  <p className={styles.highlightDesc}>{item.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
 
       {/* ─── Stats ─── */}
       <StatsCounter stats={stats} variant="dark" />

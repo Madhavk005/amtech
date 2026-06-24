@@ -16,7 +16,7 @@ import styles from './Production.module.css';
 
 const qualityBullets = [
   'Complete assembly with actual cabins & cables',
-  'Federal Engineers inspection & verification',
+  'Amtech Engineers inspection & verification',
   'Dedicated QA/QC division',
   'Pre-dispatch full testing',
 ];
@@ -27,6 +27,25 @@ const galleryImages = [
   { src: images.production3, alt: 'Crane assembly line' },
   { src: images.production4, alt: 'Quality inspection bay' },
 ];
+
+
+const benefitVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const machineVariant = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 const imageVariant = {
   hidden: { opacity: 0, scale: 0.92 },
@@ -47,6 +66,7 @@ const bulletVariant = {
 };
 
 export default function Production() {
+  const { automation } = manufacturing;
   return (
     <main className={styles.page}>
       {/* ─── Hero ─── */}
@@ -73,7 +93,7 @@ export default function Production() {
             Production Facility
           </h1>
           <p className={styles.heroSubtitle}>
-            Our 50,000+ sq.m. facility houses large fabrication centres,
+            Our 2 Lac+ sq.ft. facility houses large fabrication centres,
             sub-assembly lines, and a heavy machine shop equipped with advanced
             CNC machines — everything under one roof for total quality control.
           </p>
@@ -117,7 +137,7 @@ export default function Production() {
               </p>
 
               <div className={styles.pillRow}>
-                {['50,000+ Sq. Mt.', 'CNC Equipped', 'QA/QC Certified'].map(
+                {['2 Lac+ Sq. Ft.', 'CNC Equipped', 'QA/QC Certified'].map(
                   (pill) => (
                     <span key={pill} className={styles.pill}>
                       {pill}
@@ -165,6 +185,118 @@ export default function Production() {
           </motion.div>
         </div>
       </section>
+
+      <section className={styles.cncOverview}>
+        <div className={styles.container}>
+          <div className={styles.cncGrid}>
+            <motion.div
+              className={styles.cncImageWrap}
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <img
+                src={images.cnc1}
+                alt="CNC machine centre at Amtech"
+                className={styles.cncImage}
+                loading="lazy"
+              />
+            </motion.div>
+
+            <motion.div
+              className={styles.cncContent}
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <SectionHeader
+                label="CNC Capabilities"
+                title="Precision-Driven Manufacturing"
+                align="left"
+              />
+              <p className={styles.cncText}>{automation.desc}</p>
+              <p className={styles.cncText}>
+                Our CNC capabilities allow us to produce critical components like
+                gearboxes, wheel assemblies, and drum assemblies entirely
+                in-house, maintaining complete quality control over every part.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Benefit Cards */}
+          <motion.div
+            className={styles.benefitsRow}
+            variants={stagger(0.1)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            {automation.benefits.map((benefit, idx) => (
+              <motion.div
+                key={idx}
+                className={styles.benefitCard}
+                variants={benefitVariant}
+              >
+                <CheckCircle
+                  size={20}
+                  strokeWidth={2}
+                  className={styles.benefitIcon}
+                />
+                <span className={styles.benefitText}>{benefit}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── Machine Inventory ─── */}
+      <section className={styles.machines}>
+        <div className={styles.machinesBg}>
+          <img
+            src={images.cnc2}
+            alt="CNC machine centre background"
+            className={styles.machinesBgImg}
+            loading="lazy"
+          />
+          <div className={styles.machinesBgOverlay} />
+        </div>
+        <div className={styles.container}>
+          <div className={styles.machinesHeaderWrap}>
+            <SectionHeader
+              label="Equipment Arsenal"
+              title="State-of-the-Art Machinery"
+              align="center"
+              light
+            />
+          </div>
+          <motion.div
+            className={styles.machinesGrid}
+            variants={stagger(0.07)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            {automation.machines.map((machine, idx) => {
+              const num = String(idx + 1).padStart(2, '0');
+              const isLarge = idx === 0 || idx === 3 || idx === 7;
+              return (
+                <motion.div
+                  key={idx}
+                  className={`${styles.machineCard} ${isLarge ? styles.machineCardLarge : ''}`}
+                  variants={machineVariant}
+                >
+                  <span className={styles.machineNum}>{num}</span>
+                  <span className={styles.machineName}>{machine}</span>
+                  <div className={styles.machineGlow} />
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
 
       {/* ─── Quality Assurance (dark) ─── */}
       <section className={styles.quality}>

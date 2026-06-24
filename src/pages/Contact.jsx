@@ -37,8 +37,8 @@ const contactCards = [
   {
     icon: Mail,
     title: 'Email Us',
-    lines: [company.salesEmail, company.serviceEmail, company.email],
-    hrefs: [`mailto:${company.salesEmail}`, `mailto:${company.serviceEmail}`, `mailto:${company.email}`],
+    lines: [company.salesEmail, company.serviceEmail],
+    hrefs: [`mailto:${company.salesEmail}`, `mailto:${company.serviceEmail}`],
   },
   {
     icon: Clock,
@@ -209,12 +209,7 @@ export default function Contact() {
                   >
                     {company.serviceEmail}
                   </a>
-                  <a
-                    href={`mailto:${company.email}`}
-                    className={styles.quickContactLink}
-                  >
-                    {company.email}
-                  </a>
+
                 </div>
               </div>
             </motion.div>

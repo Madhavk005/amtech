@@ -309,9 +309,9 @@ export default function Navbar() {
                 <Phone size={14} />
                 <span>{company.phone[0]}</span>
               </a>
-              <a href={`mailto:${company.email}`} className={s.mobileContactItem}>
-                <Mail size={14} />
-                <span>{company.email}</span>
+              <a href={`mailto:${company.salesEmail}`} className={s.mobileContactItem}>
+                <Mail size={16} />
+                <span>{company.salesEmail}</span>
               </a>
             </div>
           </motion.nav>

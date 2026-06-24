@@ -181,7 +181,7 @@
 .tagline {
   font-size: 14px;
   line-height: 1.75;
-  color: #86868B;
+  color: #A1A1A6;
   margin-bottom: var(--space-6);
 }
 
@@ -250,7 +250,7 @@
   padding: 7px 0;
   font-size: 14px;
   font-weight: 400;
-  color: #86868B;
+  color: #A1A1A6;
   text-decoration: none;
   transition:
     color var(--duration-fast) ease,
@@ -275,11 +275,11 @@
   gap: var(--space-3);
   font-size: 14px;
   line-height: 1.65;
-  color: #86868B;
+  color: #A1A1A6;
 }
 
 .contactItem a {
-  color: #86868B;
+  color: #A1A1A6;
   text-decoration: none;
   transition: color var(--duration-fast) ease;
 }

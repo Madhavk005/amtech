@@ -9,7 +9,6 @@ import {
   Settings,
   Wrench,
   RefreshCw,
-  Star,
   Quote,
   Shield,
   Mail,
@@ -17,11 +16,12 @@ import {
 
 import SEO from '../components/ui/SEO';
 
-import { company, stats, products, industries, images, clientLogos, testimonials, reviewStats } from '../data/siteData';
+import { company, stats, products, industries, images, clientLogos, testimonials } from '../data/siteData';
 import Button from '../components/ui/Button';
 import SectionHeader from '../components/ui/SectionHeader';
 import Card from '../components/ui/Card';
 import StatsCounter from '../components/ui/StatsCounter';
+import ImageMarquee from '../components/ui/ImageMarquee';
 import {
   fadeUp,
   stagger,
@@ -317,6 +317,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ─────────────────────────────────────────────
+          IMAGE MARQUEE
+          ───────────────────────────────────────────── */}
+      <ImageMarquee />
 
       {/* ─────────────────────────────────────────────
           3. STATS — Integrated

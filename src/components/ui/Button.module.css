@@ -22,6 +22,12 @@
   transition: all var(--duration-base) var(--ease-out);
 }
 
+.button span.label {
+  display: block;
+  text-align: center;
+  transform: translateY(1px); /* optical adjustment for uppercase font */
+}
+
 /* ---- Shape ---- */
 
 .pill {
@@ -51,6 +57,11 @@
   padding: 0 36px;
   font-size: 0.95rem;
 }
+
+/* Arrow padding overrides to keep text perfectly centered */
+.button.hasArrow.sm { padding: 0 32px; }
+.button.hasArrow.md { padding: 0 40px; }
+.button.hasArrow.lg { padding: 0 48px; }
 
 /* ---- Hover micro-interaction ---- */
 
@@ -156,11 +167,16 @@
    ================================================ */
 
 .arrow {
+  position: absolute;
+  right: 16px;
   transition: transform 0.4s var(--ease-out);
 }
 
+.button.lg .arrow { right: 24px; }
+.button.sm .arrow { right: 12px; }
+
 .button:hover .arrow {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 .fullWidth { width: 100%; }

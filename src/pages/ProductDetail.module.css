@@ -8,11 +8,6 @@
   background: var(--gray-50);
 }
 
-.container {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 var(--space-6);
-}
 
 /* ═══════════════════════════════════════════════
    1. PAGE LAYOUT & SIDEBAR

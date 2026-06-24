@@ -27,7 +27,7 @@
   --on-primary: #FFFFFF;
   --text-heading: #0A0A0B;
   --text-body: #424245;
-  --text-muted: #6E6E73;
+  --text-muted: #515154;
   --text-inverse: #FFFFFF;
   --text-link: var(--primary);
 
@@ -36,8 +36,8 @@
   --gray-50: #EBEBEF;
   --gray-100: #3A3A3C;
   --gray-200: #515154;
-  --gray-300: #6E6E73;
-  --gray-400: #86868B;
+  --gray-300: #515154;
+  --gray-400: #515154;
   --gray-500: #A1A1A6;
   --gray-600: #C7C7CC;
   --gray-700: #D2D2D7;
