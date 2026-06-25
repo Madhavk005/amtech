@@ -81,8 +81,8 @@ export default function Industries() {
                       <img src={industry.clientLogo} alt="Client Logo" className={styles.clientLogoInline} />
                     </div>
                   </div>
-                  <Button variant="outline" to="/contact" arrow>
-                     Discuss Solutions
+                  <Button variant="outline" to={industry.id === 'steel-plants' ? '/products/steel-plant-cranes' : '/contact'} arrow>
+                     {industry.id === 'steel-plants' ? 'View Specialized Solutions' : 'Discuss Solutions'}
                   </Button>
                 </div>
               </div>

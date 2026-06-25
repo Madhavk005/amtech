@@ -261,17 +261,19 @@ export default function Home() {
                   transition={{ duration: 0.6 }}
                 />
                 <div className={styles.aboutVisualOverlay} />
-                
-                {/* Floating Experience Badge */}
-                <motion.div 
-                  className={styles.expBadge}
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <span className={styles.expNumber}>35+</span>
-                  <span className={styles.expText}>Years of Engineering</span>
-                </motion.div>
               </div>
+              
+              {/* Floating Experience Badge */}
+              <motion.div 
+                className={styles.expBadge}
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className={styles.expBadgeInner}>
+                  <span className={styles.expNumber}>35+</span>
+                  <span className={styles.expText}>Years of Excellence</span>
+                </div>
+              </motion.div>
             </motion.div>
 
             <motion.div
@@ -646,7 +648,7 @@ export default function Home() {
                   <span>ISO Certified</span>
                 </div>
               </div>
-              <Button to="/roi-calculator" variant="primary" size="lg" arrow>Calculate Your ROI</Button>
+              <Button to="/contact" variant="primary" size="lg" arrow>Discuss ROI with Us</Button>
             </div>
             <div className={styles.roiVisual}>
               <div className={styles.roiGlow} />

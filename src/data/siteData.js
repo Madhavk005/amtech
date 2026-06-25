@@ -126,6 +126,7 @@ export const navLinks = [
         path: "/products/wire-rope-electric-hoists",
       },
       { label: "Transfer Trolley", path: "/products/transfer-trolley" },
+      { label: "Steel Plant Cranes", path: "/products/steel-plant-cranes" },
     ],
   },
   {
@@ -405,6 +406,108 @@ export const products = [
       },
     ],
   },
+  {
+    id: "ladle-handling-cranes",
+    name: "Ladle Handling / Teeming Cranes",
+    tagline: "Safe and precise transportation of molten metal",
+    shortDesc: "High-performance Ladle Handling / Teeming Cranes for steel plants and foundries.",
+    description: "Amtech Cranes designs high-performance Ladle Handling / Teeming Cranes for the safe and precise transportation of molten metal in steel plants and foundries. Built to operate reliably in extreme temperatures, dusty environments, and continuous-duty applications, these cranes feature heavy-duty construction, high-performance components, and operator cabins with excellent visibility. Designed for maximum safety, minimal downtime, and long service life, they ensure efficient material handling throughout the steel-making process.",
+    image: "/images/steel-plant/ladle_handling_crane.png",
+    heroImage: "/images/steel-plant/ladle_handling_crane.png",
+    features: [
+      { title: "Extreme Temperature Ready", desc: "Built to operate reliably in intense heat and continuous-duty applications." },
+      { title: "Heavy-Duty Construction", desc: "Robust framework engineered specifically for demanding steel plant environments." },
+      { title: "Operator Safety", desc: "Specialized cabins providing excellent visibility and protection for operators." },
+      { title: "High-Performance Components", desc: "Premium mechanisms ensuring maximum reliability and minimal downtime." },
+      { title: "Dust Resistant", desc: "Sealed components and specialized designs to withstand dusty foundry environments." },
+      { title: "Precision Control", desc: "Advanced systems for the exact positioning needed when handling molten metal." },
+    ],
+  },
+  {
+    id: "scrap-handling-cranes",
+    name: "Scrap Handling / Charging Cranes",
+    tagline: "Engineered for demanding scrap yard and melt shop operations",
+    shortDesc: "High-productivity Scrap Handling / Charging Cranes equipped for lifting magnets or hydraulic grabs.",
+    description: "Our Scrap Handling / Charging Cranes are engineered for demanding scrap yard and melt shop operations. Equipped to work with lifting magnets or hydraulic grabs, these cranes efficiently transport scrap metal while withstanding high temperatures, dust, shock loads, and continuous operation. Designed for high productivity, exceptional reliability, and low maintenance, they deliver safe and efficient performance in the most challenging steel plant environments.",
+    image: "/images/steel-plant/scrap_handling_crane.png",
+    heroImage: "/images/steel-plant/scrap_handling_crane.png",
+    features: [
+      { title: "Magnet & Grab Ready", desc: "Specially equipped to integrate seamlessly with heavy lifting magnets or hydraulic grabs." },
+      { title: "Shock Load Resistant", desc: "Engineered to withstand the sudden stress and shock loads common in scrap handling." },
+      { title: "Continuous Operation", desc: "Built for high-cycle, round-the-clock operations in melt shops." },
+      { title: "High Productivity", desc: "Optimized speeds and controls to ensure rapid and efficient scrap charging." },
+      { title: "Low Maintenance", desc: "Durable design focusing on easily accessible components for quick servicing." },
+      { title: "Harsh Environment Ready", desc: "Resistant to high temperatures, abrasive dust, and intense industrial conditions." },
+    ],
+  },
+  {
+    id: "billet-handling-cranes",
+    name: "Billet Handling Cranes",
+    tagline: "Smooth, reliable, and precise handling for hot metal products",
+    shortDesc: "Specialized cranes for the safe movement of billets, slabs, and other hot metal products.",
+    description: "Amtech Cranes manufactures Billet Handling Cranes for the safe movement of billets, slabs, and other hot metal products throughout steel manufacturing facilities. Built to withstand intense heat and harsh industrial conditions, these cranes provide smooth, reliable, and precise handling. Optional rotating trolleys and electromagnets can be integrated for rotating, stacking, and transporting billets efficiently while ensuring maximum operational safety.",
+    image: "/images/steel-plant/billet_handling_crane.png",
+    heroImage: "/images/steel-plant/billet_handling_crane.png",
+    features: [
+      { title: "Hot Metal Handling", desc: "Purpose-built for the safe transportation of glowing hot billets and slabs." },
+      { title: "Rotating Trolleys", desc: "Optional integration for precise rotating and aligning of steel products." },
+      { title: "Electromagnet Integration", desc: "Fully compatible with specialized electromagnets for efficient stacking and transport." },
+      { title: "Smooth Maneuvering", desc: "Precision controls to prevent swinging and ensure accurate placement." },
+      { title: "Thermal Protection", desc: "Advanced shielding and heat-resistant components for intense environments." },
+      { title: "Operational Safety", desc: "Comprehensive safety systems designed specifically for steel manufacturing facilities." },
+    ],
+  },
+  {
+    id: "plate-coil-handling-cranes",
+    name: "Plate / Coil Handling Cranes",
+    tagline: "Stable load handling for heavy steel coils and plates",
+    shortDesc: "Specially designed for handling heavy steel coils, plates, and fabricated components with precision.",
+    description: "Our Plate / Coil Handling Cranes are specially designed for handling heavy steel coils, plates, and fabricated components with precision and safety. Featuring robust bridge structures and specialized lifting attachments such as C-hooks, clamps, or grabs, these cranes provide stable load handling for steel processing, fabrication, shipbuilding, and heavy engineering industries. Every crane is engineered for high reliability, operational efficiency, and long service life.",
+    image: "/images/steel-plant/plate_coil_handling_crane.png",
+    heroImage: "/images/steel-plant/plate_coil_handling_crane.png",
+    features: [
+      { title: "Specialized Attachments", desc: "Engineered to utilize C-hooks, lifting clamps, and mechanical grabs perfectly." },
+      { title: "Stable Load Handling", desc: "Anti-sway technology and rigid structures to keep massive coils completely stable." },
+      { title: "Robust Bridge Structure", desc: "Heavy-duty girders capable of supporting extreme localized weights." },
+      { title: "Precision Placement", desc: "Micro-speed controls for exact positioning of coils and plates without damage." },
+      { title: "Versatile Applications", desc: "Ideal for steel processing, fabrication yards, and heavy engineering facilities." },
+      { title: "Long Service Life", desc: "Premium components selected for maximum durability and return on investment." },
+    ],
+  },
+  {
+    id: "rolling-mill-cranes",
+    name: "Rolling Mill Cranes",
+    tagline: "Continuous-duty operations for metal processing plants",
+    shortDesc: "Engineered with heavy-duty mechanisms for safe transportation throughout rolling operations.",
+    description: "Amtech Cranes offers Rolling Mill Cranes designed specifically for continuous-duty operations in rolling mills and metal processing plants. Engineered with heavy-duty mechanisms, precision controls, and multiple synchronized motions, these cranes enable safe transportation of steel products throughout rolling operations. Configurations can include rotating trolleys, electromagnets, and customized lifting solutions to meet specific production requirements.",
+    image: "/images/steel-plant/rolling_mill_crane.png",
+    heroImage: "/images/steel-plant/rolling_mill_crane.png",
+    features: [
+      { title: "Continuous-Duty Design", desc: "Built to match the relentless pace of active rolling mill operations." },
+      { title: "Synchronized Motions", desc: "Advanced control systems allowing multiple precise movements simultaneously." },
+      { title: "Heavy-Duty Mechanisms", desc: "Oversized gearboxes, motors, and brakes for extreme reliability." },
+      { title: "Custom Configurations", desc: "Adaptable with rotating trolleys, specialized hooks, and custom lifting beams." },
+      { title: "High-Speed Operations", desc: "Optimized travel and hoisting speeds to maintain plant productivity." },
+      { title: "Process Integration", desc: "Designed to seamlessly integrate with your specific metal processing workflow." },
+    ],
+  },
+  {
+    id: "ladle-transfer-trolleys",
+    name: "Ladle Transfer Trolleys",
+    tagline: "Safe and efficient transportation of molten metal ladles",
+    shortDesc: "Heavy-duty trolleys ensuring smooth movement and precise positioning under extreme conditions.",
+    description: "Our Ladle Transfer Trolleys provide safe and efficient transportation of molten metal ladles between production stations in steel plants and foundries. Manufactured using heat-resistant materials and heavy-duty drive systems, these trolleys ensure smooth movement, precise positioning, and reliable operation under extreme industrial conditions. Available with customized ladle securing systems, remote operation, and safety features to meet specific plant requirements.",
+    image: "/images/steel-plant/ladle_transfer_trolley.png",
+    heroImage: "/images/steel-plant/ladle_transfer_trolley.png",
+    features: [
+      { title: "Heat-Resistant Materials", desc: "Constructed with specialized materials to withstand direct proximity to molten metal." },
+      { title: "Heavy-Duty Drive Systems", desc: "Powerful, reliable motors designed for smooth, jolt-free movement." },
+      { title: "Precise Positioning", desc: "Accurate stopping mechanisms critical for alignment at production stations." },
+      { title: "Ladle Securing Systems", desc: "Customized cradles and locking mechanisms to prevent any shifting during transit." },
+      { title: "Remote Operation", desc: "Wireless control options keeping operators at a safe distance from extreme heat." },
+      { title: "Fail-Safe Safety Features", desc: "Emergency brakes, warning signals, and redundant systems for maximum safety." },
+    ],
+  }
 ];
 
 export const services = [
@@ -480,6 +583,50 @@ export const industries = [
       "Raw Material Handling",
       "Furnace Charging",
       "Hot Metal Transport",
+    ],
+    solutions: [
+      {
+        id: "ladle-handling-cranes",
+        title: "Ladle Handling / Teeming Cranes",
+        desc: "Amtech Cranes designs high-performance Ladle Handling / Teeming Cranes for the safe and precise transportation of molten metal in steel plants and foundries. Built to operate reliably in extreme temperatures, dusty environments, and continuous-duty applications, these cranes feature heavy-duty construction, high-performance components, and operator cabins with excellent visibility. Designed for maximum safety, minimal downtime, and long service life, they ensure efficient material handling throughout the steel-making process.",
+        image: "/images/steel-plant/ladle_handling_crane.png",
+        link: "/products/ladle-handling-cranes"
+      },
+      {
+        id: "scrap-handling-cranes",
+        title: "Scrap Handling / Charging Cranes",
+        desc: "Our Scrap Handling / Charging Cranes are engineered for demanding scrap yard and melt shop operations. Equipped to work with lifting magnets or hydraulic grabs, these cranes efficiently transport scrap metal while withstanding high temperatures, dust, shock loads, and continuous operation. Designed for high productivity, exceptional reliability, and low maintenance, they deliver safe and efficient performance in the most challenging steel plant environments.",
+        image: "/images/steel-plant/scrap_handling_crane.png",
+        link: "/products/scrap-handling-cranes"
+      },
+      {
+        id: "billet-handling-cranes",
+        title: "Billet Handling Cranes",
+        desc: "Amtech Cranes manufactures Billet Handling Cranes for the safe movement of billets, slabs, and other hot metal products throughout steel manufacturing facilities. Built to withstand intense heat and harsh industrial conditions, these cranes provide smooth, reliable, and precise handling. Optional rotating trolleys and electromagnets can be integrated for rotating, stacking, and transporting billets efficiently while ensuring maximum operational safety.",
+        image: "/images/steel-plant/billet_handling_crane.png",
+        link: "/products/billet-handling-cranes"
+      },
+      {
+        id: "plate-coil-handling-cranes",
+        title: "Plate / Coil Handling Cranes",
+        desc: "Our Plate / Coil Handling Cranes are specially designed for handling heavy steel coils, plates, and fabricated components with precision and safety. Featuring robust bridge structures and specialized lifting attachments such as C-hooks, clamps, or grabs, these cranes provide stable load handling for steel processing, fabrication, shipbuilding, and heavy engineering industries. Every crane is engineered for high reliability, operational efficiency, and long service life.",
+        image: "/images/steel-plant/plate_coil_handling_crane.png",
+        link: "/products/plate-coil-handling-cranes"
+      },
+      {
+        id: "rolling-mill-cranes",
+        title: "Rolling Mill Cranes",
+        desc: "Amtech Cranes offers Rolling Mill Cranes designed specifically for continuous-duty operations in rolling mills and metal processing plants. Engineered with heavy-duty mechanisms, precision controls, and multiple synchronized motions, these cranes enable safe transportation of steel products throughout rolling operations. Configurations can include rotating trolleys, electromagnets, and customized lifting solutions to meet specific production requirements.",
+        image: "/images/steel-plant/rolling_mill_crane.png",
+        link: "/products/rolling-mill-cranes"
+      },
+      {
+        id: "ladle-transfer-trolleys",
+        title: "Ladle Transfer Trolleys",
+        desc: "Our Ladle Transfer Trolleys provide safe and efficient transportation of molten metal ladles between production stations in steel plants and foundries. Manufactured using heat-resistant materials and heavy-duty drive systems, these trolleys ensure smooth movement, precise positioning, and reliable operation under extreme industrial conditions. Available with customized ladle securing systems, remote operation, and safety features to meet specific plant requirements.",
+        image: "/images/steel-plant/ladle_transfer_trolley.png",
+        link: "/products/ladle-transfer-trolleys"
+      }
     ],
   },
   {

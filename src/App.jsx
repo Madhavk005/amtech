@@ -17,6 +17,7 @@ const Production = lazy(() => import('./pages/Production'))
 const DesignAdvantage = lazy(() => import('./pages/DesignAdvantage'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Configurator = lazy(() => import('./pages/Configurator'))
+const SteelPlantCranes = lazy(() => import('./pages/SteelPlantCranes'))
 
 function App() {
   const location = useLocation()
@@ -32,6 +33,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="products" element={<Products />} />
               <Route path="products/:productId" element={<ProductDetail />} />
+              <Route path="products/steel-plant-cranes" element={<SteelPlantCranes />} />
               <Route path="services" element={<Services />} />
               <Route path="industries" element={<Industries />} />
               <Route path="industries/:industryId" element={<Industries />} />

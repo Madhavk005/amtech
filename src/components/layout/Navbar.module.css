@@ -204,7 +204,7 @@
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: var(--space-4);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -313,6 +313,9 @@
     0 0 0 1px rgba(0, 0, 0, 0.02);
   padding: 8px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 /* Invisible bridge so hover doesn't break */
@@ -518,7 +521,7 @@
   padding: var(--space-3) var(--space-5);
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-2);
 }
 
 .mobileNavItem {

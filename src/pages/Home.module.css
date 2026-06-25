@@ -326,32 +326,45 @@
 
 .expBadge {
   position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  bottom: 15%;
+  right: -30px;
   background: var(--primary);
-  color: var(--text-heading);
-  padding: var(--space-10) var(--space-8);
+  color: var(--white);
+  padding: var(--space-8) var(--space-12);
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: var(--shadow-primary);
-  border-radius: var(--radius-sm);
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(213, 0, 50, 0.4);
+  border-radius: var(--radius-2xl);
   z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.expBadgeInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .expNumber {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 800;
   line-height: 1;
+  color: var(--white);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
 }
 
 .expText {
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   white-space: nowrap;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .aboutContent {
