@@ -23,10 +23,21 @@ const companyLinks = [
   { label: "Contact", path: "/contact" },
 ];
 
-const productLinks = products.map((p) => ({
-  label: p.name,
-  path: `/products/${p.id}`,
-}));
+const excludedFooterProductIds = [
+  "ladle-handling-cranes",
+  "scrap-handling-cranes",
+  "billet-handling-cranes",
+  "plate-coil-handling-cranes",
+  "rolling-mill-cranes",
+  "ladle-transfer-trolleys"
+];
+
+const productLinks = products
+  .filter((p) => !excludedFooterProductIds.includes(p.id))
+  .map((p) => ({
+    label: p.name,
+    path: `/products/${p.id}`,
+  }));
 
 const socials = [
   { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
