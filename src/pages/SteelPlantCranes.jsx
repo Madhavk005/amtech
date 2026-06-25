@@ -46,21 +46,7 @@ export default function SteelPlantCranes() {
       {/* Main Layout */}
       <section className={styles.mainSection}>
         <div className={styles.layoutContainer}>
-          {/* Sidebar Navigation */}
-          <aside className={styles.sidebar}>
-            <div className={styles.sidebarSticky}>
-              <h2 className={styles.sidebarTitle}>Cranes & Solutions</h2>
-              <ul className={styles.sidebarNav}>
-                {solutions.map((solution) => (
-                  <li key={`nav-${solution.id}`}>
-                    <a href={`#${solution.id}`} className={styles.sidebarLink}>
-                      {solution.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+
 
           {/* Content Area */}
           <div className={styles.contentArea}>
