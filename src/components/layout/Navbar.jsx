@@ -92,13 +92,15 @@ export default function Navbar() {
       >
         <div className={s.inner}>
           {/* Logo */}
-          <Link to="/" className={s.logo} aria-label="Amtech Cranes Home">
-            <img
-              src={company.logo}
-              alt={company.fullName}
-              className={`${s.logoImg} ${isTransparent ? s.logoWhite : s.logoColor}`}
-            />
-          </Link>
+          <div className={s.logoContainer}>
+            <Link to="/" className={s.logo} aria-label="Amtech Cranes Home">
+              <img
+                src={company.logo}
+                alt={company.fullName}
+                className={`${s.logoImg} ${isTransparent ? s.logoWhite : s.logoColor}`}
+              />
+            </Link>
+          </div>
 
           {/* Desktop Nav - centered */}
           <nav className={s.desktopNav} aria-label="Main navigation">
