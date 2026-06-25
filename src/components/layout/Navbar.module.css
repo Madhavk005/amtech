@@ -204,9 +204,8 @@
 .desktopNav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 1;
-  gap: var(--space-6);
+  gap: var(--space-4);
+  margin: 0 auto;
 }
 
 .navItem {
