@@ -64,7 +64,7 @@ export default function SteelPlantCranes() {
 
           {/* Content Area */}
           <div className={styles.contentArea}>
-            {solutions.map((solution, idx) => (
+            {solutions.map((solution) => (
               <motion.section 
                 key={solution.id} 
                 id={solution.id}

@@ -14,6 +14,8 @@ import {
   Calendar
 } from 'lucide-react';
 import { craneTypes, dutyClasses, industries } from '../data/configuratorData';
+import { determineEquipmentType, calculateStructuralWeight, calculateSafetyFactor } from '../services/engine';
+import { submitQuoteRequest } from '../services/api';
 import Button from '../components/ui/Button';
 import SEO from '../components/ui/SEO';
 import styles from './Configurator.module.css';
@@ -44,15 +46,13 @@ export default function Configurator() {
   }, [currentStep]);
 
   useEffect(() => {
-    let type = 'single-girder';
-    if (config.environment === 'outdoor') {
-      type = 'goliath';
-    } else if (config.loadCapacity > 20 || config.spanLength > 20) {
-      type = 'double-girder';
-    } else if (config.loadCapacity <= 10 && config.industry === 'Manufacturing') {
-      type = 'single-girder';
-    }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const type = determineEquipmentType({ 
+      loadCapacity: config.loadCapacity, 
+      spanLength: config.spanLength, 
+      environment: config.environment, 
+      industry: config.industry 
+    });
+    
     setConfig(prev => {
       if (prev.typeId === type) return prev;
       return { ...prev, typeId: type };
@@ -69,9 +69,21 @@ export default function Configurator() {
     setConfig(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      await submitQuoteRequest(config);
+      setIsSubmitted(true);
+    } catch (err) {
+      setSubmitError(err.message || 'Failed to submit quote request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const stepLabels = ['Technical', 'Analysis', 'Summary', 'Connect'];
@@ -272,12 +284,12 @@ export default function Configurator() {
 
                     <div className={styles.bentoStat}>
                       <span className={styles.bentoLabel}>Safety Factor</span>
-                      <span className={styles.bentoValue}>5.0<span>:1</span></span>
+                      <span className={styles.bentoValue}>{calculateSafetyFactor(config)}<span>:1</span></span>
                     </div>
 
                     <div className={styles.bentoStat}>
                       <span className={styles.bentoLabel}>Est. Structural Weight</span>
-                      <span className={styles.bentoValue}>{((config.spanLength * 0.25) + (config.loadCapacity * 0.12)).toFixed(1)}<span> Tons</span></span>
+                      <span className={styles.bentoValue}>{calculateStructuralWeight(config)}<span> Tons</span></span>
                     </div>
 
 
@@ -379,8 +391,15 @@ export default function Configurator() {
 
                     <div className={`${styles.stepFooter} ${styles.formFull}`}>
                       <Button type="button" variant="outline" onClick={prevStep}>Back to Summary</Button>
-                      <Button type="submit" variant="primary" size="lg" arrow>Transmit Specification</Button>
+                      <Button type="submit" variant="primary" size="lg" arrow disabled={isSubmitting}>
+                        {isSubmitting ? 'Transmitting...' : 'Transmit Specification'}
+                      </Button>
                     </div>
+                    {submitError && (
+                      <p style={{ color: 'var(--accent-red)', marginTop: '10px', fontSize: '14px', textAlign: 'center' }}>
+                        {submitError}
+                      </p>
+                    )}
                   </form>
                 </>
               )}

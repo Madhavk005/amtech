@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Check, ChevronDown } from 'lucide-react';
 import Button from './Button';
+import { submitContactForm } from '../../services/api';
 import styles from './ContactForm.module.css';
 
 const SUBJECT_OPTIONS = [
@@ -128,12 +129,14 @@ export default function ContactForm({ className = '', onSubmit }) {
     try {
       if (onSubmit) {
         await onSubmit(fields);
+      } else {
+        await submitContactForm(fields);
       }
       setSubmitted(true);
       setFields(initialState);
       setTouched({});
-    } catch {
-      /* Allow parent to handle submission errors */
+    } catch (err) {
+      setErrors((prev) => ({ ...prev, submit: err.message || 'Failed to send message.' }));
     } finally {
       setSending(false);
     }
@@ -355,6 +358,18 @@ export default function ContactForm({ className = '', onSubmit }) {
                 </motion.span>
               )}
             </div>
+
+            {/* Form Error */}
+            {errors.submit && (
+              <motion.div 
+                className={styles.error}
+                style={{ textAlign: 'center', marginBottom: '16px' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                {errors.submit}
+              </motion.div>
+            )}
 
             {/* Submit */}
             <div className={styles.actions}>
