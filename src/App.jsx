@@ -32,8 +32,8 @@ function App() {
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="products" element={<Products />} />
-              <Route path="products/:productId" element={<ProductDetail />} />
               <Route path="products/steel-plant-cranes" element={<SteelPlantCranes />} />
+              <Route path="products/:productId" element={<ProductDetail />} />
               <Route path="services" element={<Services />} />
               <Route path="industries" element={<Industries />} />
               <Route path="industries/:industryId" element={<Industries />} />

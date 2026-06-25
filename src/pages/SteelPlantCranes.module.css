@@ -164,7 +164,19 @@
 
 .ctaInner {
   max-width: 600px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.ctaWrapper {
+  max-width: 800px;
   margin: 0 auto;
+  background: var(--glass-bg);
+  padding: var(--space-12);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .ctaTitle {

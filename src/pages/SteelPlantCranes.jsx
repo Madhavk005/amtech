@@ -85,14 +85,13 @@ export default function SteelPlantCranes() {
       {/* CTA / Inquiry Form */}
       <section className={styles.cta} aria-labelledby="cta-title">
         <div className={styles.container}>
-          <div style={{ maxWidth: '800px', margin: '0 auto', background: 'var(--glass-bg)', padding: '40px', borderRadius: 'var(--radius-xl)', border: '1px solid var(--glass-border)', backdropFilter: 'blur(10px)' }}>
+          <div className={styles.ctaWrapper}>
             <motion.div
               className={styles.ctaInner}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
-              style={{ textAlign: 'center', marginBottom: '30px' }}
             >
               <h2 id="cta-title" className={styles.ctaTitle}>Need a Custom Solution?</h2>
               <p className={styles.ctaText}>
