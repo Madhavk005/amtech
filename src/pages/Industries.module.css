@@ -96,10 +96,6 @@
   margin-bottom: 0;
 }
 
-.rowReversed {
-  /* Swap columns visually */
-}
-
 .rowReversed .rowVisual {
   order: 2;
 }
