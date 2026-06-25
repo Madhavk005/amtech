@@ -174,6 +174,15 @@ export default function Navbar() {
           </nav>
 
           <div className={s.headerRight}>
+            {/* Desktop CTA */}
+            <Link
+              to="/contact"
+              className={`${s.cta} ${scrolled && !isTransparent ? s.ctaSolid : s.ctaOutline}`}
+            >
+              Get a Quote
+              <ArrowRight size={15} />
+            </Link>
+
             {/* Hamburger */}
             <button
               className={`${s.hamburger} ${mobileOpen ? s.hamburgerActive : ""}`}
