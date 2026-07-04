@@ -105,7 +105,11 @@ export default function Manufacturing() {
                     viewport={viewport}
                     transition={{ duration: 0.7 }}
                   >
-                    <img src={pillar.image} alt={pillar.title} className={styles.pillarImg} loading="lazy" />
+                    {idx === 0 ? (
+                      <video src="/videos/real_cranes/crane_vid_2_web.mp4" autoPlay loop muted playsInline className={styles.pillarImg} style={{ objectFit: 'cover' }} />
+                    ) : (
+                      <img src={pillar.image} alt={pillar.title} className={styles.pillarImg} loading="lazy" />
+                    )}
                   </motion.div>
                   
                   <motion.div 

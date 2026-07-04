@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+    <g transform="translate(10, 0)">
+      <rect x="50" y="70" width="60" height="60" fill="#0A0A0B" rx="8"/>
+   <polygon points="120,70 80,130 120,130" fill="#E63946"/>
+      <text x="145" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="34" font-weight="900" fill="#0A0A0B" letter-spacing="-1">Ambuja</text>
+      <text x="145" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="28" font-weight="500" fill="#515154" letter-spacing="1">Cement</text>
+    </g>
+  </svg>

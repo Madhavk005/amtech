@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import Navbar from "./Navbar";
@@ -38,6 +38,10 @@ export default function Layout() {
   const waNumber = company.phone[0].replace(/\D/g, "");
   const waUrl = `https://wa.me/${waNumber}`;
 
+  const location = useLocation();
+  const exactPaths = ['/', '/about', '/services', '/contact', '/products'];
+  const isTransparentPage = exactPaths.includes(location.pathname);
+
   return (
     <>
       <style>
@@ -52,7 +56,7 @@ export default function Layout() {
       </style>
       <ScrollToTop />
       <Navbar />
-      <main style={{ paddingTop: '40px' }}>
+      <main style={{ paddingTop: isTransparentPage ? '40px' : '112px' }}>
         <Outlet />
       </main>
       <Footer />

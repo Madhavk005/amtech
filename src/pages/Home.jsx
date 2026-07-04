@@ -131,7 +131,7 @@ export default function Home() {
             playsInline 
             className={styles.heroImg}
           >
-            <source src="/videos/hero-showcase.mp4" type="video/mp4" />
+            <source src="/videos/hero_video.mp4" type="video/mp4" />
           </video>
           <div className={styles.heroOverlay} />
           

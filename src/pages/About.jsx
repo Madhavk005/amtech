@@ -137,11 +137,14 @@ export default function About() {
               viewport={viewport}
             >
               <div className={styles.storyAccentStrip} />
-              <img
-                src={images.manufacturingMain || images.aboutMain}
-                alt="Industrial crane facility"
+              <video
+                src="/videos/real_cranes/crane_vid_1_web.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className={styles.storyImage}
-                loading="lazy"
+                style={{ objectFit: 'cover' }}
               />
               <div className={styles.storyBadge}>
                 <div className={styles.storyBadgeInner}>

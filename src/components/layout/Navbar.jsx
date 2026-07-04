@@ -64,7 +64,7 @@ export default function Navbar() {
   return (
     <>
       {/* ── TOP BAR (STICKY ANNOUNCEMENT / CONTACT STRIP) ── */}
-      <div className={s.topBar}>
+      <div className={`${s.topBar} ${scrolled ? s.topBarHidden : ""}`}>
         <div className={s.topBarInner}>
           <div className={s.topBarContact}>
             <a href={`tel:${company.phone[0].replace(/\s/g, "")}`} className={s.topContactLink}>
@@ -77,10 +77,10 @@ export default function Navbar() {
               <span>{company.salesEmail}</span>
             </a>
           </div>
-          <div className={s.topBarCta}>
-            <Link to="/contact" className={s.topBarPulseBtn}>
-              <span className={s.pulseDot}></span>
-              Get Quote
+          
+          <div className={s.topBarAction}>
+            <Link to="/contact" className={s.topBarCta}>
+              Get a Quote <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -97,7 +97,7 @@ export default function Navbar() {
               <img
                 src={company.logo}
                 alt={company.fullName}
-                className={`${s.logoImg} ${isTransparent ? s.logoWhite : s.logoColor}`}
+                className={`${s.logoImg} ${isTransparent ? s.logoWhite : ""}`}
               />
             </Link>
           </div>
@@ -176,14 +176,7 @@ export default function Navbar() {
           </nav>
 
           <div className={s.headerRight}>
-            {/* Desktop CTA */}
-            <Link
-              to="/contact"
-              className={`${s.cta} ${scrolled && !isTransparent ? s.ctaSolid : s.ctaOutline}`}
-            >
-              Get a Quote
-              <ArrowRight size={15} />
-            </Link>
+
 
             {/* Hamburger */}
             <button
@@ -216,7 +209,7 @@ export default function Navbar() {
                 <img
                   src={company.logo}
                   alt={company.fullName}
-                  className={`${s.mobileLogoImg} ${s.logoColor}`}
+                  className={s.mobileLogoImg}
                 />
               </Link>
               <div className={s.mobileHeaderActions}>
@@ -304,16 +297,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className={s.mobileCta}>
-              <Link
-                to="/contact"
-                className={s.mobileCtaBtn}
-                onClick={() => setMobileOpen(false)}
-              >
-                Get a Quote
-                <ArrowRight size={15} />
-              </Link>
-            </div>
+
 
             <div className={s.mobileContact}>
               <a href={`tel:${company.phone[0].replace(/\s/g, "")}`} className={s.mobileContactItem}>

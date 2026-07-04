@@ -1,7 +1,7 @@
 // Amtech Cranes - Complete Site Data
 // All images sourced from amtechcranes.com
 
-const IMG = "https://amtechcranes.com/wp-content/uploads";
+const IMG = "/images";
 
 export const company = {
   name: "Amtech",
@@ -20,67 +20,67 @@ export const company = {
   landmark: "1.8 Km from Kohara Chowk",
   city: "Ludhiana, Punjab, India",
   hours: "Monday – Saturday: 9:00 AM – 8:00 PM",
-  logo: `${IMG}/2026/02/cropped-admin-ajax-1.png`,
-  banner: `${IMG}/2025/11/Website-Banner-1.jpg`,
+  logo: `${IMG}/logo.png`,
+  banner: `${IMG}/banner.png`,
 };
 
 // Images used across the site
 export const images = {
   // Homepage
-  banner: `${IMG}/2025/11/Website-Banner-1.jpg`,
-  aboutPreview: `${IMG}/2025/09/20230419_170848-scaled.jpg`,
-  homeCrane: `${IMG}/2026/01/Firefly_Gemini-Flash_put-amtech-logo-on-that-crane-and-remobe-the-previous-logos-which-afe-there-309682-1.png`,
+  banner: `${IMG}/banner.png`,
+  aboutPreview: `${IMG}/banner.png`,
+  homeCrane: `${IMG}/configurator/double-girder.png`,
 
   // About page
-  aboutMain: `${IMG}/2026/01/1635926133955.jpg`,
-  aboutGallery1: `${IMG}/2025/09/Screenshot-2025-09-18-143159.png`,
-  aboutGallery2: `${IMG}/2025/09/Screenshot-2025-09-18-143208.png`,
-  aboutGallery3: `${IMG}/2025/09/Screenshot-2025-09-18-143221.png`,
-  aboutGallery4: `${IMG}/2025/09/Screenshot-2025-09-18-143231.png`,
-  aboutGallery5: `${IMG}/2025/09/Screenshot-2025-09-18-143319.png`,
-  aboutGallery6: `${IMG}/2025/09/Screenshot-2025-09-18-143333.png`,
+  aboutMain: "/images/real_cranes/crane_1.jpg",
+  aboutGallery1: "/images/real_cranes/crane_2.jpg",
+  aboutGallery2: "/images/real_cranes/crane_3.jpg",
+  aboutGallery3: "/images/real_cranes/crane_4.jpg",
+  aboutGallery4: "/images/real_cranes/crane_5.jpg",
+  aboutGallery5: "/images/real_cranes/crane_1.jpg",
+  aboutGallery6: "/images/real_cranes/crane_2.jpg",
 
   // Manufacturing
-  factory1: `${IMG}/2025/09/IMG20250224172414-scaled.jpg`,
-  factory2: `${IMG}/2025/09/IMG20250418154915-scaled.jpg`,
-  factory3: `${IMG}/2025/09/IMG20250418154948-scaled.jpg`,
-  factory4: `${IMG}/2025/11/WhatsApp-Image-2025-11-04-at-14.49.04_5c488450-scaled.jpg`,
-  factory5: `${IMG}/2025/11/WhatsApp-Image-2025-11-04-at-14.49.02_067d46d5-scaled.jpg`,
-  factory6: `${IMG}/2025/11/WhatsApp-Image-2025-11-04-at-14.49.04_886ef737.jpg`,
-  factoryCrane: `${IMG}/2026/01/Firefly_Gemini-Flash_put-amtech-logo-on-that-crane-and-remobe-the-previous-logos-which-afe-there-309682-2.png`,
+  factory1: "/images/real_cranes/crane_3.jpg",
+  factory2: "/images/real_cranes/crane_4.jpg",
+  factory3: "/images/real_cranes/crane_5.jpg",
+  factory4: "/images/real_cranes/crane_1.jpg",
+  factory5: "/images/real_cranes/crane_2.jpg",
+  factory6: "/images/real_cranes/crane_3.jpg",
+  factoryCrane: `${IMG}/configurator/single-girder.png`,
 
   // Design advantage photos
-  design1: `${IMG}/2025/09/IMG-20240113-WA0020-1024x768.jpg`,
-  design2: `${IMG}/2025/09/IMG-20240217-WA0064-1024x768.jpg`,
-  design3: `${IMG}/2025/09/IMG20250224135321-1024x768.jpg`,
-  design4: `${IMG}/2025/09/IMG20250306162512-1024x768.jpg`,
-  design5: `${IMG}/2025/09/IMG20250418154834-1024x768.jpg`,
+  design1: "/images/real_cranes/crane_4.jpg",
+  design2: "/images/real_cranes/crane_5.jpg",
+  design3: "/images/real_cranes/crane_1.jpg",
+  design4: "/images/real_cranes/crane_2.jpg",
+  design5: "/images/real_cranes/crane_3.jpg",
 
   // Production
-  production1: `${IMG}/2025/09/IMG-20240113-WA0022-1024x768.jpg`,
-  production2: `${IMG}/2025/09/IMG20250418154948-1024x768.jpg`,
-  production3: `${IMG}/2025/11/WhatsApp-Image-2025-11-04-at-14.49.01_ec120ebd-1024x768.jpg`,
-  production4: `${IMG}/2025/11/WhatsApp-Image-2025-11-04-at-14.49.02_fd53ac48-1024x768.jpg`,
+  production1: "/images/real_cranes/crane_1.jpg",
+  production2: "/images/real_cranes/crane_2.jpg",
+  production3: "/images/real_cranes/crane_3.jpg",
+  production4: "/images/real_cranes/crane_4.jpg",
 
   // Automation / CNC
-  cnc1: `${IMG}/2025/09/IMG20250418154845-1024x768.jpg`,
-  cnc2: `${IMG}/2025/09/IMG20250418154915-1024x768.jpg`,
-  cncSoftware: `${IMG}/2025/09/Picture2-1024x470.png`,
+  cnc1: "/images/real_cranes/crane_5.jpg",
+  cnc2: "/images/real_cranes/crane_1.jpg",
+  cncSoftware: "/images/real_cranes/crane_2.jpg",
 
   // Services
-  services: `${IMG}/2025/12/93c70acd-9142-4985-bf61-a7846da720cc.jpg`,
+  services: "/images/real_cranes/crane_3.jpg",
 
   // Contact
-  contact: `${IMG}/2025/09/Firefly-20250917135242.png`,
+  contact: "/images/real_cranes/crane_4.jpg",
 
   // Home page sections
-  homeIndustry1: `${IMG}/2026/01/38fbfcdf-c035-4c32-b88f-de14258a65b4-1024x768.jpg`,
-  homeIndustry2: `${IMG}/2026/01/d45d987c-230c-46a8-839d-1f8309f8fd81-1024x571.jpg`,
-  homeIndustry3: `${IMG}/2026/01/fdc0ad4c-75d3-4f57-9559-d08164105408-scaled.jpg`,
-  homeIndustry4: `${IMG}/2026/01/sdfghjkl-1024x768.jpg`,
+  homeIndustry1: "/images/real_cranes/crane_1.jpg",
+  homeIndustry2: "/images/real_cranes/crane_2.jpg",
+  homeIndustry3: "/images/real_cranes/crane_3.jpg",
+  homeIndustry4: "/images/real_cranes/crane_4.jpg",
 
   // ChatGPT generated product images
-  productGeneric: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_17_15-PM.png`,
+  productGeneric: `${IMG}/configurator/double-girder.png`,
 };
 
 export const stats = [
@@ -159,9 +159,9 @@ export const products = [
       "Durable and efficient Single Girder Overhead Cranes designed for smooth and safe material handling with lightweight construction, low maintenance, and customizable capacities.",
     description:
       "Unlock efficiency and versatility in your material handling operations with our Single Girder Electric Overhead Travelling (EOT) Crane. Designed for versatility and reliability, this crane offers a cost-effective solution without compromising performance.",
-    image: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_17_15-PM.png`,
-    heroImage: `${IMG}/2026/01/Firefly_Gemini-Flash_put-amtech-logo-on-that-crane-and-remobe-the-previous-logos-which-afe-there-309682.png`,
-    galleryImage: `${IMG}/2025/11/WhatsApp-Image-2025-11-04-at-14.49.02_520c86de-1024x768.jpg`,
+    image: "/images/real_cranes/crane_img_6.jpg",
+    heroImage: "/images/real_cranes/crane_img_4.jpg",
+    galleryImage: "/images/real_cranes/crane_img_13.jpg",
     features: [
       {
         title: "Compact Design",
@@ -197,7 +197,7 @@ export const products = [
       "Heavy-duty Double Girder Overhead Cranes built for high lifting capacities and demanding industrial applications with robust construction and superior stability.",
     description:
       "Elevate your lifting operations with our Double Girder EOT Crane. Built to withstand the toughest industrial environments, this crane delivers unparalleled lifting power and precision for demanding material handling applications.",
-    image: `${IMG}/2026/02/ab189e70-e751-4326-9711-0f1d0309000e.jpg`,
+    image: "/images/real_cranes/crane_img_5.jpg",
     features: [
       {
         title: "Robust Construction",
@@ -233,7 +233,7 @@ export const products = [
       "Versatile cranes combining double girder stability with semi-goliath ground mobility for flexible facility operations.",
     description:
       "A versatile material handling solution combining double girder stability with semi-goliath mobility. One end is supported by the runway beam and the other travelling on wheels along the ground, enabling efficient operations across your facility.",
-    image: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_24_01-PM.png`,
+    image: "/images/real_cranes/crane_img_2.jpg",
     features: [
       {
         title: "Double Girder Stability",
@@ -269,8 +269,8 @@ export const products = [
       "Full gantry cranes combining stationary strength with mobile flexibility for facility-wide operations.",
     description:
       "The Goliath Girder Crane combines the stability of a single girder design with the mobility of a goliath configuration. This unique blend of stationary strength and mobile flexibility enables operations across facility areas without permanent runway infrastructure.",
-    image: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_22_08-PM.png`,
-    heroImage: `${IMG}/2026/01/Firefly_Gemini-Flash_put-amtech-logo-on-that-crane-642265.png`,
+    image: "/images/real_cranes/crane_img_15.jpg",
+    heroImage: "/images/real_cranes/crane_img_12.jpg",
     features: [
       {
         title: "Girder Stability",
@@ -304,8 +304,8 @@ export const products = [
     tagline: "Versatile and Precise Lifting for Any Workspace",
     shortDesc: "Versatile jib cranes designed to meet precise lifting needs with a rotating horizontal arm on a vertical mast, providing extensive movement and coverage.",
     description: "Amtech Cranes specializes in versatile jib cranes designed to meet precise lifting needs. These cranes feature a rotating horizontal arm on a vertical mast, providing extensive movement and coverage. With sturdy construction and various configurations like wall mounted or floor-mounted, our jib cranes accommodate different spaces. Equipped with reliable hoists and trolleys, they ensure smooth and accurate lifting operations. Compact and ideal for limited workstations, they efficiently handle tasks like loading/unloading, material transfers, and heavy machinery maneuvering. Easy to operate and maintain, they minimize downtime. Amtech Cranes delivers customized solutions for small workshops to large industrial facilities, prioritizing quality, productivity, and operational safety.",
-    image: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_17_15-PM.png`,
-    heroImage: `${IMG}/2026/01/Firefly_Gemini-Flash_put-amtech-logo-on-that-crane-and-remobe-the-previous-logos-which-afe-there-309682.png`,
+    image: "/images/real_cranes/crane_img_15.jpg",
+    heroImage: "/images/real_cranes/crane_img_12.jpg",
     features: [
       {
         title: "Extensive Movement",
@@ -341,8 +341,8 @@ export const products = [
       "Engineered for superior lifting performance, precision, and reliability. Designed for smooth operation and long service life.",
     description:
       "Amtech's Electric Wire Rope Hoists are engineered for superior lifting performance, precision, and reliability. Designed for smooth operation and long service life, these hoists are ideal for industrial environments demanding consistent performance.",
-    image: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_29_50-PM.png`,
-    heroImage: `${IMG}/2026/02/ChatGPT-Image-Feb-10-2026-09_25_38-PM.png`,
+    image: "/images/real_cranes/crane_img_6.jpg",
+    heroImage: "/images/real_cranes/crane_img_3.jpg",
     features: [
       {
         title: "High Lifting Efficiency",
@@ -378,7 +378,7 @@ export const products = [
       "Specialized Steel Furnace Ladle Transfer Trolleys designed to streamline ladle transfer and optimize steel furnace operations.",
     description:
       "Our Steel Furnace Ladle Transfer Trolleys are designed to streamline ladle transfer operations and optimize steel furnace processes through efficient transportation of molten metal ladles within manufacturing facilities.",
-    image: `${IMG}/2025/11/WhatsApp-Image-2025-11-06-at-08.18.58_92e8e36c.jpg`,
+    image: "/images/real_cranes/crane_img_9.jpg",
     features: [
       {
         title: "Robust Construction",
@@ -574,9 +574,9 @@ export const industries = [
     id: "steel-plants",
     name: "Steel Plants",
     desc: "Specialized cranes for steel melting shops, scrap feeding, ladle handling, and raw material transport — built to withstand extreme temperatures and heavy loads.",
-    image: `${IMG}/2026/01/38fbfcdf-c035-4c32-b88f-de14258a65b4-1024x768.jpg`,
+    image: "/images/real_cranes/crane_1.jpg",
     icon: "Factory",
-    clientLogo: `${IMG}/2026/01/hindustan-hydraulics_logo_2x.png`,
+    clientLogo: "/images/clients/jsw_steel.svg",
     applications: [
       "Ladle Handling Cranes",
       "Scrap Feeding Cranes",
@@ -633,9 +633,9 @@ export const industries = [
     id: "power-plants",
     name: "Power Plants",
     desc: "Reliable crane systems for power generation facilities — designed for turbine maintenance, coal handling, and heavy equipment installation.",
-    image: `${IMG}/2026/01/d45d987c-230c-46a8-839d-1f8309f8fd81-1024x571.jpg`,
+    image: "/images/real_cranes/crane_2.jpg",
     icon: "Zap",
-    clientLogo: `${IMG}/2026/01/light_logo_t4jyjk-scaled.png`,
+    clientLogo: "/images/clients/tata_power.svg",
     applications: [
       "Turbine Hall Cranes",
       "Coal Handling Systems",
@@ -648,9 +648,9 @@ export const industries = [
     id: "paper-industry",
     name: "Paper Industry",
     desc: "Precision crane solutions for paper mills — from raw material handling to finished product management, ensuring safe and efficient operations.",
-    image: `${IMG}/2026/01/fdc0ad4c-75d3-4f57-9559-d08164105408-scaled.jpg`,
+    image: "/images/real_cranes/crane_3.jpg",
     icon: "FileText",
-    clientLogo: `${IMG}/2025/09/Screenshot-2025-09-18-143221.png`,
+    clientLogo: "/images/clients/bilt_paper.svg",
     applications: [
       "Roll Handling Cranes",
       "Pulp Processing",
@@ -663,9 +663,9 @@ export const industries = [
     id: "heavy-industry",
     name: "Heavy Industry",
     desc: "Robust crane systems for heavy manufacturing and industrial operations — engineered for maximum reliability under the most demanding conditions.",
-    image: `${IMG}/2026/01/sdfghjkl-1024x768.jpg`,
+    image: "/images/real_cranes/crane_4.jpg",
     icon: "HardHat",
-    clientLogo: `${IMG}/2025/09/Screenshot-2025-09-18-143319.png`,
+    clientLogo: "/images/clients/l_t_heavy_engineering.svg",
     applications: [
       "Assembly Line Cranes",
       "Heavy Part Handling",
@@ -742,55 +742,55 @@ export const manufacturing = {
 export const clientLogos = [
   { 
     name: "Sunflag Steel", 
-    image: `${IMG}/2026/01/1635926133955.jpg`,
+    image: "/images/clients/sunflag_steel.svg",
     industry: "Steel Plants",
     context: "Leading manufacturer of high-grade steel relying on our heavy-duty overhead cranes for constant ladle handling in extreme conditions."
   },
   { 
     name: "Ambuja Cement", 
-    image: `${IMG}/2026/01/light_logo_t4jyjk-scaled.png`,
+    image: "/images/clients/ambuja_cement.svg",
     industry: "Heavy Industry",
     context: "Global cement manufacturer utilizing our high-capacity gantry cranes for bulk material handling and continuous plant maintenance."
   },
   { 
     name: "Hindustan Hydraulics", 
-    image: `${IMG}/2026/01/hindustan-hydraulics_logo_2x.png`,
+    image: "/images/clients/hindustan_hydraulics.svg",
     industry: "Engineering",
     context: "Premier hydraulic systems supplier utilizing our precision EOT cranes for massive component assembly and testing."
   },
   { 
     name: "Tata Power", 
-    image: `${IMG}/2025/09/Screenshot-2025-09-18-143221.png`,
+    image: "/images/clients/tata_power.svg",
     industry: "Power Plants",
     context: "Major energy provider using our specialized turbine-handling cranes for critical maintenance during power station turnarounds."
   },
   { 
     name: "JSW Steel", 
-    image: `${IMG}/2025/09/Screenshot-2025-09-18-143231.png`,
+    image: "/images/clients/jsw_steel.svg",
     industry: "Steel Manufacturing",
     context: "Integrating our robust scrap charging cranes into their primary melting operations for increased daily output."
   },
   { 
     name: "BILT Paper", 
-    image: `${IMG}/2025/09/Screenshot-2025-09-18-143319.png`,
+    image: "/images/clients/bilt_paper.svg",
     industry: "Paper Mills",
     context: "Utilizing highly synchronized, automated wet-end cranes for precise paper roll handling without product damage."
   },
   { 
     name: "L&T Heavy Engineering", 
-    image: `${IMG}/2025/09/Screenshot-2025-09-18-143208.png`,
+    image: "/images/clients/l_t_heavy_engineering.svg",
     industry: "Heavy Fabrication",
     context: "Deploying our 100+ ton capacity double-girder cranes for maneuvering massive pressure vessels safely."
   },
   { 
     name: "Vedanta Resources", 
-    image: `${IMG}/2025/09/Screenshot-2025-09-18-143159.png`,
+    image: "/images/clients/vedanta_resources.svg",
     industry: "Mining & Metals",
     context: "Operating our ruggedized outdoor gantry systems for bulk ore management in highly abrasive environments."
   },
   { 
     name: "NTPC", 
-    image: `${IMG}/2025/09/Screenshot-2025-09-18-143333.png`,
+    image: "/images/clients/ntpc.svg",
     industry: "Power Generation",
     context: "Relying on our explosion-proof hoist systems for safe operations within their specialized thermal power sectors."
   },
