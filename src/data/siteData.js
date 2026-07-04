@@ -761,19 +761,19 @@ export const manufacturing = {
 export const clientLogos = [
   { 
     name: "Sunflag Steel", 
-    image: "/images/clients/sunflag_steel.svg",
+    image: "/images/clients/sunflag_steel.png",
     industry: "Steel Plants",
     context: "Leading manufacturer of high-grade steel relying on our heavy-duty overhead cranes for constant ladle handling in extreme conditions."
   },
   { 
     name: "Ambuja Cement", 
-    image: "/images/clients/ambuja_cement.svg",
+    image: "/images/clients/ambuja_cement.webp",
     industry: "Heavy Industry",
     context: "Global cement manufacturer utilizing our high-capacity gantry cranes for bulk material handling and continuous plant maintenance."
   },
   { 
     name: "Hindustan Hydraulics", 
-    image: "/images/clients/hindustan_hydraulics.svg",
+    image: "/images/clients/hindustan_hydraulics.png",
     industry: "Engineering",
     context: "Premier hydraulic systems supplier utilizing our precision EOT cranes for massive component assembly and testing."
   },
@@ -791,13 +791,13 @@ export const clientLogos = [
   },
   { 
     name: "BILT Paper", 
-    image: "/images/clients/bilt_paper.svg",
+    image: "/images/clients/bilt_paper.png",
     industry: "Paper Mills",
     context: "Utilizing highly synchronized, automated wet-end cranes for precise paper roll handling without product damage."
   },
   { 
     name: "L&T Heavy Engineering", 
-    image: "/images/clients/l_t_heavy_engineering.svg",
+    image: "/images/clients/l_t_heavy_engineering.webp",
     industry: "Heavy Fabrication",
     context: "Deploying our 100+ ton capacity double-girder cranes for maneuvering massive pressure vessels safely."
   },
@@ -809,7 +809,7 @@ export const clientLogos = [
   },
   { 
     name: "NTPC", 
-    image: "/images/clients/ntpc.svg",
+    image: "/images/clients/ntpc.png",
     industry: "Power Generation",
     context: "Relying on our explosion-proof hoist systems for safe operations within their specialized thermal power sectors."
   },
