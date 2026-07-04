@@ -3,12 +3,12 @@ import styles from './ImageMarquee.module.css';
 import { images } from '../../data/siteData';
 
 const marqueeImages = [
-  images.hero1,
+  images.homeCrane,
   images.design1,
   images.production1,
   images.factoryCrane,
   images.cnc1,
-  images.eot1,
+  images.aboutGallery1,
 ];
 
 // Double the array to ensure smooth infinite scrolling
