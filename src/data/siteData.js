@@ -29,7 +29,7 @@ export const images = {
   // Homepage
   banner: `${IMG}/banner.png`,
   aboutPreview: `${IMG}/banner.png`,
-  homeCrane: `${IMG}/configurator/double-girder.png`,
+  homeCrane: `/images/real_cranes/crane_img_8.jpg`,
 
   // About page
   aboutMain: "/images/real_cranes/crane_1.jpg",
@@ -47,7 +47,7 @@ export const images = {
   factory4: "/images/real_cranes/crane_1.jpg",
   factory5: "/images/real_cranes/crane_2.jpg",
   factory6: "/images/real_cranes/crane_3.jpg",
-  factoryCrane: `${IMG}/configurator/single-girder.png`,
+  factoryCrane: `/images/real_cranes/crane_img_9.jpg`,
 
   // Design advantage photos
   design1: "/images/real_cranes/crane_4.jpg",
@@ -80,7 +80,7 @@ export const images = {
   homeIndustry4: "/images/real_cranes/crane_4.jpg",
 
   // ChatGPT generated product images
-  productGeneric: `${IMG}/configurator/double-girder.png`,
+  productGeneric: `/images/real_cranes/crane_img_8.jpg`,
 };
 
 export const stats = [
@@ -718,6 +718,25 @@ export const manufacturing = {
     title: "Production",
     desc: "Our facility features large and heavy fabrication facilities, sub-assembly centers, and a heavy machine shop equipped with CNC machines. All cranes receive complete assembly including actual cabins and electrical cables. Amtech features state-of-the-art CNC capabilities for producing components like gearboxes, wheel assemblies, and drum assemblies internally.",
     qualityNote: "Amtech Engineers inspect and verify each unit before shipment. Our dedicated QA/QC division maintains consistent manufacturing standards.",
+  },
+  automation: {
+    desc: "Amtech is heavily invested in automation to streamline the manufacturing process and guarantee consistent quality. Our advanced CNC systems are at the core of our operations.",
+    benefits: [
+      "Superior surface finish and dimensional accuracy",
+      "Consistent quality across mass production",
+      "Reduced human error in critical machining",
+      "Faster turnaround times for complex parts"
+    ],
+    machines: [
+      "VMC Machine",
+      "CNC Plano Miller",
+      "Horizontal Boring Machine",
+      "CNC Lathe",
+      "Plasma Cutting Machine",
+      "Submerged Arc Welding",
+      "Radial Drilling Machine",
+      "Shot Blasting Machine"
+    ]
   },
   capabilities: [
     {

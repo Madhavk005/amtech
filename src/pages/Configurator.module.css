@@ -478,6 +478,14 @@
   border-radius: var(--radius-md);
   font-family: inherit;
   width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.formInput:focus {
+  border-color: var(--primary);
+  background: var(--secondary-light);
+  box-shadow: 0 0 0 3px rgba(213, 0, 50, 0.1);
 }
 
 .formFull {

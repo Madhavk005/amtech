@@ -38,6 +38,7 @@
 
 .inputWrap {
   position: relative;
+  margin-top: 12px;
 }
 
 /* ---- Floating label ---- */
