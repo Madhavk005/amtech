@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ArrowRight } from 'lucide-react';
-import { products, images, clientLogos } from '../data/siteData';
+import { products, images } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
 import { fadeUp, stagger, viewport } from '../utils/animations';
