@@ -86,7 +86,7 @@
 }
 
 .breadcrumbSep {
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .breadcrumbCurrent {
@@ -116,6 +116,7 @@
 
 .gridSection {
   padding: var(--space-24) 0;
+  background: var(--bg-main);
 }
 
 .gridHeader {
@@ -124,26 +125,29 @@
   margin: 0 auto var(--space-16);
 }
 
-.simpleGrid {
+.premiumGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-8);
 }
 
-.simpleCard {
+.premiumCard {
   background: var(--surface-muted);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
 }
 
-.simpleCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+.premiumCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.12);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
-.simpleLink {
+.premiumLink {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -151,36 +155,78 @@
   color: inherit;
 }
 
-.simpleImageWrap {
+.premiumImageWrap {
   position: relative;
   width: 100%;
-  height: 280px;
+  aspect-ratio: 16/10;
   overflow: hidden;
 }
 
-.simpleImage {
+.premiumImage {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.simpleCard:hover .simpleImage {
-  transform: scale(1.05);
+.premiumImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.simpleContent {
+.viewDetailsBadge {
+  position: absolute;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFF;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premiumCard:hover .premiumImage {
+  transform: scale(1.06);
+}
+
+.premiumCard:hover .premiumImageOverlay {
+  opacity: 1;
+}
+
+.premiumCard:hover .viewDetailsBadge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.premiumContent {
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: var(--surface-main);
+  position: relative;
+  z-index: 1;
 }
 
-.simpleTitle {
+.premiumTitle {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
   font-weight: 700;
   color: var(--text-heading);
   letter-spacing: -0.01em;
@@ -188,33 +234,157 @@
   line-height: 1.2;
 }
 
-.simpleDesc {
-  font-size: 1rem;
+.premiumDesc {
+  font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: var(--space-6);
   flex-grow: 1;
 }
 
-.simpleAction {
-  display: inline-flex;
-  align-items: center;
+.premiumFeatures {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: gap 0.3s ease;
+  margin-top: auto;
 }
 
-.simpleCard:hover .simpleAction {
-  gap: var(--space-3);
+.featurePill {
+  background: rgba(10, 10, 11, 0.06);
+  border: 1px solid rgba(10, 10, 11, 0.15);
+  color: #3A3A3C;
+  font-size: 0.75rem;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* ═══════════════════════════════════════════════
-   3. CTA SECTION
+   3. MARQUEE SECTION
+   ═══════════════════════════════════════════════ */
+
+.marqueeSection {
+  padding: var(--space-32) 0;
+  background: #020202;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeHeader {
+  text-align: center;
+  margin-bottom: var(--space-20);
+  padding: 0 var(--space-6);
+}
+
+.marqueeTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.marqueeSubtitle {
+  color: #A1A1A6;
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.marqueeContainer {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  padding: var(--space-8) 0;
+  /* Premium cinematic gradient masks */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marquee 50s linear infinite;
+  gap: var(--space-8);
+  padding-left: var(--space-8);
+  align-items: center;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - (var(--space-8) / 2)));
+  }
+}
+
+.marqueeItem {
+  width: 500px;
+  height: 350px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.marqueeItem:nth-child(even) {
+  height: 420px;
+  width: 550px;
+}
+
+.marqueeItem:nth-child(3n) {
+  height: 300px;
+  width: 450px;
+}
+
+.marqueeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: brightness(0.85) contrast(1.05);
+}
+
+.marqueeItem:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(228, 6, 19, 0.15);
+  z-index: 10;
+}
+
+.marqueeItem:hover .marqueeImage {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.marqueeItemOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.marqueeItem:hover .marqueeItemOverlay {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════
+   4. CTA SECTION
    ═══════════════════════════════════════════════ */
 
 .cta {
@@ -265,7 +435,7 @@
    ═══════════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-  .simpleGrid {
+  .premiumGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -276,11 +446,12 @@
     padding: var(--space-24) var(--space-6) var(--space-16);
   }
 
-  .simpleGrid {
+  .premiumGrid {
     grid-template-columns: 1fr;
   }
 
   .gridSection,
+  .marqueeSection,
   .cta {
     padding: var(--space-16) 0;
   }
@@ -296,11 +467,12 @@
     font-size: 2rem;
   }
 
-  .cardImageWrap {
+  .premiumImageWrap {
     min-height: 200px;
   }
 
   .gridSection,
+  .marqueeSection,
   .cta {
     padding: var(--space-12) 0;
   }

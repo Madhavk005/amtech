@@ -70,7 +70,7 @@
 .heroSubtitle {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: var(--gray-500);
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -171,12 +171,6 @@
 .ctaWrapper {
   max-width: 800px;
   margin: 0 auto;
-  background: var(--glass-bg);
-  padding: var(--space-12);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .ctaTitle {

@@ -84,7 +84,7 @@
 }
 
 .breadcrumbSep {
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .breadcrumb span {

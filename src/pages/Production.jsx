@@ -26,6 +26,8 @@ const galleryImages = [
   { src: images.production2, alt: 'Sub-assembly center' },
   { src: images.production3, alt: 'Crane assembly line' },
   { src: images.production4, alt: 'Quality inspection bay' },
+  { src: images.production5, alt: 'Machining center' },
+  { src: images.production6, alt: 'Gantry operations' },
 ];
 
 

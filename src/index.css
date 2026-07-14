@@ -26,18 +26,18 @@
   --white: #FFFFFF;
   --on-primary: #FFFFFF;
   --text-heading: #0A0A0B;
-  --text-body: #424245;
-  --text-muted: #515154;
+  --text-body: #1D1D1F;
+  --text-muted: #3A3A3C;
   --text-inverse: #FFFFFF;
   --text-link: var(--primary);
 
   /* Neutrals */
   --gray-25: #F5F5F7;
   --gray-50: #EBEBEF;
-  --gray-100: #3A3A3C;
-  --gray-200: #515154;
-  --gray-300: #515154;
-  --gray-400: #515154;
+  --gray-100: #1D1D1F;
+  --gray-200: #2C2C2E;
+  --gray-300: #3A3A3C;
+  --gray-400: #424245;
   --gray-500: #A1A1A6;
   --gray-600: #C7C7CC;
   --gray-700: #D2D2D7;
@@ -147,6 +147,11 @@ html {
   background: var(--secondary);
 }
 
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-body);
@@ -173,7 +178,7 @@ h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
 h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
 
 p {
-  color: var(--text-muted);
+  color: var(--text-body);
   line-height: 1.7;
 }
 

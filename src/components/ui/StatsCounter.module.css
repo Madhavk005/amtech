@@ -68,7 +68,7 @@
    ================================================ */
 
 .dark {
-  background: var(--secondary);
+  background: var(--gray-900);
   /* Subtle noise texture via pseudo-element */
 }
 
@@ -89,11 +89,11 @@
 }
 
 .dark .value {
-  color: var(--text-heading);
+  color: var(--white);
 }
 
 .dark .label {
-  color: var(--gray-400);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .dark .divider {

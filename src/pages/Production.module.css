@@ -58,11 +58,11 @@
   gap: var(--space-2);
   margin-bottom: var(--space-5);
   font-size: 0.875rem;
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 .breadcrumb a {
-  color: var(--gray-300);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -88,7 +88,7 @@
 .heroSubtitle {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--gray-400);
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -104,7 +104,7 @@
 .facilityGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-12);
+  gap: var(--space-16);
   align-items: center;
 }
 
@@ -116,7 +116,7 @@
 
 .facilityImage {
   width: 100%;
-  height: 480px;
+  aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
   transition: transform var(--duration-slower) var(--ease-out);
@@ -171,8 +171,8 @@
 
 .galleryGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
   margin-top: var(--space-12);
 }
 
@@ -186,7 +186,7 @@
 
 .galleryImg {
   width: 100%;
-  height: 320px;
+  aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
   transition: transform var(--duration-slower) var(--ease-out);
@@ -224,12 +224,173 @@
 }
 
 /* ═══════════════════════════════════════════════
+   3.5. CNC & MACHINES
+   ═══════════════════════════════════════════════ */
+
+.cncOverview {
+  padding: var(--space-20) 0 var(--space-24);
+}
+
+.cncGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.cncImageWrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.cncImage {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-slower) var(--ease-out);
+}
+
+.cncContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cncText {
+  font-size: 1.025rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+  margin-bottom: var(--space-4);
+}
+
+.benefitsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.benefitCard {
+  background: var(--white);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.benefitIcon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.benefitText {
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+
+.machines {
+  position: relative;
+  padding: var(--space-24) 0;
+  background: var(--secondary);
+  overflow: hidden;
+}
+
+.machinesBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.machinesBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+
+.machinesBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--secondary) 0%, rgba(10, 15, 30, 0.8) 100%);
+}
+
+.machinesHeaderWrap {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-12);
+}
+
+.machinesGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.machineCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  backdrop-filter: blur(10px);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.machineCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.machineCardLarge {
+  grid-column: span 2;
+}
+
+.machineNum {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.machineName {
+  font-weight: 500;
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.machineGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(213, 0, 50, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.machineCard:hover .machineGlow {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════
    4. QUALITY ASSURANCE (DARK)
    ═══════════════════════════════════════════════ */
 
 .quality {
-  background: var(--secondary);
-  padding: var(--space-24) 0;
+  background: #0A0A0B;
+  padding: var(--space-32) 0;
 }
 
 .qualityGrid {
@@ -246,7 +407,7 @@
 .qualityText {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: var(--gray-400);
+  color: var(--gray-200);
   margin-bottom: var(--space-8);
 }
 
@@ -264,7 +425,7 @@
   align-items: center;
   gap: var(--space-3);
   font-size: 0.95rem;
-  color: var(--gray-300);
+  color: var(--white);
   line-height: 1.5;
 }
 
@@ -281,7 +442,7 @@
 
 .qualityImage {
   width: 100%;
-  height: 420px;
+  aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
 }

@@ -28,11 +28,16 @@ export const company = {
 export const images = {
   // Homepage
   banner: `${IMG}/banner.png`,
-  aboutPreview: `${IMG}/banner.png`,
+  aboutPreview: "/images/about_image.jpg",
   homeCrane: `/images/real_cranes/crane_img_8.jpg`,
+  marquee1: "/images/marquee/marquee_1.jpg",
+  marquee2: "/images/marquee/marquee_2.jpg",
+  marquee3: "/images/marquee/marquee_3.jpg",
+  marquee4: "/images/marquee/marquee_4.jpg",
+  marquee5: "/images/marquee/marquee_5.jpg",
 
   // About page
-  aboutMain: "/images/real_cranes/crane_1.jpg",
+  aboutMain: "/images/about_image.jpg",
   aboutGallery1: "/images/real_cranes/crane_2.jpg",
   aboutGallery2: "/images/real_cranes/crane_3.jpg",
   aboutGallery3: "/images/real_cranes/crane_4.jpg",
@@ -61,6 +66,8 @@ export const images = {
   production2: "/images/real_cranes/crane_2.jpg",
   production3: "/images/real_cranes/crane_3.jpg",
   production4: "/images/real_cranes/crane_4.jpg",
+  production5: "/images/real_cranes/crane_img_10.jpg",
+  production6: "/images/real_cranes/crane_img_11.jpg",
 
   // Automation / CNC
   cnc1: "/images/real_cranes/crane_5.jpg",
@@ -159,8 +166,8 @@ export const products = [
       "Durable and efficient Single Girder Overhead Cranes designed for smooth and safe material handling with lightweight construction, low maintenance, and customizable capacities.",
     description:
       "Unlock efficiency and versatility in your material handling operations with our Single Girder Electric Overhead Travelling (EOT) Crane. Designed for versatility and reliability, this crane offers a cost-effective solution without compromising performance.",
-    image: "/images/real_cranes/crane_img_6.jpg",
-    heroImage: "/images/real_cranes/crane_img_4.jpg",
+    image: "/images/single_girder_crane.png",
+    heroImage: "/images/single_girder_crane.png",
     galleryImage: "/images/real_cranes/crane_img_13.jpg",
     features: [
       {
@@ -197,7 +204,8 @@ export const products = [
       "Heavy-duty Double Girder Overhead Cranes built for high lifting capacities and demanding industrial applications with robust construction and superior stability.",
     description:
       "Elevate your lifting operations with our Double Girder EOT Crane. Built to withstand the toughest industrial environments, this crane delivers unparalleled lifting power and precision for demanding material handling applications.",
-    image: "/images/real_cranes/crane_img_5.jpg",
+    image: "/images/double_girder_crane.png",
+    heroImage: "/images/double_girder_crane.png",
     features: [
       {
         title: "Robust Construction",
@@ -233,7 +241,8 @@ export const products = [
       "Versatile cranes combining double girder stability with semi-goliath ground mobility for flexible facility operations.",
     description:
       "A versatile material handling solution combining double girder stability with semi-goliath mobility. One end is supported by the runway beam and the other travelling on wheels along the ground, enabling efficient operations across your facility.",
-    image: "/images/real_cranes/crane_img_2.jpg",
+    image: "/images/semi_goliath_crane.png",
+    heroImage: "/images/semi_goliath_crane.png",
     features: [
       {
         title: "Double Girder Stability",
@@ -269,8 +278,8 @@ export const products = [
       "Full gantry cranes combining stationary strength with mobile flexibility for facility-wide operations.",
     description:
       "The Goliath Girder Crane combines the stability of a single girder design with the mobility of a goliath configuration. This unique blend of stationary strength and mobile flexibility enables operations across facility areas without permanent runway infrastructure.",
-    image: "/images/real_cranes/crane_img_15.jpg",
-    heroImage: "/images/real_cranes/crane_img_12.jpg",
+    image: "/images/goliath_crane.png",
+    heroImage: "/images/goliath_crane.png",
     features: [
       {
         title: "Girder Stability",
@@ -304,8 +313,8 @@ export const products = [
     tagline: "Versatile and Precise Lifting for Any Workspace",
     shortDesc: "Versatile jib cranes designed to meet precise lifting needs with a rotating horizontal arm on a vertical mast, providing extensive movement and coverage.",
     description: "Amtech Cranes specializes in versatile jib cranes designed to meet precise lifting needs. These cranes feature a rotating horizontal arm on a vertical mast, providing extensive movement and coverage. With sturdy construction and various configurations like wall mounted or floor-mounted, our jib cranes accommodate different spaces. Equipped with reliable hoists and trolleys, they ensure smooth and accurate lifting operations. Compact and ideal for limited workstations, they efficiently handle tasks like loading/unloading, material transfers, and heavy machinery maneuvering. Easy to operate and maintain, they minimize downtime. Amtech Cranes delivers customized solutions for small workshops to large industrial facilities, prioritizing quality, productivity, and operational safety.",
-    image: "/images/real_cranes/crane_img_15.jpg",
-    heroImage: "/images/real_cranes/crane_img_12.jpg",
+    image: "/images/jib_crane.png",
+    heroImage: "/images/jib_crane.png",
     features: [
       {
         title: "Extensive Movement",
@@ -341,8 +350,8 @@ export const products = [
       "Engineered for superior lifting performance, precision, and reliability. Designed for smooth operation and long service life.",
     description:
       "Amtech's Electric Wire Rope Hoists are engineered for superior lifting performance, precision, and reliability. Designed for smooth operation and long service life, these hoists are ideal for industrial environments demanding consistent performance.",
-    image: "/images/real_cranes/crane_img_6.jpg",
-    heroImage: "/images/real_cranes/crane_img_3.jpg",
+    image: "/images/wire_rope_hoist.png",
+    heroImage: "/images/wire_rope_hoist.png",
     features: [
       {
         title: "High Lifting Efficiency",
@@ -574,7 +583,7 @@ export const industries = [
     id: "steel-plants",
     name: "Steel Plants",
     desc: "Specialized cranes for steel melting shops, scrap feeding, ladle handling, and raw material transport — built to withstand extreme temperatures and heavy loads.",
-    image: "/images/real_cranes/crane_1.jpg",
+    image: "/images/steel_industry_crane.jpg",
     icon: "Factory",
     clientLogo: "/images/clients/jsw_steel.svg",
     applications: [
@@ -633,7 +642,7 @@ export const industries = [
     id: "power-plants",
     name: "Power Plants",
     desc: "Reliable crane systems for power generation facilities — designed for turbine maintenance, coal handling, and heavy equipment installation.",
-    image: "/images/real_cranes/crane_2.jpg",
+    image: "/images/power_plant_crane.png",
     icon: "Zap",
     clientLogo: "/images/clients/tata_power.svg",
     applications: [
@@ -648,7 +657,7 @@ export const industries = [
     id: "paper-industry",
     name: "Paper Industry",
     desc: "Precision crane solutions for paper mills — from raw material handling to finished product management, ensuring safe and efficient operations.",
-    image: "/images/real_cranes/crane_3.jpg",
+    image: "/images/paper_industry_crane.jpg",
     icon: "FileText",
     clientLogo: "/images/clients/bilt_paper.svg",
     applications: [
@@ -663,7 +672,7 @@ export const industries = [
     id: "heavy-industry",
     name: "Heavy Industry",
     desc: "Robust crane systems for heavy manufacturing and industrial operations — engineered for maximum reliability under the most demanding conditions.",
-    image: "/images/real_cranes/crane_4.jpg",
+    image: "/images/heavy_engineering_crane.png",
     icon: "HardHat",
     clientLogo: "/images/clients/l_t_heavy_engineering.svg",
     applications: [
@@ -760,59 +769,53 @@ export const manufacturing = {
 
 export const clientLogos = [
   { 
+    name: "Arora Iron & Steel", 
+    image: "/images/clients/arora_iron_steel.svg",
+    industry: "Steel Manufacturing",
+    context: "Relying on our reliable overhead EOT cranes for continuous production."
+  },
+  { 
+    name: "Fortune", 
+    image: "/images/clients/fortune.png",
+    industry: "Manufacturing",
+    context: "Utilizing Amtech's robust material handling solutions for large-scale operations."
+  },
+  { 
+    name: "Jai Bharat", 
+    image: "/images/clients/jai_bharat.png",
+    industry: "Construction Industry",
+    context: "Employing our heavy-duty gantry and jib cranes for structural handling."
+  },
+  { 
+    name: "Jyoti Madhav Stelco", 
+    image: "/images/clients/jyoti_madhav.png",
+    industry: "Steel Plants",
+    context: "Trusting Amtech for precision heavy-duty cranes in demanding industrial environments."
+  },
+  { 
+    name: "NR Group", 
+    image: "/images/clients/nr_group.png",
+    industry: "Heavy Fabrication",
+    context: "Integrating our robust overhead cranes for efficient large-scale fabrication tasks."
+  },
+  { 
+    name: "Nav Durga Group", 
+    image: "/images/clients/nav_durga.png",
+    industry: "Heavy Industry",
+    context: "Using our high-capacity lifting equipment to streamline continuous plant operations."
+  },
+  { 
+    name: "Shyam Metalics", 
+    image: "/images/clients/shyam_metalics.webp",
+    industry: "Metals & Mining",
+    context: "Operating our ruggedized systems for bulk material handling in extreme conditions."
+  },
+  { 
     name: "Sunflag Steel", 
     image: "/images/clients/sunflag_steel.png",
-    industry: "Steel Plants",
-    context: "Leading manufacturer of high-grade steel relying on our heavy-duty overhead cranes for constant ladle handling in extreme conditions."
-  },
-  { 
-    name: "Ambuja Cement", 
-    image: "/images/clients/ambuja_cement.webp",
-    industry: "Heavy Industry",
-    context: "Global cement manufacturer utilizing our high-capacity gantry cranes for bulk material handling and continuous plant maintenance."
-  },
-  { 
-    name: "Hindustan Hydraulics", 
-    image: "/images/clients/hindustan_hydraulics.png",
-    industry: "Engineering",
-    context: "Premier hydraulic systems supplier utilizing our precision EOT cranes for massive component assembly and testing."
-  },
-  { 
-    name: "Tata Power", 
-    image: "/images/clients/tata_power.svg",
-    industry: "Power Plants",
-    context: "Major energy provider using our specialized turbine-handling cranes for critical maintenance during power station turnarounds."
-  },
-  { 
-    name: "JSW Steel", 
-    image: "/images/clients/jsw_steel.svg",
-    industry: "Steel Manufacturing",
-    context: "Integrating our robust scrap charging cranes into their primary melting operations for increased daily output."
-  },
-  { 
-    name: "BILT Paper", 
-    image: "/images/clients/bilt_paper.png",
-    industry: "Paper Mills",
-    context: "Utilizing highly synchronized, automated wet-end cranes for precise paper roll handling without product damage."
-  },
-  { 
-    name: "L&T Heavy Engineering", 
-    image: "/images/clients/l_t_heavy_engineering.webp",
-    industry: "Heavy Fabrication",
-    context: "Deploying our 100+ ton capacity double-girder cranes for maneuvering massive pressure vessels safely."
-  },
-  { 
-    name: "Vedanta Resources", 
-    image: "/images/clients/vedanta_resources.svg",
-    industry: "Mining & Metals",
-    context: "Operating our ruggedized outdoor gantry systems for bulk ore management in highly abrasive environments."
-  },
-  { 
-    name: "NTPC", 
-    image: "/images/clients/ntpc.png",
-    industry: "Power Generation",
-    context: "Relying on our explosion-proof hoist systems for safe operations within their specialized thermal power sectors."
-  },
+    industry: "Steel Industry",
+    context: "Leading manufacturer relying on our specialized ladle handling and scrap charging cranes."
+  }
 ];
 
 export const testimonials = [

@@ -169,7 +169,7 @@
   max-width: 720px;
   margin-bottom: var(--space-16);
   line-height: 1.4;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .textHighlight {
@@ -227,7 +227,7 @@
 
 .heroFloatingLabel {
   font-size: 0.7rem;
-  color: var(--gray-400);
+  color: rgba(255, 255, 255, 0.55);
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 700;
@@ -327,16 +327,17 @@
 .expBadge {
   position: absolute;
   bottom: 15%;
-  right: -30px;
+  right: -20px;
+  width: 180px;
+  height: 180px;
   background: var(--primary);
   color: var(--white);
-  padding: var(--space-8) var(--space-12);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0 20px 40px rgba(213, 0, 50, 0.4);
-  border-radius: var(--radius-2xl);
+  border-radius: 50%;
   z-index: 5;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -346,11 +347,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .expNumber {
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--white);
@@ -359,12 +360,13 @@
 }
 
 .expText {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  white-space: nowrap;
+  letter-spacing: 2px;
+  text-align: center;
   color: rgba(255, 255, 255, 0.95);
+  line-height: 1.2;
 }
 
 .aboutContent {
@@ -376,7 +378,7 @@
   line-height: 1.6;
   margin: var(--space-10) 0;
   color: var(--gray-100);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .aboutFeatures {
@@ -415,6 +417,7 @@
   font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--gray-300);
+  font-weight: 500;
 }
 
 /* ==============================================
@@ -483,7 +486,6 @@
 .boxLarge {
   grid-row: span 2;
   justify-content: center;
-  background: linear-gradient(135deg, var(--white) 0%, var(--surface-muted) 100%);
 }
 
 .boxWide {
@@ -494,7 +496,13 @@
 .boxIcon {
   color: var(--primary);
   margin-bottom: var(--space-8);
-  filter: drop-shadow(0 0 10px var(--primary-subtle));
+  background: var(--primary-subtle);
+  padding: 12px;
+  border-radius: var(--radius-xl);
+  width: 56px !important;
+  height: 56px !important;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px var(--primary-subtle);
 }
 
 .bentoBox h3 {
@@ -510,6 +518,7 @@
   font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .boxLink {
@@ -528,7 +537,12 @@
 .boxFlex {
   display: flex;
   gap: var(--space-10);
-  align-items: center;
+  align-items: flex-start;
+}
+
+.boxFlex .boxIcon {
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .boxFlexText {
@@ -796,7 +810,7 @@
 
 .reviewBadge span {
   font-size: 0.75rem;
-  color: var(--gray-500);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -839,7 +853,7 @@
 
 .testimonialAuthor span {
   font-size: 0.9rem;
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 /* ==============================================
@@ -1101,7 +1115,7 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--gray-500);
+  color: var(--text-muted);
   font-weight: 700;
 }
 
@@ -1177,20 +1191,37 @@
 
 .ctaActions {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.ctaContactGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
 }
 
 .ctaContactLink {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 1.5rem;
-  font-weight: 800;
+  gap: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--text-heading);
   transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.ctaContactLink svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
 }
 
 .ctaContactLink:hover {
@@ -1204,7 +1235,9 @@
 @media (max-width: 1200px) {
   .aboutGrid { grid-template-columns: 1fr; gap: var(--space-16); }
   .aboutVisual { padding-right: 0; }
-  .expBadge { top: 20px; right: 20px; transform: none; }
+  .expBadge { top: 20px; right: 20px; bottom: auto; width: 140px; height: 140px; }
+  .expBadge .expNumber { font-size: 3rem; }
+  .expBadge .expText { font-size: 0.7rem; }
   .aboutImg { height: 500px; }
   .roiCard { padding: 60px; }
   .roiTitle { font-size: 2.5rem; }

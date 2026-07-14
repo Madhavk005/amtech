@@ -136,20 +136,21 @@ export default function About() {
               whileInView="visible"
               viewport={viewport}
             >
-              <div className={styles.storyAccentStrip} />
-              <video
-                src="/videos/real_cranes/crane_vid_1_web.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className={styles.storyImage}
-                style={{ objectFit: 'cover' }}
-              />
+              <div className={styles.storyImageDeco} />
+              <div className={styles.storyImageMask}>
+                <img
+                  src={images.aboutMain}
+                  alt="Amtech Manufacturing Facility"
+                  className={styles.storyImage}
+                />
+              </div>
               <div className={styles.storyBadge}>
-                <div className={styles.storyBadgeInner}>
+                <div className={styles.storyBadgeIcon}>
+                  <GemIcon size={24} />
+                </div>
+                <div className={styles.storyBadgeContent}>
                   <span className={styles.storyBadgeNum}>30+</span>
-                  <span className={styles.storyBadgeText}>Years of<br/>Excellence</span>
+                  <span className={styles.storyBadgeText}>Years of Excellence</span>
                 </div>
               </div>
             </motion.div>
@@ -219,20 +220,20 @@ export default function About() {
       <section className={styles.missionVision}>
         <div className={styles.container}>
           <div className={styles.mvGrid}>
-            {/* Mission - Dark Cinematic */}
+            {/* Mission - Light Elegant */}
             <motion.div
-              className={styles.mvCardDark}
+              className={styles.mvCard}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
             >
               <div className={styles.mvCardGlow} />
-              <div className={styles.mvIconWrapDark}>
+              <div className={styles.mvIconWrap}>
                 <Target size={32} />
               </div>
-              <h3 className={styles.mvTitleDark}>Our Mission</h3>
-              <p className={styles.mvTextDark}>
+              <h3 className={styles.mvTitle}>Our Mission</h3>
+              <p className={styles.mvText}>
                 To deliver world-class crane solutions that empower industries
                 with safe, reliable, and efficient material handling systems —
                 built with precision engineering and backed by unwavering service
@@ -240,19 +241,20 @@ export default function About() {
               </p>
             </motion.div>
 
-            {/* Vision - Light Glass */}
+            {/* Vision - Light Elegant */}
             <motion.div
-              className={styles.mvCardLight}
+              className={styles.mvCard}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
             >
-              <div className={styles.mvIconWrapLight}>
+              <div className={styles.mvCardGlow} />
+              <div className={styles.mvIconWrap}>
                 <Eye size={32} />
               </div>
-              <h3 className={styles.mvTitleLight}>Our Vision</h3>
-              <p className={styles.mvTextLight}>
+              <h3 className={styles.mvTitle}>Our Vision</h3>
+              <p className={styles.mvText}>
                 To be the most trusted name in crane manufacturing globally,
                 setting benchmarks in innovation, quality, and customer
                 satisfaction — empowering industries to operate safely and

@@ -83,7 +83,7 @@
 }
 
 .breadcrumbSep {
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .breadcrumb span {
@@ -227,8 +227,9 @@
 }
 
 .panelExpandedInner {
-  /* Fixed width prevents text reflow/jitter during flex expansion */
-  width: 400px; 
+  /* Max-width prevents text reflow/jitter during flex expansion */
+  width: 100%;
+  max-width: 400px; 
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.3s ease, transform 0.3s ease;

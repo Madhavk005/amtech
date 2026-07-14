@@ -1,9 +1,8 @@
 /**
  * API Service
- * Communicates with the backend server to submit forms and handle external requests.
+ * Uses native PHP scripts hosted on the same server (Hostinger)
+ * to send form submissions directly to email.
  */
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 
 /**
  * Submits a standard contact or inquiry form.
@@ -11,9 +10,11 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
  */
 export async function submitContactForm(data) {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/contact`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch("/api/contact.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     });
     
@@ -34,9 +35,11 @@ export async function submitContactForm(data) {
  */
 export async function submitQuoteRequest(config) {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/quotes`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch("/api/quote.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(config),
     });
     

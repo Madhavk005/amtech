@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ArrowRight } from 'lucide-react';
-import { products, images } from '../data/siteData';
+import { products, images, clientLogos } from '../data/siteData';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
 import { fadeUp, stagger, viewport } from '../utils/animations';
@@ -9,6 +9,19 @@ import SEO from '../components/ui/SEO';
 import styles from './Products.module.css';
 
 export default function Products() {
+  // We'll use the marquee images for a scrolling gallery
+  const marqueeImages = [
+    images.marquee1,
+    images.marquee2,
+    images.marquee3,
+    images.marquee4,
+    images.marquee5,
+    images.aboutGallery1,
+    images.aboutGallery2,
+    images.aboutGallery3,
+    images.aboutGallery4,
+    images.aboutGallery5,
+  ];
 
   return (
     <main className={styles.page}>
@@ -64,7 +77,7 @@ export default function Products() {
       </section>
 
       {/* ════════════════════════════════════════════
-          2. PRODUCT SHOWCASE — Alternating Layout
+          2. PRODUCT SHOWCASE — Premium Alternating Grid
           ════════════════════════════════════════════ */}
       <section className={styles.gridSection}>
         <div className={styles.container}>
@@ -76,23 +89,33 @@ export default function Products() {
             />
           </div>
 
-          <div className={styles.simpleGrid}>
-            {products.map((product) => (
+          <div className={styles.premiumGrid}>
+            {products.map((product, index) => (
               <motion.div 
                 key={product.id} 
-                className={styles.simpleCard}
+                className={styles.premiumCard}
                 variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewport}
+                custom={index}
               >
-                <Link to={`/products/${product.id}`} className={styles.simpleLink}>
-                  <div className={styles.simpleImageWrap}>
-                    <img src={product.image} alt={product.name} className={styles.simpleImage} loading="lazy" />
+                <Link to={`/products/${product.id}`} className={styles.premiumLink}>
+                  <div className={styles.premiumImageWrap}>
+                    <img src={product.image} alt={product.name} className={styles.premiumImage} loading="lazy" />
+                    <div className={styles.premiumImageOverlay} />
+                    <div className={styles.viewDetailsBadge}>
+                      View Details <ArrowRight size={14} />
+                    </div>
                   </div>
-                  <div className={styles.simpleContent}>
-                    <h3 className={styles.simpleTitle}>{product.name}</h3>
-                    <p className={styles.simpleDesc}>{product.shortDesc}</p>
-                    <span className={styles.simpleAction}>
-                      Learn More <ArrowRight size={16} />
-                    </span>
+                  <div className={styles.premiumContent}>
+                    <h3 className={styles.premiumTitle}>{product.name}</h3>
+                    <p className={styles.premiumDesc}>{product.shortDesc}</p>
+                    <div className={styles.premiumFeatures}>
+                      {product.features?.slice(0, 3).map((f, i) => (
+                        <span key={i} className={styles.featurePill}>{f.title}</span>
+                      ))}
+                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -102,7 +125,28 @@ export default function Products() {
       </section>
 
       {/* ════════════════════════════════════════════
-          3. CTA SECTION
+          3. IMAGE MARQUEE
+          ════════════════════════════════════════════ */}
+      <section className={styles.marqueeSection}>
+        <div className={styles.marqueeHeader}>
+          <h3 className={styles.marqueeTitle}>Excellence in Action</h3>
+          <p className={styles.marqueeSubtitle}>Glimpses of our engineered solutions across industries</p>
+        </div>
+        <div className={styles.marqueeContainer}>
+          <div className={styles.marqueeTrack}>
+            {/* Double the array for seamless infinite scroll */}
+            {[...marqueeImages, ...marqueeImages].map((img, idx) => (
+              <div key={idx} className={styles.marqueeItem}>
+                <img src={img} alt={`Amtech equipment showcase ${idx}`} className={styles.marqueeImage} loading="lazy"/>
+                <div className={styles.marqueeItemOverlay} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════
+          4. CTA SECTION
           ════════════════════════════════════════════ */}
       <section className={styles.cta}>
         <div className={styles.ctaGlow} aria-hidden="true" />

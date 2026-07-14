@@ -204,7 +204,7 @@
 .advantageDesc {
   font-size: 0.925rem;
   line-height: 1.65;
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 /* Interstitial full-width image between advantage groups */
@@ -277,7 +277,7 @@
 .highlightDesc {
   font-size: 0.925rem;
   line-height: 1.65;
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 /* ═══════════════════════════════════════════════

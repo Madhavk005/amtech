@@ -351,28 +351,28 @@ export default function Configurator() {
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}><User size={14} /> Full Name</label>
                       <input 
-                        required type="text" className={styles.formInput} placeholder="e.g. John Doe"
+                        required type="text" className={styles.formInput} placeholder="e.g. Rahul Sharma"
                         value={config.name} onChange={(e) => handleConfigChange('name', e.target.value)}
                       />
                     </div>
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}><Building2 size={14} /> Company Name</label>
                       <input 
-                        required type="text" className={styles.formInput} placeholder="e.g. Reliance Industries"
+                        required type="text" className={styles.formInput} placeholder="e.g. Tata Steel"
                         value={config.company} onChange={(e) => handleConfigChange('company', e.target.value)}
                       />
                     </div>
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}><Mail size={14} /> Work Email</label>
                       <input 
-                        required type="email" className={styles.formInput} placeholder="john@company.com"
+                        required type="email" className={styles.formInput} placeholder="rahul@company.in"
                         value={config.email} onChange={(e) => handleConfigChange('email', e.target.value)}
                       />
                     </div>
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}><Phone size={14} /> Contact Number</label>
                       <input 
-                        required type="tel" className={styles.formInput} placeholder="+91 XXXX-XXXXXX"
+                        required type="tel" className={styles.formInput} placeholder="+91 98765 43210"
                         value={config.phone} onChange={(e) => handleConfigChange('phone', e.target.value)}
                       />
                     </div>

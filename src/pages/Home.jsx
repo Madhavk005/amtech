@@ -67,7 +67,7 @@ const Magnetic = ({ children, strength = 0.5 }) => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ x: springX, y: springY }}
+      style={{ x: springX, y: springY, display: 'inline-block' }}
       className="magnetic"
     >
       {children}
@@ -131,7 +131,7 @@ export default function Home() {
             playsInline 
             className={styles.heroImg}
           >
-            <source src="/videos/amtech video_1.3.mp4" type="video/mp4" />
+            <source src="/videos/amtech video_1.4.mp4" type="video/mp4" />
           </video>
           <div className={styles.heroOverlay} />
           
@@ -373,7 +373,6 @@ export default function Home() {
             label="The Amtech Advantage"
             title="Beyond Just Machinery"
             align="center"
-            light
           />
 
           <div className={styles.bentoGrid}>
@@ -590,7 +589,7 @@ export default function Home() {
           <div className={styles.logoMarquee}>
             {/* Top Track */}
             <div className={styles.logoTrack}>
-              {[...clientLogos.slice(0, 5), ...clientLogos.slice(0, 5), ...clientLogos.slice(0, 5)].map((logo, i) => (
+              {[...clientLogos.slice(0, 4), ...clientLogos.slice(0, 4), ...clientLogos.slice(0, 4)].map((logo, i) => (
                 <div key={`top-${i}`} className={styles.clientMarqueeCard}>
                   <div className={styles.clientGridVisual}>
                     <img src={logo.image} alt={logo.name} loading="lazy" />
@@ -606,7 +605,7 @@ export default function Home() {
 
             {/* Bottom Track */}
             <div className={styles.logoTrackReverse}>
-              {[...clientLogos.slice(4, 9), ...clientLogos.slice(4, 9), ...clientLogos.slice(4, 9)].map((logo, i) => (
+              {[...clientLogos.slice(4, 8), ...clientLogos.slice(4, 8), ...clientLogos.slice(4, 8)].map((logo, i) => (
                 <div key={`bottom-${i}`} className={styles.clientMarqueeCard}>
                   <div className={styles.clientGridVisual}>
                     <img src={logo.image} alt={logo.name} loading="lazy" />
@@ -702,13 +701,15 @@ export default function Home() {
                 <Magnetic strength={0.3}>
                   <Button to="/contact" variant="primary" size="lg">Get Engineering Quote</Button>
                 </Magnetic>
-                <div className={styles.ctaContactLink}>
-                  <Phone size={20} />
-                  <span>Call Us: {company.phone[0]}</span>
-                </div>
-                <div className={styles.ctaContactLink}>
-                  <Mail size={20} />
-                  <span>Sales: {company.salesEmail}</span>
+                <div className={styles.ctaContactGroup}>
+                  <div className={styles.ctaContactLink}>
+                    <Phone size={20} />
+                    <span>Call Us: {company.phone[0]}</span>
+                  </div>
+                  <div className={styles.ctaContactLink}>
+                    <Mail size={20} />
+                    <span>Sales: {company.salesEmail}</span>
+                  </div>
                 </div>
               </motion.div>
             </div>

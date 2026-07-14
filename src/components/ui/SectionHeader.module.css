@@ -59,11 +59,10 @@
 .title {
   font-family: var(--font-display);
   color: var(--text-heading);
-  line-height: 1;
-  letter-spacing: -0.05em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   font-weight: 800;
   margin-bottom: 0;
-  text-transform: uppercase;
 }
 
 /* Highlighted words inside title (via <span class="highlight">) */
@@ -98,11 +97,11 @@
 }
 
 .light .title {
-  color: var(--text-heading);
+  color: var(--white);
 }
 
 .light .description {
-  color: var(--gray-200);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 /* ---- Responsive ---- */

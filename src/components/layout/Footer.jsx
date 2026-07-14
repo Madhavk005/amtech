@@ -74,13 +74,22 @@ export default function Footer() {
                 Let&rsquo;s Talk
                 <ArrowRight size={18} />
               </Link>
-              <a
-                href={`tel:${company.phone[0].replace(/\s/g, "")}`}
-                className={s.ctaPhone}
-              >
-                <Phone size={16} />
-                {company.phone[0]}
-              </a>
+              <div className={s.ctaContactGroup}>
+                <a
+                  href={`tel:${company.phone[0].replace(/\s/g, "")}`}
+                  className={s.ctaPhone}
+                >
+                  <Phone size={18} />
+                  {company.phone[0]}
+                </a>
+                <a
+                  href={`mailto:${company.salesEmail}`}
+                  className={s.ctaPhone}
+                >
+                  <Mail size={18} />
+                  {company.salesEmail}
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

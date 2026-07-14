@@ -187,22 +187,21 @@ export default function ContactForm({ className = '', onSubmit }) {
               <div
                 className={`${styles.field} ${fieldHasError('name') ? styles.fieldError : ''}`}
               >
+                <label htmlFor="cf-name" className={styles.label}>
+                  Name <span className={styles.required}>*</span>
+                </label>
                 <div className={styles.inputWrap}>
                   <input
                     id="cf-name"
                     name="name"
                     type="text"
-                    placeholder=" "
+                    placeholder="Rahul Sharma"
                     className={styles.input}
                     value={fields.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     autoComplete="name"
                   />
-                  <label htmlFor="cf-name" className={styles.label}>
-                    Name <span className={styles.required}>*</span>
-                  </label>
-                  <span className={styles.focusLine} />
                 </div>
                 {fieldHasError('name') && (
                   <motion.span
@@ -219,22 +218,21 @@ export default function ContactForm({ className = '', onSubmit }) {
               <div
                 className={`${styles.field} ${fieldHasError('email') ? styles.fieldError : ''}`}
               >
+                <label htmlFor="cf-email" className={styles.label}>
+                  Email <span className={styles.required}>*</span>
+                </label>
                 <div className={styles.inputWrap}>
                   <input
                     id="cf-email"
                     name="email"
                     type="email"
-                    placeholder=" "
+                    placeholder="rahul@example.in"
                     className={styles.input}
                     value={fields.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     autoComplete="email"
                   />
-                  <label htmlFor="cf-email" className={styles.label}>
-                    Email <span className={styles.required}>*</span>
-                  </label>
-                  <span className={styles.focusLine} />
                 </div>
                 {fieldHasError('email') && (
                   <motion.span
@@ -254,22 +252,21 @@ export default function ContactForm({ className = '', onSubmit }) {
               <div
                 className={`${styles.field} ${fieldHasError('phone') ? styles.fieldError : ''}`}
               >
+                <label htmlFor="cf-phone" className={styles.label}>
+                  Phone
+                </label>
                 <div className={styles.inputWrap}>
                   <input
                     id="cf-phone"
                     name="phone"
                     type="tel"
-                    placeholder=" "
+                    placeholder="+91 98765 43210"
                     className={styles.input}
                     value={fields.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     autoComplete="tel"
                   />
-                  <label htmlFor="cf-phone" className={styles.label}>
-                    Phone
-                  </label>
-                  <span className={styles.focusLine} />
                 </div>
                 {fieldHasError('phone') && (
                   <motion.span
@@ -286,6 +283,9 @@ export default function ContactForm({ className = '', onSubmit }) {
               <div
                 className={`${styles.field} ${fieldHasError('subject') ? styles.fieldError : ''}`}
               >
+                <label htmlFor="cf-subject" className={styles.label}>
+                  Subject <span className={styles.required}>*</span>
+                </label>
                 <div className={styles.inputWrap}>
                   <select
                     id="cf-subject"
@@ -296,7 +296,7 @@ export default function ContactForm({ className = '', onSubmit }) {
                     onBlur={handleBlur}
                   >
                     <option value="" disabled>
-                      {' '}
+                      Select a topic
                     </option>
                     {SUBJECT_OPTIONS.map((opt) => (
                       <option key={opt} value={opt}>
@@ -304,15 +304,11 @@ export default function ContactForm({ className = '', onSubmit }) {
                       </option>
                     ))}
                   </select>
-                  <label htmlFor="cf-subject" className={styles.label}>
-                    Subject <span className={styles.required}>*</span>
-                  </label>
                   <ChevronDown
                     size={16}
                     className={styles.selectChevron}
                     strokeWidth={2}
                   />
-                  <span className={styles.focusLine} />
                 </div>
                 {fieldHasError('subject') && (
                   <motion.span
@@ -331,21 +327,20 @@ export default function ContactForm({ className = '', onSubmit }) {
             <div
               className={`${styles.field} ${fieldHasError('message') ? styles.fieldError : ''}`}
             >
+              <label htmlFor="cf-message" className={styles.label}>
+                Message <span className={styles.required}>*</span>
+              </label>
               <div className={styles.inputWrap}>
                 <textarea
                   id="cf-message"
                   name="message"
-                  placeholder=" "
+                  placeholder="How can we help you?"
                   className={styles.textarea}
                   value={fields.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   rows="5"
                 />
-                <label htmlFor="cf-message" className={styles.label}>
-                  Message <span className={styles.required}>*</span>
-                </label>
-                <span className={styles.focusLine} />
               </div>
               {fieldHasError('message') && (
                 <motion.span
