@@ -132,7 +132,6 @@ export const navLinks = [
         label: "Wire Rope Electric Hoists",
         path: "/products/wire-rope-electric-hoists",
       },
-      { label: "Transfer Trolley", path: "/products/transfer-trolley" },
       { label: "Steel Plant Cranes", path: "/products/steel-plant-cranes" },
     ],
   },
@@ -380,42 +379,6 @@ export const products = [
     ],
   },
   {
-    id: "transfer-trolley",
-    name: "Transfer Trolley",
-    tagline: "Streamline Your Steel Furnace Ladle Transfer Operations",
-    shortDesc:
-      "Specialized Steel Furnace Ladle Transfer Trolleys designed to streamline ladle transfer and optimize steel furnace operations.",
-    description:
-      "Our Steel Furnace Ladle Transfer Trolleys are designed to streamline ladle transfer operations and optimize steel furnace processes through efficient transportation of molten metal ladles within manufacturing facilities.",
-    image: "/images/real_cranes/crane_img_9.jpg",
-    features: [
-      {
-        title: "Robust Construction",
-        desc: "Built with rugged construction and high-quality materials capable of handling extreme steel production environments.",
-      },
-      {
-        title: "Safe Movement",
-        desc: "Advanced control systems and precision mechanisms minimize the risk of accidents during ladle transportation.",
-      },
-      {
-        title: "Versatile Configuration",
-        desc: "Available in various configurations and sizes to accommodate different ladle sizes, weights, and facility layouts.",
-      },
-      {
-        title: "User-Friendly Operation",
-        desc: "Intuitive operation requiring minimal training for efficient handling by operators.",
-      },
-      {
-        title: "Safety Systems",
-        desc: "Emergency stop mechanisms, overload protection, and secure locking systems.",
-      },
-      {
-        title: "Customizable Capacity",
-        desc: "Tailored to your specific operational requirements for maximum efficiency.",
-      },
-    ],
-  },
-  {
     id: "ladle-handling-cranes",
     name: "Ladle Handling / Teeming Cranes",
     tagline: "Safe and precise transportation of molten metal",
@@ -585,7 +548,7 @@ export const industries = [
     desc: "Specialized cranes for steel melting shops, scrap feeding, ladle handling, and raw material transport — built to withstand extreme temperatures and heavy loads.",
     image: "/images/steel_industry_crane.jpg",
     icon: "Factory",
-    clientLogo: "/images/clients/jsw_steel.svg",
+    clientLogo: "/images/clients/arora_iron_steel.svg",
     applications: [
       "Ladle Handling Cranes",
       "Scrap Feeding Cranes",
@@ -644,7 +607,7 @@ export const industries = [
     desc: "Reliable crane systems for power generation facilities — designed for turbine maintenance, coal handling, and heavy equipment installation.",
     image: "/images/power_plant_crane.png",
     icon: "Zap",
-    clientLogo: "/images/clients/tata_power.svg",
+    clientLogo: "/images/clients/nr_group.png",
     applications: [
       "Turbine Hall Cranes",
       "Coal Handling Systems",
