@@ -104,11 +104,11 @@
 }
 
 .hero .heroSubtitle {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero .heroFloatingLabel {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .heroPulseDot {
@@ -247,10 +247,10 @@
 .scrollText {
   font-size: 0.65rem;
   font-weight: 800;
-  color: var(--gray-500);
+  color: rgba(255, 255, 255, 0.75);
   letter-spacing: 6px;
   writing-mode: vertical-lr;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .scrollLine {

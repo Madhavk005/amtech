@@ -38,9 +38,9 @@
   --gray-200: #2C2C2E;
   --gray-300: #3A3A3C;
   --gray-400: #424245;
-  --gray-500: #A1A1A6;
-  --gray-600: #C7C7CC;
-  --gray-700: #D2D2D7;
+  --gray-500: #75757C;
+  --gray-600: #63636A;
+  --gray-700: #54545C;
   --gray-800: #E5E5EA;
   --gray-900: #0A0A0B;
 
@@ -84,12 +84,12 @@
   --spotlight-color: rgba(255, 0, 60, 0.04);
 
   /* Hero overlays */
-  --hero-overlay-start: rgba(5, 5, 5, 0.75);
-  --hero-overlay-mid: rgba(5, 5, 5, 0.35);
-  --hero-overlay-end: rgba(5, 5, 5, 0.88);
-  --hero-grid-line: rgba(255, 255, 255, 0.04);
-  --hero-badge-bg: rgba(255, 255, 255, 0.12);
-  --hero-badge-border: rgba(255, 255, 255, 0.2);
+  --hero-overlay-start: rgba(5, 5, 5, 0.82);
+  --hero-overlay-mid: rgba(5, 5, 5, 0.48);
+  --hero-overlay-end: rgba(5, 5, 5, 0.9);
+  --hero-grid-line: rgba(255, 255, 255, 0.05);
+  --hero-badge-bg: rgba(255, 255, 255, 0.14);
+  --hero-badge-border: rgba(255, 255, 255, 0.26);
 
   color-scheme: light;
 }
@@ -156,8 +156,11 @@ body {
   font-family: var(--font-body);
   color: var(--text-body);
   background: var(--secondary);
-  line-height: 1.6;
+  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.09375rem);
+  line-height: 1.65;
+  letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   transition:
     background-color var(--duration-base) var(--ease-out),
@@ -171,6 +174,7 @@ h1, h2, h3, h4 {
   line-height: 1.1;
   font-weight: 800;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 h1 { font-size: clamp(3rem, 7vw, 6rem); }
@@ -180,12 +184,20 @@ h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
 p {
   color: var(--text-body);
   line-height: 1.7;
+  text-wrap: pretty;
 }
 
 /* ========== SELECTION ========== */
 ::selection {
   background: var(--primary);
   color: var(--on-primary);
+}
+
+/* ========== FOCUS VISIBILITY ========== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 /* ========== SCROLLBAR ========== */

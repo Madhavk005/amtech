@@ -69,6 +69,11 @@
   transform: translateY(-2px);
 }
 
+.button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .button:active {
   transform: translateY(0);
 }

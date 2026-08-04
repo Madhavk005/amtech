@@ -106,7 +106,7 @@
 .heroSubtitle {
   font-family: var(--font-body);
   font-size: clamp(1.1rem, 1.8vw, 1.25rem);
-  color: #A1A1A6;
+  color: #C9CAD0;
   line-height: 1.7;
 }
 
@@ -288,7 +288,7 @@
 }
 
 .marqueeSubtitle {
-  color: #A1A1A6;
+  color: #C9CAD0;
   font-size: 1.25rem;
   max-width: 600px;
   margin: 0 auto;
@@ -426,7 +426,7 @@
 .ctaText {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: #A1A1A6;
+  color: #C9CAD0;
   margin-bottom: var(--space-8);
 }
 

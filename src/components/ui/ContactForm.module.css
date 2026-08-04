@@ -46,7 +46,7 @@
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--gray-700);
+  color: var(--text-body);
 }
 
 .required {
@@ -188,7 +188,7 @@
 .successText {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--gray-500);
+  color: var(--gray-400);
   max-width: 380px;
   margin-bottom: var(--space-2);
 }
