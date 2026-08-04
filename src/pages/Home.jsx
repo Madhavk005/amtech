@@ -589,7 +589,7 @@ export default function Home() {
           <div className={styles.logoMarquee}>
             {/* Top Track */}
             <div className={styles.logoTrack}>
-              {[...clientLogos.slice(0, 4), ...clientLogos.slice(0, 4), ...clientLogos.slice(0, 4)].map((logo, i) => (
+              {[...clientLogos.slice(0, 7), ...clientLogos.slice(0, 7), ...clientLogos.slice(0, 7)].map((logo, i) => (
                 <div key={`top-${i}`} className={styles.clientMarqueeCard}>
                   <div className={styles.clientGridVisual}>
                     <img src={logo.image} alt={logo.name} loading="lazy" />
@@ -605,7 +605,7 @@ export default function Home() {
 
             {/* Bottom Track */}
             <div className={styles.logoTrackReverse}>
-              {[...clientLogos.slice(4, 8), ...clientLogos.slice(4, 8), ...clientLogos.slice(4, 8)].map((logo, i) => (
+              {[...clientLogos.slice(7, 14), ...clientLogos.slice(7, 14), ...clientLogos.slice(7, 14)].map((logo, i) => (
                 <div key={`bottom-${i}`} className={styles.clientMarqueeCard}>
                   <div className={styles.clientGridVisual}>
                     <img src={logo.image} alt={logo.name} loading="lazy" />

@@ -637,7 +637,7 @@ export const industries = [
     desc: "Robust crane systems for heavy manufacturing and industrial operations — engineered for maximum reliability under the most demanding conditions.",
     image: "/images/heavy_engineering_crane.png",
     icon: "HardHat",
-    clientLogo: "/images/clients/l_t_heavy_engineering.svg",
+    clientLogo: "/images/clients/hmm_infra.png",
     applications: [
       "Assembly Line Cranes",
       "Heavy Part Handling",
@@ -778,6 +778,42 @@ export const clientLogos = [
     image: "/images/clients/sunflag_steel.png",
     industry: "Steel Industry",
     context: "Leading manufacturer relying on our specialized ladle handling and scrap charging cranes."
+  },
+  { 
+    name: "Mongiya", 
+    image: "/images/clients/mongiya.png",
+    industry: "Steel Manufacturing",
+    context: "Trusting Amtech's heavy-duty EOT cranes for continuous production."
+  },
+  { 
+    name: "Vardhaman", 
+    image: "/images/clients/vardhaman.avif",
+    industry: "Special Steels",
+    context: "Using our precision material handling solutions for demanding operations."
+  },
+  { 
+    name: "Birla", 
+    image: "/images/clients/birla.webp",
+    industry: "Industrial Conglomerate",
+    context: "Partnering with Amtech for reliable crane systems across facilities."
+  },
+  { 
+    name: "Kundan", 
+    image: "/images/clients/kundan.png",
+    industry: "Metals & Engineering",
+    context: "Operating our robust overhead cranes for efficient production lines."
+  },
+  { 
+    name: "Assam Tools", 
+    image: "/images/clients/assam_tools.webp",
+    industry: "Engineering & Tools",
+    context: "Employing Amtech cranes for safe and efficient workshop operations."
+  },
+  { 
+    name: "HMM Infra", 
+    image: "/images/clients/hmm_infra.png",
+    industry: "Infrastructure",
+    context: "Integrating our high-capacity lifting equipment for large-scale projects."
   }
 ];
 
