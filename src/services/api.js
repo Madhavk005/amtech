@@ -24,7 +24,6 @@ export async function submitContactForm(data) {
     }
     return result;
   } catch (error) {
-    console.error('API Error:', error);
     throw new Error(error.message || 'Network error: Failed to connect to server.');
   }
 }
@@ -49,7 +48,6 @@ export async function submitQuoteRequest(config) {
     }
     return result;
   } catch (error) {
-    console.error('API Error:', error);
     throw new Error(error.message || 'Network error: Failed to connect to server.');
   }
 }

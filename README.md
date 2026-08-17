@@ -1,17 +1,58 @@
-# React + Vite
+# Amtech Cranes — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official marketing website for [Amtech Cranes](https://amtechcranes.com) — manufacturer of Electric Overhead Travelling (EOT) cranes since 1990.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **Vite 8** (ESM, CSS Modules)
+- **React Router 7** — SPA routing with lazy-loaded routes
+- **Framer Motion** — page transitions & scroll animations
+- **Lucide React** — icons
+- **react-helmet-async** — per-page SEO metadata
+- **@vercel/analytics** — web analytics
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev        # dev server on http://localhost:3000
+npm run build      # production build → dist/
+npm run preview    # preview the production build
+npm run lint       # ESLint (flat config)
+```
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# amtech
+```
+src/
+  App.jsx              # Lazy route definitions
+  pages/               # Route-level pages (+ .module.css per page)
+  components/
+    layout/            # Navbar, Footer, Layout, ScrollToTop
+    ui/                # Button, Card, ContactForm, SEO, Preloader, ...
+  data/                # siteData.js (products/industries/services), configuratorData.js
+  services/            # api.js (fetch wrappers)
+  context/             # ThemeContext (dark/light)
+  utils/               # Framer Motion variants
+public/
+  api/                 # PHP mail endpoints (Hostinger) — contact.php, quote.php
+  images/ videos/      # Static assets
+server/                # Optional Node/Express + Resend email backend (local dev)
+```
+
+## Form Handling
+
+Two submission paths are supported:
+
+1. **Production (Hostinger):** `public/api/contact.php` and `public/api/quote.php` use PHP `mail()`.
+   Both validate input, strip control characters (header-injection safe), rate-limit via session
+   (5 submissions / 10 min), and include a honeypot field.
+2. **Local / alternative:** the Express server in `server/` (Resend provider). Copy
+   `server/.env.example` → `server/.env` and run `npm install && npm start` inside `server/`.
+
+## Deployment (Hostinger)
+
+1. `npm run build`
+2. Upload `dist/` contents to `public_html/`
+3. `public/.htaccess` ships with the build — it rewrites all routes to `index.html` so
+   client-side URLs (e.g. `/about`, `/products/...`) work on refresh.

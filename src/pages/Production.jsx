@@ -253,6 +253,52 @@ export default function Production() {
         </div>
       </section>
 
+      {/* ─── Robotic Welding & Bedding ─── */}
+      <section className={styles.cncOverview}>
+        <div className={styles.container}>
+          <div className={styles.cncGrid}>
+            <motion.div
+              className={styles.cncImageWrap}
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <img
+                src={images.cnc1}
+                alt="Robotic welding bed at Amtech"
+                className={styles.cncImage}
+                loading="lazy"
+              />
+            </motion.div>
+
+            <motion.div
+              className={styles.cncContent}
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <SectionHeader
+                label="Robotic Automation"
+                title="Robotic Welding & Bedding"
+                align="left"
+              />
+              <p className={styles.cncText}>
+                Our production floor integrates robotic welding beds and
+                automated bedding lines that deliver consistent, repeatable
+                weld quality on critical crane structures.
+              </p>
+              <p className={styles.cncText}>
+                Automated processes ensure precise alignment and dimensional
+                accuracy of beams and girders before final assembly —
+                dramatically reducing human error while boosting throughput.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Machine Inventory ─── */}
       <section className={styles.machines}>
         <div className={styles.machinesBg}>

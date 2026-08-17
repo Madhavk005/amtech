@@ -145,11 +145,17 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background: var(--secondary);
+  -webkit-tap-highlight-color: transparent;
 }
 
 img, video, canvas, svg {
   max-width: 100%;
   height: auto;
+}
+
+::placeholder {
+  color: var(--gray-500);
+  opacity: 1;
 }
 
 body {
@@ -161,6 +167,7 @@ body {
   letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
   transition:
     background-color var(--duration-base) var(--ease-out),
@@ -222,6 +229,25 @@ p {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 9999;
+  padding: var(--space-3) var(--space-5);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 700;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  text-decoration: none;
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  top: 0;
+  outline: none;
 }
 
 /* ========== UTILITIES ========== */

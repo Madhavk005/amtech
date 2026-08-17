@@ -759,7 +759,16 @@
     height: 32px;
   }
 
-  .mobileMenu {
+.mobileBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 10, 18, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9997;
+}
+
+.mobileMenu {
     width: 100%;
   }
 

@@ -66,6 +66,14 @@ export default function SteelPlantCranes() {
                 <div className={styles.productInfo}>
                   <h2 className={styles.productTitle}>{solution.title}</h2>
                   <p className={styles.productDesc}>{solution.desc}</p>
+                  {solution.clientLogo && (
+                    <div className={styles.clientTrust}>
+                      <span className={styles.trustedByText}>Trusted By</span>
+                      <div className={styles.clientLogoWrap}>
+                        <img src={solution.clientLogo} alt="Client Logo" className={styles.clientLogoInline} loading="lazy" />
+                      </div>
+                    </div>
+                  )}
                   <Button 
                     variant="outline" 
                     to={solution.link} 

@@ -5,6 +5,15 @@
 const COMPANY_NAME = 'Amtech Cranes';
 const LOGO_URL = 'https://madhavk005.github.io/amtech/logo.png'; // Placeholder for live logo
 
+// Escape user content before it enters HTML email templates
+// (CR/LF is stripped upstream by sanitizeText before subjects/fields are built)
+const escapeHtml = (value) => String(value ?? '')
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
+
 const baseTemplate = (title, content) => `
 <!DOCTYPE html>
 <html>
@@ -45,17 +54,17 @@ exports.generateInquiryNotification = (data) => {
   const content = `
     <p>A new inquiry has been submitted via the website.</p>
     <table class="data-table">
-      <tr><th>Name</th><td>${data.name}</td></tr>
-      <tr><th>Email</th><td>${data.email}</td></tr>
-      <tr><th>Phone</th><td>${data.phone || 'N/A'}</td></tr>
-      <tr><th>Company</th><td>${data.company || 'N/A'}</td></tr>
-      <tr><th>Subject</th><td>${data.subject}</td></tr>
-      <tr><th>Source</th><td>${data.source || 'Website Contact Form'}</td></tr>
+      <tr><th>Name</th><td>${escapeHtml(data.name)}</td></tr>
+      <tr><th>Email</th><td>${escapeHtml(data.email)}</td></tr>
+      <tr><th>Phone</th><td>${escapeHtml(data.phone || 'N/A')}</td></tr>
+      <tr><th>Company</th><td>${escapeHtml(data.company || 'N/A')}</td></tr>
+      <tr><th>Subject</th><td>${escapeHtml(data.subject)}</td></tr>
+      <tr><th>Source</th><td>${escapeHtml(data.source || 'Website Contact Form')}</td></tr>
       <tr><th>Timestamp</th><td>${new Date().toISOString()}</td></tr>
     </table>
     <br>
     <h3>Message:</h3>
-    <p style="background: #f5f5f5; padding: 15px; border-left: 4px solid #000;">${data.message.replace(/\\n/g, '<br>')}</p>
+    <p style="background: #f5f5f5; padding: 15px; border-left: 4px solid #000;">${escapeHtml(data.message).replace(/\n/g, '<br>')}</p>
   `;
   return baseTemplate('New Website Inquiry', content);
 };
@@ -64,32 +73,33 @@ exports.generateQuoteNotification = (data) => {
   const content = `
     <p>A new quotation request has been generated via the Engineering Configurator.</p>
     <table class="data-table">
-      <tr><th>Name</th><td>${data.name}</td></tr>
-      <tr><th>Email</th><td>${data.email}</td></tr>
-      <tr><th>Phone</th><td>${data.phone}</td></tr>
-      <tr><th>Company</th><td>${data.company}</td></tr>
-      <tr><th>Timeline</th><td>${data.timeline}</td></tr>
+      <tr><th>Name</th><td>${escapeHtml(data.name)}</td></tr>
+      <tr><th>Email</th><td>${escapeHtml(data.email)}</td></tr>
+      <tr><th>Phone</th><td>${escapeHtml(data.phone)}</td></tr>
+      <tr><th>Company</th><td>${escapeHtml(data.company)}</td></tr>
+      <tr><th>Timeline</th><td>${escapeHtml(data.timeline)}</td></tr>
       <tr><th>Timestamp</th><td>${new Date().toISOString()}</td></tr>
     </table>
     
     <h3>Technical Brief</h3>
     <table class="data-table" style="background: #fdfdfd;">
-      <tr><th>Equipment Type</th><td><strong>${data.typeId}</strong></td></tr>
-      <tr><th>Load Capacity</th><td>${data.loadCapacity} Tons</td></tr>
-      <tr><th>Span Length</th><td>${data.spanLength} m</td></tr>
-      <tr><th>Lift Height</th><td>${data.liftHeight} m</td></tr>
-      <tr><th>Duty Class</th><td>${data.dutyClass}</td></tr>
-      <tr><th>Environment</th><td>${data.environment}</td></tr>
-      <tr><th>Target Industry</th><td>${data.industry}</td></tr>
+      <tr><th>Equipment Type</th><td><strong>${escapeHtml(data.typeId)}</strong></td></tr>
+      <tr><th>Load Capacity</th><td>${escapeHtml(data.loadCapacity)} Tons</td></tr>
+      <tr><th>Span Length</th><td>${escapeHtml(data.spanLength)} m</td></tr>
+      <tr><th>Lift Height</th><td>${escapeHtml(data.liftHeight)} m</td></tr>
+      <tr><th>Duty Class</th><td>${escapeHtml(data.dutyClass)}</td></tr>
+      <tr><th>Environment</th><td>${escapeHtml(data.environment)}</td></tr>
+      <tr><th>Target Industry</th><td>${escapeHtml(data.industry)}</td></tr>
     </table>
   `;
   return baseTemplate('New Quotation Request', content);
 };
 
 exports.generateAutoReply = (name, type) => {
+  const safeName = escapeHtml(name);
   let title = 'Thank you for contacting Amtech Cranes';
   let body = `
-    <p>Dear ${name},</p>
+    <p>Dear ${safeName},</p>
     <p>We have successfully received your inquiry. Our team is currently reviewing your request and will get back to you shortly.</p>
     <p>If you have any urgent queries, please do not hesitate to call us directly.</p>
     <p>Best Regards,<br><strong>Amtech Cranes Team</strong></p>
@@ -98,7 +108,7 @@ exports.generateAutoReply = (name, type) => {
   if (type === 'quote') {
     title = 'Quotation Request Received';
     body = `
-      <p>Dear ${name},</p>
+      <p>Dear ${safeName},</p>
       <p>Thank you for submitting a technical configuration through our system. Our engineering and sales team has received your brief.</p>
       <p>We will prepare a detailed proposal based on your specifications and contact you shortly to discuss further technical requirements.</p>
       <p>Best Regards,<br><strong>Amtech Cranes Engineering Team</strong></p>

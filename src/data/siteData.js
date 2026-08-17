@@ -203,8 +203,8 @@ export const products = [
       "Heavy-duty Double Girder Overhead Cranes built for high lifting capacities and demanding industrial applications with robust construction and superior stability.",
     description:
       "Elevate your lifting operations with our Double Girder EOT Crane. Built to withstand the toughest industrial environments, this crane delivers unparalleled lifting power and precision for demanding material handling applications.",
-    image: "/images/double_girder_crane.png",
-    heroImage: "/images/double_girder_crane.png",
+    image: "/images/double_girder_new.png",
+    heroImage: "/images/double_girder_new.png",
     features: [
       {
         title: "Robust Construction",
@@ -349,8 +349,8 @@ export const products = [
       "Engineered for superior lifting performance, precision, and reliability. Designed for smooth operation and long service life.",
     description:
       "Amtech's Electric Wire Rope Hoists are engineered for superior lifting performance, precision, and reliability. Designed for smooth operation and long service life, these hoists are ideal for industrial environments demanding consistent performance.",
-    image: "/images/wire_rope_hoist.png",
-    heroImage: "/images/wire_rope_hoist.png",
+    image: "/images/electric_hoist.png",
+    heroImage: "/images/electric_hoist.png",
     features: [
       {
         title: "High Lifting Efficiency",
@@ -384,8 +384,8 @@ export const products = [
     tagline: "Safe and precise transportation of molten metal",
     shortDesc: "High-performance Ladle Handling / Teeming Cranes for steel plants and foundries.",
     description: "Amtech Cranes designs high-performance Ladle Handling / Teeming Cranes for the safe and precise transportation of molten metal in steel plants and foundries. Built to operate reliably in extreme temperatures, dusty environments, and continuous-duty applications, these cranes feature heavy-duty construction, high-performance components, and operator cabins with excellent visibility. Designed for maximum safety, minimal downtime, and long service life, they ensure efficient material handling throughout the steel-making process.",
-    image: "/images/steel-plant/ladle_handling_crane.png",
-    heroImage: "/images/steel-plant/ladle_handling_crane.png",
+    image: "/images/ladle_crane_new.png",
+    heroImage: "/images/ladle_crane_new.png",
     features: [
       { title: "Extreme Temperature Ready", desc: "Built to operate reliably in intense heat and continuous-duty applications." },
       { title: "Heavy-Duty Construction", desc: "Robust framework engineered specifically for demanding steel plant environments." },
@@ -418,8 +418,8 @@ export const products = [
     tagline: "Smooth, reliable, and precise handling for hot metal products",
     shortDesc: "Specialized cranes for the safe movement of billets, slabs, and other hot metal products.",
     description: "Amtech Cranes manufactures Billet Handling Cranes for the safe movement of billets, slabs, and other hot metal products throughout steel manufacturing facilities. Built to withstand intense heat and harsh industrial conditions, these cranes provide smooth, reliable, and precise handling. Optional rotating trolleys and electromagnets can be integrated for rotating, stacking, and transporting billets efficiently while ensuring maximum operational safety.",
-    image: "/images/steel-plant/billet_handling_crane.png",
-    heroImage: "/images/steel-plant/billet_handling_crane.png",
+    image: "/images/billet_crane_new.png",
+    heroImage: "/images/billet_crane_new.png",
     features: [
       { title: "Hot Metal Handling", desc: "Purpose-built for the safe transportation of glowing hot billets and slabs." },
       { title: "Rotating Trolleys", desc: "Optional integration for precise rotating and aligning of steel products." },
@@ -452,8 +452,8 @@ export const products = [
     tagline: "Continuous-duty operations for metal processing plants",
     shortDesc: "Engineered with heavy-duty mechanisms for safe transportation throughout rolling operations.",
     description: "Amtech Cranes offers Rolling Mill Cranes designed specifically for continuous-duty operations in rolling mills and metal processing plants. Engineered with heavy-duty mechanisms, precision controls, and multiple synchronized motions, these cranes enable safe transportation of steel products throughout rolling operations. Configurations can include rotating trolleys, electromagnets, and customized lifting solutions to meet specific production requirements.",
-    image: "/images/steel-plant/rolling_mill_crane.png",
-    heroImage: "/images/steel-plant/rolling_mill_crane.png",
+    image: "/images/rolling_mill_new.png",
+    heroImage: "/images/rolling_mill_new.png",
     features: [
       { title: "Continuous-Duty Design", desc: "Built to match the relentless pace of active rolling mill operations." },
       { title: "Synchronized Motions", desc: "Advanced control systems allowing multiple precise movements simultaneously." },
@@ -561,7 +561,7 @@ export const industries = [
         id: "ladle-handling-cranes",
         title: "Ladle Handling / Teeming Cranes",
         desc: "Amtech Cranes designs high-performance Ladle Handling / Teeming Cranes for the safe and precise transportation of molten metal in steel plants and foundries. Built to operate reliably in extreme temperatures, dusty environments, and continuous-duty applications, these cranes feature heavy-duty construction, high-performance components, and operator cabins with excellent visibility. Designed for maximum safety, minimal downtime, and long service life, they ensure efficient material handling throughout the steel-making process.",
-        image: "/images/steel-plant/ladle_handling_crane.png",
+        image: "/images/ladle_crane_new.png",
         link: "/products/ladle-handling-cranes"
       },
       {
@@ -575,7 +575,7 @@ export const industries = [
         id: "billet-handling-cranes",
         title: "Billet Handling Cranes",
         desc: "Amtech Cranes manufactures Billet Handling Cranes for the safe movement of billets, slabs, and other hot metal products throughout steel manufacturing facilities. Built to withstand intense heat and harsh industrial conditions, these cranes provide smooth, reliable, and precise handling. Optional rotating trolleys and electromagnets can be integrated for rotating, stacking, and transporting billets efficiently while ensuring maximum operational safety.",
-        image: "/images/steel-plant/billet_handling_crane.png",
+        image: "/images/billet_crane_new.png",
         link: "/products/billet-handling-cranes"
       },
       {
@@ -589,7 +589,7 @@ export const industries = [
         id: "rolling-mill-cranes",
         title: "Rolling Mill Cranes",
         desc: "Amtech Cranes offers Rolling Mill Cranes designed specifically for continuous-duty operations in rolling mills and metal processing plants. Engineered with heavy-duty mechanisms, precision controls, and multiple synchronized motions, these cranes enable safe transportation of steel products throughout rolling operations. Configurations can include rotating trolleys, electromagnets, and customized lifting solutions to meet specific production requirements.",
-        image: "/images/steel-plant/rolling_mill_crane.png",
+        image: "/images/rolling_mill_new.png",
         link: "/products/rolling-mill-cranes"
       },
       {
@@ -597,6 +597,7 @@ export const industries = [
         title: "Ladle Transfer Trolleys",
         desc: "Our Ladle Transfer Trolleys provide safe and efficient transportation of molten metal ladles between production stations in steel plants and foundries. Manufactured using heat-resistant materials and heavy-duty drive systems, these trolleys ensure smooth movement, precise positioning, and reliable operation under extreme industrial conditions. Available with customized ladle securing systems, remote operation, and safety features to meet specific plant requirements.",
         image: "/images/steel-plant/ladle_transfer_trolley.png",
+        clientLogo: "/images/clients/ladle_transfer_client.jpg",
         link: "/products/ladle-transfer-trolleys"
       }
     ],
@@ -622,7 +623,6 @@ export const industries = [
     desc: "Precision crane solutions for paper mills — from raw material handling to finished product management, ensuring safe and efficient operations.",
     image: "/images/paper_industry_crane.jpg",
     icon: "FileText",
-    clientLogo: "/images/clients/bilt_paper.svg",
     applications: [
       "Roll Handling Cranes",
       "Pulp Processing",
@@ -808,6 +808,24 @@ export const clientLogos = [
     image: "/images/clients/assam_tools.webp",
     industry: "Engineering & Tools",
     context: "Employing Amtech cranes for safe and efficient workshop operations."
+  },
+  { 
+    name: "Assam Tubes", 
+    image: "/images/clients/assam_tubes.svg",
+    industry: "Steel Tubes & Pipes",
+    context: "Relying on our robust EOT cranes for continuous tube production lines."
+  },
+  { 
+    name: "Scania", 
+    image: "/images/clients/scania.png",
+    industry: "Commercial Vehicles",
+    context: "Trusting Amtech's material handling solutions for manufacturing operations."
+  },
+  { 
+    name: "Scana Energy", 
+    image: "/images/clients/scana_energy.jpg",
+    industry: "Energy & Power",
+    context: "Relying on Amtech cranes for heavy-duty material handling operations."
   },
   { 
     name: "HMM Infra", 

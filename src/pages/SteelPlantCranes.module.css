@@ -154,6 +154,37 @@
   margin-top: auto;
 }
 
+.clientTrust {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.trustedByText {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.clientLogoWrap {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clientLogoInline {
+  max-height: 44px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
 /* CTA Section */
 .cta {
   padding: var(--space-24) 0;

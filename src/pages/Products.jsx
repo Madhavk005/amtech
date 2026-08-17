@@ -21,6 +21,7 @@ export default function Products() {
     images.aboutGallery3,
     images.aboutGallery4,
     images.aboutGallery5,
+    '/images/trolley_marquee.png',
   ];
 
   return (
@@ -35,7 +36,7 @@ export default function Products() {
           ════════════════════════════════════════════ */}
       <section className={styles.hero}>
         <div className={styles.heroBg}>
-          <img src={images.aboutMain || 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80'} alt="Amtech Cranes Products" className={styles.heroBgImg} />
+          <img src="/images/crane_solutions_hero.png" alt="Amtech Cranes Products" className={styles.heroBgImg} />
           <div className={styles.heroBgOverlay} />
         </div>
 

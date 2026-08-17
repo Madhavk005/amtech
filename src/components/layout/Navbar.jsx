@@ -196,7 +196,17 @@ export default function Navbar() {
       {/* ── MOBILE FULLSCREEN OVERLAY ── */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.nav
+          <>
+            <motion.div
+              className={s.mobileBackdrop}
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <motion.nav
             className={s.mobileMenu}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -310,6 +320,7 @@ export default function Navbar() {
               </a>
             </div>
           </motion.nav>
+          </>
         )}
       </AnimatePresence>
 

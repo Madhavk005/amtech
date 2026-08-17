@@ -76,10 +76,16 @@ export default function Industries() {
                 </div>
                 <div className={styles.rowFooter}>
                   <div className={styles.clientTrust}>
-                    <span className={styles.trustedByText}>Trusted By</span>
-                    <div className={styles.clientLogoWrap}>
-                      <img src={industry.clientLogo} alt="Client Logo" className={styles.clientLogoInline} />
-                    </div>
+                    {industry.clientLogo ? (
+                      <>
+                        <span className={styles.trustedByText}>Trusted By</span>
+                        <div className={styles.clientLogoWrap}>
+                          <img src={industry.clientLogo} alt="Client Logo" className={styles.clientLogoInline} />
+                        </div>
+                      </>
+                    ) : (
+                      <span className={styles.trustedByText}>Trusted by leading industries across India</span>
+                    )}
                   </div>
                   <Button variant="outline" to={industry.id === 'steel-plants' ? '/products/steel-plant-cranes' : '/contact'} arrow>
                      {industry.id === 'steel-plants' ? 'View Specialized Solutions' : 'Discuss Solutions'}
@@ -187,10 +193,16 @@ export default function Industries() {
                   
                   <div className={styles.rowFooter}>
                     <div className={styles.clientTrust}>
-                      <span className={styles.trustedByText}>Trusted By</span>
-                      <div className={styles.clientLogoWrap}>
-                        <img src={industry.clientLogo} alt="Client Logo" className={styles.clientLogoInline} />
-                      </div>
+                      {industry.clientLogo ? (
+                        <>
+                          <span className={styles.trustedByText}>Trusted By</span>
+                          <div className={styles.clientLogoWrap}>
+                            <img src={industry.clientLogo} alt="Client Logo" className={styles.clientLogoInline} />
+                          </div>
+                        </>
+                      ) : (
+                        <span className={styles.trustedByText}>Trusted by leading industries across India</span>
+                      )}
                     </div>
 
                     <Button variant="outline" to={`/industries/${industry.id}`} arrow>

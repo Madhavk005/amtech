@@ -34,7 +34,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.5) grayscale(0.05);
+  filter: brightness(0.55) saturate(1.05);
 }
 
 .heroOverlay {
@@ -231,6 +231,37 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 700;
+}
+
+.heroSlideDots {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.heroSlideDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.heroSlideDot:hover {
+  border-color: var(--white);
+}
+
+.heroSlideDotActive {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.2);
 }
 
 .heroScrollIndicator {
@@ -879,7 +910,7 @@
   display: flex;
   gap: var(--space-6);
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 20s linear infinite;
 }
 
 .logoTrack:hover {
@@ -890,7 +921,7 @@
   display: flex;
   gap: var(--space-6);
   width: max-content;
-  animation: marquee-reverse 40s linear infinite;
+  animation: marquee-reverse 24s linear infinite;
 }
 
 .logoTrackReverse:hover {
@@ -933,7 +964,11 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: all 0.3s ease;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.clientMarqueeCard:hover .clientGridVisual img {
+  transform: scale(1.06);
 }
 
 .clientMarqueeCard:hover .clientGridVisual {
@@ -1259,6 +1294,9 @@
   .heroActions { justify-content: center; }
   .heroFloatingStats { margin: 0 auto; }
   .heroTitle { font-size: clamp(2.5rem, 10vw, 4rem); }
+
+  .heroSlideDots { bottom: 84px; gap: 8px; }
+  .heroSlideDot { width: 8px; height: 8px; border-width: 1.5px; }
   
   .productsGrid { grid-template-columns: 1fr; }
   .bentoGrid { grid-template-columns: 1fr; }

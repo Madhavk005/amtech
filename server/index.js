@@ -73,9 +73,12 @@ app.use('/api/', apiLimiter);
 
 // Input Sanitization helper
 const sanitizeText = (text) => {
-  if (!text) return '';
-  return text.replace(/<[^>]*>?/gm, ''); // Basic HTML tag stripping
+  if (text === null || text === undefined) return '';
+  return String(text).replace(/[\r\n]/g, ' ').replace(/<[^>]*>?/gm, '').trim(); // Strip headers & basic HTML tags
 };
+
+// Email format validation
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || '');
 
 // Retry Helper
 const withRetry = async (fn, retries = 2, delayMs = 1000) => {
@@ -106,6 +109,10 @@ app.post('/api/contact', async (req, res) => {
     // Validation
     if (!name || !email || !message) {
       return res.status(400).json({ success: false, message: 'Name, email, and message are required fields.' });
+    }
+
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ success: false, message: 'Please provide a valid email address.' });
     }
 
     // Sanitization
@@ -173,14 +180,25 @@ app.post('/api/quotes', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Incomplete quotation data. Name, email, and technical specs are required.' });
     }
 
-    // Sanitization
+    if (!isValidEmail(config.email)) {
+      return res.status(400).json({ success: false, message: 'Please provide a valid email address.' });
+    }
+
+    // Sanitization (every field is stripped before entering email HTML)
     const cleanData = {
-      ...config,
       name: sanitizeText(config.name),
       email: sanitizeText(config.email).toLowerCase(),
       phone: sanitizeText(config.phone),
       company: sanitizeText(config.company),
       timeline: sanitizeText(config.timeline),
+      typeId: sanitizeText(config.typeId),
+      loadCapacity: sanitizeText(config.loadCapacity),
+      spanLength: sanitizeText(config.spanLength),
+      liftHeight: sanitizeText(config.liftHeight),
+      dutyClass: sanitizeText(config.dutyClass),
+      environment: sanitizeText(config.environment),
+      industry: sanitizeText(config.industry),
+      powerSupply: sanitizeText(config.powerSupply),
     };
 
     // 1. Send Internal Notification to Sales

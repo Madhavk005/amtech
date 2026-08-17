@@ -33,6 +33,13 @@ import styles from './Home.module.css';
 /* ── Stagger container variant ── */
 const staggerContainer = stagger(0.1);
 
+/* ── Hero slideshow images ── */
+const HERO_SLIDES = [
+  '/images/hero/slide_1.jpg',
+  '/images/hero/slide_2.jpg',
+  '/images/hero/slide_3.png',
+];
+
 /* ================================================================
    MAGNETIC COMPONENT
    ================================================================ */
@@ -80,6 +87,15 @@ const Magnetic = ({ children, strength = 0.5 }) => {
    ================================================================ */
 export default function Home() {
   const [activeIndustry, setActiveIndustry] = useState(0);
+  /* Hero slideshow rotation */
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroSlide(prev => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
   /* Parallax for hero image */
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -124,15 +140,19 @@ export default function Home() {
           className={styles.heroBackground}
           style={{ scale: heroScale }}
         >
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className={styles.heroImg}
-          >
-            <source src="/videos/amtech video_1.4.mp4" type="video/mp4" />
-          </video>
+          <AnimatePresence>
+            <motion.img
+              key={heroSlide}
+              src={HERO_SLIDES[heroSlide]}
+              alt="Amtech crane in operation"
+              className={styles.heroImg}
+              decoding="async"
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+            />
+          </AnimatePresence>
           <div className={styles.heroOverlay} />
           
           {/* Hero Decorative Elements */}
@@ -225,6 +245,21 @@ export default function Home() {
               ))}
             </motion.div>
           </motion.div>
+        </div>
+
+        {/* Slideshow Dots */}
+        <div className={styles.heroSlideDots} role="tablist" aria-label="Hero slides">
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              aria-label={`Slide ${i + 1}`}
+              aria-selected={heroSlide === i}
+              className={`${styles.heroSlideDot} ${heroSlide === i ? styles.heroSlideDotActive : ''}`}
+              onClick={() => setHeroSlide(i)}
+            />
+          ))}
         </div>
 
         {/* Dynamic Scroll Hook */}
@@ -512,11 +547,13 @@ export default function Home() {
                     >
                       <div className={styles.tabPaneTrust}>
                         <span className={styles.tabPaneTrustText}>Trusted By</span>
-                        <img 
-                          src={industries[activeIndustry].clientLogo} 
-                          alt="Client Logo" 
-                          className={`${styles.tabPaneTrustLogo} ${industries[activeIndustry].id !== 'steel-plants' ? styles.largerLogo : ''}`} 
-                        />
+                        {industries[activeIndustry].clientLogo && (
+                          <img 
+                            src={industries[activeIndustry].clientLogo} 
+                            alt="Client Logo" 
+                            className={`${styles.tabPaneTrustLogo} ${industries[activeIndustry].id !== 'steel-plants' ? styles.largerLogo : ''}`} 
+                          />
+                        )}
                       </div>
                       
                       <Button 
@@ -589,7 +626,7 @@ export default function Home() {
           <div className={styles.logoMarquee}>
             {/* Top Track */}
             <div className={styles.logoTrack}>
-              {[...clientLogos.slice(0, 7), ...clientLogos.slice(0, 7), ...clientLogos.slice(0, 7)].map((logo, i) => (
+              {[...clientLogos.slice(0, 8), ...clientLogos.slice(0, 8), ...clientLogos.slice(0, 8)].map((logo, i) => (
                 <div key={`top-${i}`} className={styles.clientMarqueeCard}>
                   <div className={styles.clientGridVisual}>
                     <img src={logo.image} alt={logo.name} loading="lazy" />
@@ -605,7 +642,7 @@ export default function Home() {
 
             {/* Bottom Track */}
             <div className={styles.logoTrackReverse}>
-              {[...clientLogos.slice(7, 14), ...clientLogos.slice(7, 14), ...clientLogos.slice(7, 14)].map((logo, i) => (
+              {[...clientLogos.slice(8, 16), ...clientLogos.slice(8, 16), ...clientLogos.slice(8, 16)].map((logo, i) => (
                 <div key={`bottom-${i}`} className={styles.clientMarqueeCard}>
                   <div className={styles.clientGridVisual}>
                     <img src={logo.image} alt={logo.name} loading="lazy" />

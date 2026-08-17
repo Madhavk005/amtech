@@ -55,8 +55,11 @@ export default function Layout() {
         `}
       </style>
       <ScrollToTop />
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Navbar />
-      <main style={{ paddingTop: isTransparentPage ? '40px' : '112px' }}>
+      <main id="main-content" style={{ paddingTop: isTransparentPage ? '40px' : '112px' }}>
         <Outlet />
       </main>
       <Footer />

@@ -36,6 +36,7 @@ export default function ProductDetail() {
     images.aboutGallery3,
     images.aboutGallery4,
     images.aboutGallery5,
+    '/images/trolley_marquee.png',
   ];
 
   if (!product) {

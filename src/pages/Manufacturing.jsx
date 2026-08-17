@@ -158,7 +158,7 @@ export default function Manufacturing() {
             
             <motion.div className={styles.qualityVisual} variants={fadeLeft} initial="hidden" whileInView="visible" viewport={viewport}>
               <div className={styles.qualityImageWrap}>
-                 <img src={images.factory2} alt="Quality Inspection" className={styles.qualityImg} loading="lazy" />
+                 <img src="/images/quality_inspection.png" alt="Quality Inspection" className={styles.qualityImg} loading="lazy" />
               </div>
             </motion.div>
           </div>
