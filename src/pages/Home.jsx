@@ -87,16 +87,12 @@ const Magnetic = ({ children, strength = 0.5 }) => {
    ================================================================ */
 export default function Home() {
   const [activeIndustry, setActiveIndustry] = useState(0);
-  /* Hero slideshow rotation */
-  const [heroSlide, setHeroSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroSlide(prev => (prev + 1) % HERO_SLIDES.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-  /* Parallax for hero image */
+  /* Hero video → static image fallback if the video fails to load */
+  const [heroVideoFailed, setHeroVideoFailed] = useState(false);
+  const [prefersReducedMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+  /* Parallax for hero background */
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -140,19 +136,26 @@ export default function Home() {
           className={styles.heroBackground}
           style={{ scale: heroScale }}
         >
-          <AnimatePresence>
-            <motion.img
-              key={heroSlide}
-              src={HERO_SLIDES[heroSlide]}
+          {heroVideoFailed || prefersReducedMotion ? (
+            <img
+              src={HERO_SLIDES[0]}
               alt="Amtech crane in operation"
               className={styles.heroImg}
               decoding="async"
-              initial={{ opacity: 0, scale: 1.08 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2, ease: 'easeInOut' }}
             />
-          </AnimatePresence>
+          ) : (
+            <video
+              className={styles.heroVideo}
+              src="/videos/hero_video.mp4"
+              poster={HERO_SLIDES[0]}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              onError={() => setHeroVideoFailed(true)}
+            />
+          )}
           <div className={styles.heroOverlay} />
           
           {/* Hero Decorative Elements */}
@@ -245,21 +248,6 @@ export default function Home() {
               ))}
             </motion.div>
           </motion.div>
-        </div>
-
-        {/* Slideshow Dots */}
-        <div className={styles.heroSlideDots} role="tablist" aria-label="Hero slides">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-label={`Slide ${i + 1}`}
-              aria-selected={heroSlide === i}
-              className={`${styles.heroSlideDot} ${heroSlide === i ? styles.heroSlideDotActive : ''}`}
-              onClick={() => setHeroSlide(i)}
-            />
-          ))}
         </div>
 
         {/* Dynamic Scroll Hook */}
