@@ -70,8 +70,8 @@ export const images = {
   production6: "/images/real_cranes/crane_img_12.jpg",
 
   // Automation / CNC
-  cnc1: "/images/real_cranes/crane_img_5.jpg",
-  cnc2: "/images/real_cranes/crane_img_6.jpg",
+  cnc1: "/images/real_cranes/Amtech Cranes Apr 21 2026.jpg",
+  cnc2: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
   cncSoftware: "/images/real_cranes/crane_img_7.jpg",
   roboticWelding: "/images/Cranes Apr 25 2025.jpg",
 

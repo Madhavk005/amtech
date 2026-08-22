@@ -346,8 +346,8 @@
 }
 
 .machineCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: var(--space-6);
   border-radius: var(--radius-lg);
   position: relative;
@@ -355,14 +355,21 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   transition: all var(--duration-base) var(--ease-out);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .machineCard:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-color: rgba(213, 0, 50, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 24px rgba(213, 0, 50, 0.15);
 }
 
 .machineCardLarge {
@@ -373,22 +380,25 @@
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(213, 0, 50, 0.8);
+  text-shadow: 0 0 16px rgba(213, 0, 50, 0.3);
 }
 
 .machineName {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--white);
   font-size: 1rem;
   line-height: 1.4;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .machineGlow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(213, 0, 50, 0.1), transparent 70%);
+  background: radial-gradient(circle at top right, rgba(213, 0, 50, 0.15), transparent 70%);
   opacity: 0;
   transition: opacity var(--duration-base) var(--ease-out);
+  pointer-events: none;
 }
 
 .machineCard:hover .machineGlow {
@@ -611,5 +621,34 @@
 
   .galleryOverlay {
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .machinesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  
+  .machineCardLarge {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .machinesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .machineCardLarge {
+    grid-column: span 1;
+  }
+  
+  .machineCard {
+    padding: var(--space-5);
+  }
+  
+  .machineNum {
+    font-size: 1.25rem;
   }
 }
