@@ -34,8 +34,8 @@
   align-items: center;
   gap: 12px;
   font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--primary);
@@ -59,9 +59,9 @@
 .title {
   font-family: var(--font-display);
   color: var(--text-heading);
-  line-height: 1.1;
+  line-height: var(--leading-tight);
   letter-spacing: -0.03em;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
   margin-bottom: 0;
 }
 
@@ -75,9 +75,10 @@
 .description {
   margin-top: var(--space-6);
   max-width: 720px;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: var(--gray-300);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+  font-weight: var(--font-medium);
   margin-bottom: 0;
 }
 
@@ -86,7 +87,7 @@
   margin-right: auto;
 }
 
-/* ---- Light mode (dark backgrounds) - In this theme, light is the default for dark backgrounds ---- */
+/* ---- Light mode (dark backgrounds) ---- */
 
 .light .label {
   color: var(--primary-light);
@@ -112,10 +113,10 @@
   }
 
   .title {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(var(--text-2xl), 8vw, var(--text-4xl));
   }
 
   .description {
-    font-size: 1.125rem;
+    font-size: var(--text-base);
   }
 }

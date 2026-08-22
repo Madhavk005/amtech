@@ -265,7 +265,7 @@ export default function Production() {
               viewport={viewport}
             >
               <img
-                src={images.cnc1}
+                src={images.roboticWelding}
                 alt="Robotic welding bed at Amtech"
                 className={styles.cncImage}
                 loading="lazy"

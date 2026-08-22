@@ -9,7 +9,7 @@
   justify-content: center;
   gap: 10px;
   font-family: var(--font-body);
-  font-weight: 700;
+  font-weight: var(--font-bold);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1;
@@ -43,19 +43,19 @@
 .sm {
   height: 38px;
   padding: 0 16px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
 }
 
 .md {
   height: 48px;
   padding: 0 28px;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
 }
 
 .lg {
   height: 58px;
   padding: 0 36px;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
 }
 
 /* Arrow padding overrides to keep text perfectly centered */
@@ -92,22 +92,22 @@
 }
 
 .primary:hover {
-  background: var(--primary-light);
-  border-color: var(--primary-light);
-  box-shadow: 0 12px 24px rgba(255, 0, 60, 0.4);
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 12px 24px rgba(224, 26, 58, 0.4);
 }
 
 /* -- Secondary: Deep Black -- */
 
 .secondary {
-  background: var(--secondary-mid);
-  color: var(--text-heading);
-  border-color: var(--border-default);
+  background: var(--text-heading);
+  color: var(--white);
+  border-color: var(--text-heading);
 }
 
 .secondary:hover {
-  background: var(--gray-800);
-  border-color: var(--gray-600);
+  background: var(--gray-200);
+  border-color: var(--gray-200);
 }
 
 /* -- Outline: Transparent with border -- */
@@ -120,7 +120,7 @@
 
 .outline:hover {
   background: var(--text-heading);
-  color: var(--secondary);
+  color: var(--white);
   border-color: var(--text-heading);
 }
 
@@ -128,7 +128,7 @@
 
 .ghost {
   background: transparent;
-  color: var(--gray-100);
+  color: var(--text-heading);
   padding: 0;
 }
 
@@ -153,7 +153,7 @@
   transform-origin: left;
 }
 
-/* -- White (now Glass) -- */
+/* -- White/Glass -- */
 
 .white {
   background: var(--surface-muted);
@@ -187,6 +187,6 @@
 .fullWidth { width: 100%; }
 
 .disabled {
-  opacity: 0.3;
+  opacity: 0.4;
   pointer-events: none;
 }
