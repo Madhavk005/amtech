@@ -29,43 +29,43 @@ export const images = {
   // Homepage
   banner: `${IMG}/banner.png`,
   aboutPreview: "/images/about_image.jpg",
-  homeCrane: `/images/real_cranes/crane_img_1.jpg`,
-  marquee1: "/images/marquee/marquee_1.jpg",
-  marquee2: "/images/marquee/marquee_2.jpg",
-  marquee3: "/images/marquee/marquee_3.jpg",
+  homeCrane: `/images/real_cranes/Amtech Cranes Apr 21 2026.jpg`,
+  marquee1: "/images/marquee/Amtech Cranes Apr 21 2026.jpg",
+  marquee2: "/images/marquee/Amtech Cranes Aug 9 2024.jpg",
+  marquee3: "/images/marquee/Amtech Cranes Aug 9 2024 (1).jpg",
   marquee4: "/images/marquee/marquee_4.jpg",
   marquee5: "/images/marquee/marquee_5.jpg",
 
   // About page
   aboutMain: "/images/about_image.jpg",
-  aboutGallery1: "/images/real_cranes/crane_img_1.jpg",
-  aboutGallery2: "/images/real_cranes/crane_img_2.jpg",
-  aboutGallery3: "/images/real_cranes/crane_img_3.jpg",
-  aboutGallery4: "/images/real_cranes/crane_img_4.jpg",
-  aboutGallery5: "/images/real_cranes/crane_img_5.jpg",
-  aboutGallery6: "/images/real_cranes/crane_img_6.jpg",
+  aboutGallery1: "/images/real_cranes/Amtech Cranes Apr 21 2026.jpg",
+  aboutGallery2: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
+  aboutGallery3: "/images/real_cranes/Amtech Cranes Aug 9 2024 (1).jpg",
+  aboutGallery4: "/images/real_cranes/crane_img_6.jpg",
+  aboutGallery5: "/images/real_cranes/crane_img_7.jpg",
+  aboutGallery6: "/images/real_cranes/crane_img_11.jpg",
 
   // Manufacturing
-  factory1: "/images/real_cranes/crane_img_1.jpg",
-  factory2: "/images/real_cranes/crane_img_2.jpg",
-  factory3: "/images/real_cranes/crane_img_3.jpg",
-  factory4: "/images/real_cranes/crane_img_4.jpg",
-  factory5: "/images/real_cranes/crane_img_5.jpg",
-  factory6: "/images/real_cranes/crane_img_6.jpg",
-  factoryCrane: `/images/real_cranes/crane_img_7.jpg`,
+  factory1: "/images/real_cranes/Amtech Cranes Apr 21 2026.jpg",
+  factory2: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
+  factory3: "/images/real_cranes/Amtech Cranes Aug 9 2024 (1).jpg",
+  factory4: "/images/real_cranes/crane_img_6.jpg",
+  factory5: "/images/real_cranes/crane_img_7.jpg",
+  factory6: "/images/real_cranes/crane_img_11.jpg",
+  factoryCrane: `/images/real_cranes/crane_img_12.jpg`,
 
   // Design advantage photos
-  design1: "/images/real_cranes/crane_img_1.jpg",
-  design2: "/images/real_cranes/crane_img_2.jpg",
-  design3: "/images/real_cranes/crane_img_3.jpg",
-  design4: "/images/real_cranes/crane_img_4.jpg",
-  design5: "/images/real_cranes/crane_img_5.jpg",
+  design1: "/images/real_cranes/Amtech Cranes Apr 21 2026.jpg",
+  design2: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
+  design3: "/images/real_cranes/Amtech Cranes Aug 9 2024 (1).jpg",
+  design4: "/images/real_cranes/crane_img_13.jpg",
+  design5: "/images/real_cranes/crane_img_14.jpg",
 
   // Production
-  production1: "/images/real_cranes/crane_img_1.jpg",
-  production2: "/images/real_cranes/crane_img_2.jpg",
-  production3: "/images/real_cranes/crane_img_3.jpg",
-  production4: "/images/real_cranes/crane_img_4.jpg",
+  production1: "/images/real_cranes/Amtech Cranes Apr 21 2026.jpg",
+  production2: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
+  production3: "/images/real_cranes/Amtech Cranes Aug 9 2024 (1).jpg",
+  production4: "/images/real_cranes/crane_img_15.jpg",
   production5: "/images/real_cranes/crane_img_11.jpg",
   production6: "/images/real_cranes/crane_img_12.jpg",
 
@@ -76,19 +76,19 @@ export const images = {
   roboticWelding: "/images/Cranes Apr 25 2025.jpg",
 
   // Services
-  services: "/images/real_cranes/crane_img_2.jpg",
+  services: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
 
   // Contact
-  contact: "/images/real_cranes/crane_img_3.jpg",
+  contact: "/images/real_cranes/Amtech Cranes Aug 9 2024 (1).jpg",
 
   // Home page sections
-  homeIndustry1: "/images/real_cranes/crane_img_1.jpg",
-  homeIndustry2: "/images/real_cranes/crane_img_2.jpg",
-  homeIndustry3: "/images/real_cranes/crane_img_3.jpg",
-  homeIndustry4: "/images/real_cranes/crane_img_4.jpg",
+  homeIndustry1: "/images/real_cranes/Amtech Cranes Apr 21 2026.jpg",
+  homeIndustry2: "/images/real_cranes/Amtech Cranes Aug 9 2024.jpg",
+  homeIndustry3: "/images/real_cranes/Amtech Cranes Aug 9 2024 (1).jpg",
+  homeIndustry4: "/images/real_cranes/crane_img_13.jpg",
 
   // ChatGPT generated product images
-  productGeneric: `/images/real_cranes/crane_img_1.jpg`,
+  productGeneric: `/images/real_cranes/Amtech Cranes Apr 21 2026.jpg`,
 };
 
 export const stats = [
